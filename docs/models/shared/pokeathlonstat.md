@@ -1,0 +1,13 @@
+# PokeathlonStat
+
+Successful response
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             | Example                                                                                 |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `AffectingNatures`                                                                      | [PokeathlonStatAffectingNatures](../../models/shared/pokeathlonstataffectingnatures.md) | :heavy_check_mark:                                                                      | A detail of natures which affect this Pokéathlon stat positively or negatively          |                                                                                         |
+| `ID`                                                                                    | *int64*                                                                                 | :heavy_check_mark:                                                                      | The identifier for this Pokéathlon stat resource                                        | 1                                                                                       |
+| `Name`                                                                                  | *string*                                                                                | :heavy_check_mark:                                                                      | The name for this Pokéathlon stat resource                                              | speed                                                                                   |
+| `Names`                                                                                 | [][Name](../../models/shared/name.md)                                                   | :heavy_check_mark:                                                                      | The name of this Pokéathlon stat listed in different languages                          |                                                                                         |
