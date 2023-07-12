@@ -1,4 +1,9 @@
 configVersion: 1.0.0
+management:
+  docChecksum: 43fef0072a06e79ad9149109d70739c6
+  docVersion: "20220523"
+  speakeasyVersion: 1.56.4
+  generationVersion: 2.61.5
 generation:
   comments:
     disableComments: false
@@ -8,6 +13,6 @@ generation:
   singleTagPerOp: false
   tagNamespacingDisabled: false
 go:
-  version: 0.0.1
+  version: 1.0.0
   maxMethodParams: 0
   packageName: homework
