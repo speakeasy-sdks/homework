@@ -1,0 +1,13 @@
+# BerryFirmnessList200ApplicationJSON
+
+OK
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `Count`                                                                      | **int64*                                                                     | :heavy_minus_sign:                                                           | The total number of berry firmnesses available from this API.                | 5                                                                            |
+| `Next`                                                                       | **string*                                                                    | :heavy_minus_sign:                                                           | The URL for the next page of results, or null if there are no more results.  |                                                                              |
+| `Previous`                                                                   | **string*                                                                    | :heavy_minus_sign:                                                           | The URL for the previous page of results, or null if this is the first page. |                                                                              |
+| `Results`                                                                    | [][shared.BerryFirmness](../../models/shared/berryfirmness.md)               | :heavy_minus_sign:                                                           | N/A                                                                          |                                                                              |
