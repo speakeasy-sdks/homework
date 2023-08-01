@@ -1,0 +1,13 @@
+# GrowthRate
+
+Successful response
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `Descriptions`                                                                  | [][Description](../../models/shared/description.md)                             | :heavy_minus_sign:                                                              | The description of this growth rate listed in different languages               |
+| `Formula`                                                                       | **string*                                                                       | :heavy_minus_sign:                                                              | The formula used to calculate the rate at which the Pokémon species gains level |
+| `ID`                                                                            | **int64*                                                                        | :heavy_minus_sign:                                                              | The identifier for this growth rate resource                                    |
+| `Name`                                                                          | **string*                                                                       | :heavy_minus_sign:                                                              | The name for this growth rate resource                                          |
