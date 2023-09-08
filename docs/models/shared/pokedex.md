@@ -1,0 +1,13 @@
+# Pokedex
+
+
+## Fields
+
+| Field                                                       | Type                                                        | Required                                                    | Description                                                 | Example                                                     |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `Descriptions`                                              | [][Description](../../models/shared/description.md)         | :heavy_check_mark:                                          | N/A                                                         |                                                             |
+| `ID`                                                        | *int64*                                                     | :heavy_check_mark:                                          | N/A                                                         | 2                                                           |
+| `IsMainSeries`                                              | *bool*                                                      | :heavy_check_mark:                                          | N/A                                                         | true                                                        |
+| `Name`                                                      | *string*                                                    | :heavy_check_mark:                                          | N/A                                                         | National                                                    |
+| `PokemonEntries`                                            | [][PokemonEntry](../../models/shared/pokemonentry.md)       | :heavy_check_mark:                                          | N/A                                                         |                                                             |
+| `Region`                                                    | [NamedAPIResource](../../models/shared/namedapiresource.md) | :heavy_check_mark:                                          | N/A                                                         |                                                             |
