@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.BerryFlavor.BerryFlavorList(ctx, operations.BerryFlavorListRequest{
-        Limit: homework.Int64(384382),
-        Offset: homework.Int64(437587),
+        Limit: homework.Int64(297534),
+        Offset: homework.Int64(891773),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.BerryFlavor.BerryFlavorRead(ctx, operations.BerryFlavorReadRequest{
-        ID: 297534,
+        ID: 56713,
     })
     if err != nil {
         log.Fatal(err)

@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ContestType.ContestTypeList(ctx, operations.ContestTypeListRequest{
-        Limit: homework.Int64(791725),
-        Offset: homework.Int64(812169),
+        Limit: homework.Int64(528895),
+        Offset: homework.Int64(479977),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ContestType.ContestTypeRead(ctx, operations.ContestTypeReadRequest{
-        ID: 528895,
+        ID: 568045,
     })
     if err != nil {
         log.Fatal(err)

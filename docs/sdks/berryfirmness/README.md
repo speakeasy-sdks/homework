@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.BerryFirmness.BerryFirmnessList(ctx, operations.BerryFirmnessListRequest{
-        Limit: homework.Int64(423655),
-        Offset: homework.Int64(623564),
+        Limit: homework.Int64(645894),
+        Offset: homework.Int64(384382),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.BerryFirmness.BerryFirmnessRead(ctx, operations.BerryFirmnessReadRequest{
-        ID: 645894,
+        ID: 437587,
     })
     if err != nil {
         log.Fatal(err)

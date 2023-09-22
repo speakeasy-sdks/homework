@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ContestEffect.ContestEffectList(ctx, operations.ContestEffectListRequest{
-        Limit: homework.Int64(272656),
-        Offset: homework.Int64(383441),
+        Limit: homework.Int64(477665),
+        Offset: homework.Int64(791725),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ContestEffect.ContestEffectRead(ctx, operations.ContestEffectReadRequest{
-        ID: 477665,
+        ID: 812169,
     })
     if err != nil {
         log.Fatal(err)

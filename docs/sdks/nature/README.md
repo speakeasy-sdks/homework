@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Nature.NatureList(ctx, operations.NatureListRequest{
-        Limit: homework.Int64(363711),
-        Offset: homework.Int64(325047),
+        Limit: homework.Int64(570197),
+        Offset: homework.Int64(38425),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Nature.NatureRead(ctx, operations.NatureReadRequest{
-        ID: 570197,
+        ID: 438601,
     })
     if err != nil {
         log.Fatal(err)

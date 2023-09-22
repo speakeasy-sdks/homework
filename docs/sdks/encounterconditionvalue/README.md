@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EncounterConditionValue.EncounterConditionValueList(ctx, operations.EncounterConditionValueListRequest{
-        Limit: homework.Int64(337396),
-        Offset: homework.Int64(87129),
+        Limit: homework.Int64(648172),
+        Offset: homework.Int64(20218),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EncounterConditionValue.EncounterConditionValueRead(ctx, operations.EncounterConditionValueReadRequest{
-        ID: 648172,
+        ID: 368241,
     })
     if err != nil {
         log.Fatal(err)

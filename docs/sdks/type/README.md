@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Type.TypeList(ctx, operations.TypeListRequest{
-        Limit: homework.Int64(673660),
-        Offset: homework.Int64(96098),
+        Limit: homework.Int64(971945),
+        Offset: homework.Int64(976460),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Type.TypeRead(ctx, operations.TypeReadRequest{
-        ID: 971945,
+        ID: 878194,
     })
     if err != nil {
         log.Fatal(err)

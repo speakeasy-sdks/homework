@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EvolutionChain.EvolutionChainList(ctx, operations.EvolutionChainListRequest{
-        Limit: homework.Int64(957156),
-        Offset: homework.Int64(778157),
+        Limit: homework.Int64(140350),
+        Offset: homework.Int64(870013),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EvolutionChain.EvolutionChainRead(ctx, operations.EvolutionChainReadRequest{
-        ID: 140350,
+        ID: 870088,
     })
     if err != nil {
         log.Fatal(err)

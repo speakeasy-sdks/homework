@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveDamageClass.MoveDamageClassList(ctx, operations.MoveDamageClassListRequest{
-        Limit: homework.Int64(653140),
-        Offset: homework.Int64(670638),
+        Limit: homework.Int64(170909),
+        Offset: homework.Int64(210382),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveDamageClass.MoveDamageClassRead(ctx, operations.MoveDamageClassReadRequest{
-        ID: 170909,
+        ID: 358152,
     })
     if err != nil {
         log.Fatal(err)

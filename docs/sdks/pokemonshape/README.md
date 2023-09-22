@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonShape.PokemonShapeList(ctx, operations.PokemonShapeListRequest{
-        Limit: homework.Int64(110375),
-        Offset: homework.Int64(674752),
+        Limit: homework.Int64(656330),
+        Offset: homework.Int64(317202),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonShape.PokemonShapeRead(ctx, operations.PokemonShapeReadRequest{
-        ID: 656330,
+        ID: 138183,
     })
     if err != nil {
         log.Fatal(err)

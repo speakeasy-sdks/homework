@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonColor.PokemonColorList(ctx, operations.PokemonColorListRequest{
-        Limit: homework.Int64(581850),
-        Offset: homework.Int64(253291),
+        Limit: homework.Int64(414369),
+        Offset: homework.Int64(466311),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonColor.PokemonColorRead(ctx, operations.PokemonColorReadRequest{
-        ID: 414369,
+        ID: 474697,
     })
     if err != nil {
         log.Fatal(err)

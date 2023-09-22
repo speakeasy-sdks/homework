@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveTarget.MoveTargetList(ctx, operations.MoveTargetListRequest{
-        Limit: homework.Int64(750686),
-        Offset: homework.Int64(315428),
+        Limit: homework.Int64(607831),
+        Offset: homework.Int64(363711),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveTarget.MoveTargetRead(ctx, operations.MoveTargetReadRequest{
-        ID: 607831,
+        ID: 325047,
     })
     if err != nil {
         log.Fatal(err)

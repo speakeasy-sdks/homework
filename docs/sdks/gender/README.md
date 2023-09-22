@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Gender.GenderList(ctx, operations.GenderListRequest{
-        Limit: homework.Int64(473608),
-        Offset: homework.Int64(799159),
+        Limit: homework.Int64(800911),
+        Offset: homework.Int64(461479),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Gender.GenderRead(ctx, operations.GenderReadRequest{
-        ID: 800911,
+        ID: 520478,
     })
     if err != nil {
         log.Fatal(err)

@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemCategory.ItemCategoryList(ctx, operations.ItemCategoryListRequest{
-        Limit: homework.Int64(521848),
-        Offset: homework.Int64(105907),
+        Limit: homework.Int64(414662),
+        Offset: homework.Int64(473600),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemCategory.ItemCategoryRead(ctx, operations.ItemCategoryReadRequest{
-        ID: 414662,
+        ID: 264555,
     })
     if err != nil {
         log.Fatal(err)

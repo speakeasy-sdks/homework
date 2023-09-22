@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Characteristic.CharacteristicList(ctx, operations.CharacteristicListRequest{
-        Limit: homework.Int64(891773),
-        Offset: homework.Int64(56713),
+        Limit: homework.Int64(963663),
+        Offset: homework.Int64(272656),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Characteristic.CharacteristicRead(ctx, operations.CharacteristicReadRequest{
-        ID: 963663,
+        ID: 383441,
     })
     if err != nil {
         log.Fatal(err)

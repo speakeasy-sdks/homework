@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EncounterMethod.EncounterMethodList(ctx, operations.EncounterMethodListRequest{
-        Limit: homework.Int64(20218),
-        Offset: homework.Int64(368241),
+        Limit: homework.Int64(832620),
+        Offset: homework.Int64(957156),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EncounterMethod.EncounterMethodRead(ctx, operations.EncounterMethodReadRequest{
-        ID: 832620,
+        ID: 778157,
     })
     if err != nil {
         log.Fatal(err)

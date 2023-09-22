@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Stat.StatList(ctx, operations.StatListRequest{
-        Limit: homework.Int64(662527),
-        Offset: homework.Int64(820994),
+        Limit: homework.Int64(13571),
+        Offset: homework.Int64(97101),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Stat.StatRead(ctx, operations.StatReadRequest{
-        ID: 13571,
+        ID: 622846,
     })
     if err != nil {
         log.Fatal(err)

@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Language.LanguageList(ctx, operations.LanguageListRequest{
-        Limit: homework.Int64(216550),
-        Offset: homework.Int64(568434),
+        Limit: homework.Int64(135218),
+        Offset: homework.Int64(18789),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Language.LanguageRead(ctx, operations.LanguageReadRequest{
-        ID: 135218,
+        ID: 324141,
     })
     if err != nil {
         log.Fatal(err)

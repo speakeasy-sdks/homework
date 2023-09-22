@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Location.LocationList(ctx, operations.LocationListRequest{
-        Limit: homework.Int64(18789),
-        Offset: homework.Int64(324141),
+        Limit: homework.Int64(617636),
+        Offset: homework.Int64(149675),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Location.LocationRead(ctx, operations.LocationReadRequest{
-        ID: 617636,
+        ID: 612096,
     })
     if err != nil {
         log.Fatal(err)

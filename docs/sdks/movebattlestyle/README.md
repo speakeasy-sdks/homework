@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveBattleStyle.MoveBattleStyleList(ctx, operations.MoveBattleStyleListRequest{
-        Limit: homework.Int64(902349),
-        Offset: homework.Int64(697631),
+        Limit: homework.Int64(99280),
+        Offset: homework.Int64(60225),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveBattleStyle.MoveBattleStyleRead(ctx, operations.MoveBattleStyleReadRequest{
-        ID: 99280,
+        ID: 969810,
     })
     if err != nil {
         log.Fatal(err)

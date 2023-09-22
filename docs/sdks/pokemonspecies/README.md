@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonSpecies.PokemonSpeciesList(ctx, operations.PokemonSpeciesListRequest{
-        Limit: homework.Int64(317202),
-        Offset: homework.Int64(138183),
+        Limit: homework.Int64(778346),
+        Offset: homework.Int64(196582),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonSpecies.PokemonSpeciesRead(ctx, operations.PokemonSpeciesReadRequest{
-        ID: 778346,
+        ID: 949572,
     })
     if err != nil {
         log.Fatal(err)

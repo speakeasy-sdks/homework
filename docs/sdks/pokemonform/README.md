@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonForm.PokemonFormList(ctx, operations.PokemonFormListRequest{
-        Limit: homework.Int64(466311),
-        Offset: homework.Int64(474697),
+        Limit: homework.Int64(244425),
+        Offset: homework.Int64(623510),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonForm.PokemonFormRead(ctx, operations.PokemonFormReadRequest{
-        ID: 244425,
+        ID: 158969,
     })
     if err != nil {
         log.Fatal(err)

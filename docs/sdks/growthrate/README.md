@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.GrowthRate.GrowthRateList(ctx, operations.GrowthRateListRequest{
-        Limit: homework.Int64(678880),
-        Offset: homework.Int64(118274),
+        Limit: homework.Int64(720633),
+        Offset: homework.Int64(639921),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.GrowthRate.GrowthRateRead(ctx, operations.GrowthRateReadRequest{
-        ID: 720633,
+        ID: 582020,
     })
     if err != nil {
         log.Fatal(err)

@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveLearnMethod.MoveLearnMethodList(ctx, operations.MoveLearnMethodListRequest{
-        Limit: homework.Int64(210382),
-        Offset: homework.Int64(358152),
+        Limit: homework.Int64(128926),
+        Offset: homework.Int64(750686),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveLearnMethod.MoveLearnMethodRead(ctx, operations.MoveLearnMethodReadRequest{
-        ID: 128926,
+        ID: 315428,
     })
     if err != nil {
         log.Fatal(err)

@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Machine.MachineList(ctx, operations.MachineListRequest{
-        Limit: homework.Int64(616934),
-        Offset: homework.Int64(386489),
+        Limit: homework.Int64(943749),
+        Offset: homework.Int64(902599),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Machine.MachineRead(ctx, operations.MachineReadRequest{
-        ID: 943749,
+        ID: 681820,
     })
     if err != nil {
         log.Fatal(err)

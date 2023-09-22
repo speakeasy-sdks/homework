@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveCategory.MoveCategoryList(ctx, operations.MoveCategoryListRequest{
-        Limit: homework.Int64(60225),
-        Offset: homework.Int64(969810),
+        Limit: homework.Int64(666767),
+        Offset: homework.Int64(653140),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveCategory.MoveCategoryRead(ctx, operations.MoveCategoryReadRequest{
-        ID: 666767,
+        ID: 670638,
     })
     if err != nil {
         log.Fatal(err)

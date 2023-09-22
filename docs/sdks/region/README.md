@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Region.RegionList(ctx, operations.RegionListRequest{
-        Limit: homework.Int64(196582),
-        Offset: homework.Int64(949572),
+        Limit: homework.Int64(368725),
+        Offset: homework.Int64(662527),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Region.RegionRead(ctx, operations.RegionReadRequest{
-        ID: 368725,
+        ID: 820994,
     })
     if err != nil {
         log.Fatal(err)

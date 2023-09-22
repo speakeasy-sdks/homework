@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EggGroup.EggGroupList(ctx, operations.EggGroupListRequest{
-        Limit: homework.Int64(479977),
-        Offset: homework.Int64(568045),
+        Limit: homework.Int64(392785),
+        Offset: homework.Int64(925597),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EggGroup.EggGroupRead(ctx, operations.EggGroupReadRequest{
-        ID: 392785,
+        ID: 836079,
     })
     if err != nil {
         log.Fatal(err)

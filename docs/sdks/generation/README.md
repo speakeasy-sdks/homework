@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Generation.GenerationList(ctx, operations.GenerationListRequest{
-        Limit: homework.Int64(461479),
-        Offset: homework.Int64(520478),
+        Limit: homework.Int64(780529),
+        Offset: homework.Int64(678880),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Generation.GenerationRead(ctx, operations.GenerationReadRequest{
-        ID: 780529,
+        ID: 118274,
     })
     if err != nil {
         log.Fatal(err)

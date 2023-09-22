@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PalParkArea.PalParkAreaList(ctx, operations.PalParkAreaListRequest{
-        Limit: homework.Int64(38425),
-        Offset: homework.Int64(438601),
+        Limit: homework.Int64(634274),
+        Offset: homework.Int64(988374),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PalParkArea.PalParkAreaRead(ctx, operations.PalParkAreaReadRequest{
-        ID: 634274,
+        ID: 958950,
     })
     if err != nil {
         log.Fatal(err)

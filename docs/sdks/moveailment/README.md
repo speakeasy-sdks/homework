@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveAilment.MoveAilmentList(ctx, operations.MoveAilmentListRequest{
-        Limit: homework.Int64(359508),
-        Offset: homework.Int64(613064),
+        Limit: homework.Int64(437032),
+        Offset: homework.Int64(902349),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveAilment.MoveAilmentRead(ctx, operations.MoveAilmentReadRequest{
-        ID: 437032,
+        ID: 697631,
     })
     if err != nil {
         log.Fatal(err)

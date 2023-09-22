@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemPocket.ItemPocketList(ctx, operations.ItemPocketListRequest{
-        Limit: homework.Int64(774234),
-        Offset: homework.Int64(736918),
+        Limit: homework.Int64(456150),
+        Offset: homework.Int64(216550),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemPocket.ItemPocketRead(ctx, operations.ItemPocketReadRequest{
-        ID: 456150,
+        ID: 568434,
     })
     if err != nil {
         log.Fatal(err)

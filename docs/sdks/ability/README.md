@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{
-        Limit: homework.Int64(715190),
-        Offset: homework.Int64(844266),
+        Limit: homework.Int64(602763),
+        Offset: homework.Int64(857946),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ability.AbilityRead(ctx, operations.AbilityReadRequest{
-        ID: 602763,
+        ID: 544883,
     })
     if err != nil {
         log.Fatal(err)

@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Berry.BerryList(ctx, operations.BerryListRequest{
-        Limit: homework.Int64(857946),
-        Offset: homework.Int64(544883),
+        Limit: homework.Int64(847252),
+        Offset: homework.Int64(423655),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Berry.BerryRead(ctx, operations.BerryReadRequest{
-        ID: 847252,
+        ID: 623564,
     })
     if err != nil {
         log.Fatal(err)

@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokeathlonStat.PokeathlonStatList(ctx, operations.PokeathlonStatListRequest{
-        Limit: homework.Int64(988374),
-        Offset: homework.Int64(958950),
+        Limit: homework.Int64(102044),
+        Offset: homework.Int64(652790),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokeathlonStat.PokeathlonStatRead(ctx, operations.PokeathlonStatReadRequest{
-        ID: 102044,
+        ID: 208876,
     })
     if err != nil {
         log.Fatal(err)

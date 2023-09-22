@@ -16,8 +16,6 @@ go get github.com/speakeasy-sdks/homework
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```go
 package main
 
@@ -33,8 +31,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{
-        Limit: homework.Int64(548814),
-        Offset: homework.Int64(592845),
+        Limit: homework.Int64(715190),
+        Offset: homework.Int64(844266),
     })
     if err != nil {
         log.Fatal(err)
@@ -291,6 +289,38 @@ func main() {
 * [VersionGroupList](docs/sdks/versiongroup/README.md#versiongrouplist)
 * [VersionGroupRead](docs/sdks/versiongroup/README.md#versiongroupread)
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `Next` method that can be called to pull down the next group of results. If the
+return value of `Next` is `nil`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+
+
+<!-- Start Go Types -->
+
+<!-- End Go Types -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

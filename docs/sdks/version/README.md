@@ -24,8 +24,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Version.VersionList(ctx, operations.VersionListRequest{
-        Limit: homework.Int64(976460),
-        Offset: homework.Int64(878194),
+        Limit: homework.Int64(468651),
+        Offset: homework.Int64(509624),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Version.VersionRead(ctx, operations.VersionReadRequest{
-        ID: 468651,
+        ID: 976762,
     })
     if err != nil {
         log.Fatal(err)
