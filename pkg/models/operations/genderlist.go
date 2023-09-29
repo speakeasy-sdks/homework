@@ -66,8 +66,11 @@ func (o *GenderList200ApplicationJSON) GetResults() []shared.Gender {
 }
 
 type GenderListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	GenderList200ApplicationJSONObject *GenderList200ApplicationJSON
