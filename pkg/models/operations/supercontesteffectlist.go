@@ -66,8 +66,11 @@ func (o *SuperContestEffectList200ApplicationJSON) GetResults() []shared.SuperCo
 }
 
 type SuperContestEffectListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	SuperContestEffectList200ApplicationJSONObject *SuperContestEffectList200ApplicationJSON
