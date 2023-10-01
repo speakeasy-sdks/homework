@@ -19,10 +19,13 @@ func (o *ItemReadRequest) GetID() int64 {
 }
 
 type ItemReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	Item        *shared.Item
-	StatusCode  int
+	Item *shared.Item
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 
