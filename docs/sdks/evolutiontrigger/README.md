@@ -1,4 +1,5 @@
 # EvolutionTrigger
+(*EvolutionTrigger*)
 
 ### Available Operations
 
@@ -24,8 +25,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EvolutionTrigger.EvolutionTriggerList(ctx, operations.EvolutionTriggerListRequest{
-        Limit: homework.Int64(978619),
-        Offset: homework.Int64(473608),
+        Limit: homework.Int64(841396),
+        Offset: homework.Int64(113202),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +70,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EvolutionTrigger.EvolutionTriggerRead(ctx, operations.EvolutionTriggerReadRequest{
-        ID: 799159,
+        ID: 848636,
     })
     if err != nil {
         log.Fatal(err)

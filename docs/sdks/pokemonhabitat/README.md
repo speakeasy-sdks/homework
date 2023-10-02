@@ -1,4 +1,5 @@
 # PokemonHabitat
+(*PokemonHabitat*)
 
 ### Available Operations
 
@@ -24,8 +25,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonHabitat.PokemonHabitatList(ctx, operations.PokemonHabitatListRequest{
-        Limit: homework.Int64(338007),
-        Offset: homework.Int64(110375),
+        Limit: homework.Int64(163283),
+        Offset: homework.Int64(15157),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +70,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonHabitat.PokemonHabitatRead(ctx, operations.PokemonHabitatReadRequest{
-        ID: 674752,
+        ID: 809895,
     })
     if err != nil {
         log.Fatal(err)

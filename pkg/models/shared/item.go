@@ -2,6 +2,7 @@
 
 package shared
 
+// Item - The item that a baby Pokémon would be holding when born during a forced evolution
 type Item struct {
 	Attributes        []ItemAttribute  `json:"attributes,omitempty"`
 	Category          *ItemCategory    `json:"category,omitempty"`

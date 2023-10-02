@@ -1,4 +1,5 @@
 # ItemAttribute
+(*ItemAttribute*)
 
 ### Available Operations
 
@@ -24,8 +25,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemAttribute.ItemAttributeList(ctx, operations.ItemAttributeListRequest{
-        Limit: homework.Int64(758616),
-        Offset: homework.Int64(521848),
+        Limit: homework.Int64(163637),
+        Offset: homework.Int64(15020),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +70,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemAttribute.ItemAttributeRead(ctx, operations.ItemAttributeReadRequest{
-        ID: 105907,
+        ID: 490327,
     })
     if err != nil {
         log.Fatal(err)
