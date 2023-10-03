@@ -1,5 +1,7 @@
 # Item
 
+The item that a baby Pokémon would be holding when born during a forced evolution
+
 
 ## Fields
 

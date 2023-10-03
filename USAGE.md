@@ -16,8 +16,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{
-        Limit: homework.Int64(548814),
-        Offset: homework.Int64(592845),
+        Limit: homework.Int64(578676),
+        Offset: homework.Int64(855699),
     })
     if err != nil {
         log.Fatal(err)
