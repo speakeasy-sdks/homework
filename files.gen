@@ -511,7 +511,16 @@ docs/models/shared/name.md
 docs/models/shared/encountercondition.md
 docs/models/shared/encounterconditionvalue.md
 docs/models/shared/encountermethod.md
+docs/models/shared/evolutionchainbabytriggeritem.md
+docs/models/shared/evolutionchainchainevolutiondetailshelditem.md
+docs/models/shared/evolutionchainchainevolutiondetailsitem.md
+docs/models/shared/evolutionchainchainevolutiondetailsknownmove.md
+docs/models/shared/evolutionchainchainevolutiondetailsknownmovetype.md
+docs/models/shared/evolutionchainchainevolutiondetailslocation.md
+docs/models/shared/evolutionchainchainevolutiondetailspartyspecies.md
+docs/models/shared/evolutionchainchainevolutiondetailspartytype.md
 docs/models/shared/evolutionchainchainevolutiondetailstimeofday.md
+docs/models/shared/evolutionchainchainevolutiondetailstradespecies.md
 docs/models/shared/evolutionchainchainevolutiondetails.md
 docs/models/shared/evolutionchainchain.md
 docs/models/shared/evolutionchain.md

@@ -66,8 +66,11 @@ func (o *BerryFirmnessList200ApplicationJSON) GetResults() []shared.BerryFirmnes
 }
 
 type BerryFirmnessListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	BerryFirmnessList200ApplicationJSONObject *BerryFirmnessList200ApplicationJSON

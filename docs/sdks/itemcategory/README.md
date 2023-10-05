@@ -1,4 +1,5 @@
 # ItemCategory
+(*ItemCategory*)
 
 ### Available Operations
 
@@ -24,8 +25,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemCategory.ItemCategoryList(ctx, operations.ItemCategoryListRequest{
-        Limit: homework.Int64(414662),
-        Offset: homework.Int64(473600),
+        Limit: homework.Int64(504078),
+        Offset: homework.Int64(205656),
     })
     if err != nil {
         log.Fatal(err)
@@ -69,7 +70,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemCategory.ItemCategoryRead(ctx, operations.ItemCategoryReadRequest{
-        ID: 264555,
+        ID: 708802,
     })
     if err != nil {
         log.Fatal(err)
