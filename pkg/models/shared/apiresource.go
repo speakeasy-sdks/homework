@@ -2,13 +2,36 @@
 
 package shared
 
+import (
+	"homework/pkg/utils"
+)
+
 type APIResource struct {
+	AdditionalProperties map[string]interface{} `additionalProperties:"true" json:"-"`
 	// The ID of the referenced resource.
 	ID *int `json:"id,omitempty"`
 	// The name of the referenced resource.
 	Name *string `json:"name,omitempty"`
 	// The URL of the referenced resource.
 	URL *string `json:"url,omitempty"`
+}
+
+func (a APIResource) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *APIResource) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *APIResource) GetAdditionalProperties() map[string]interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.AdditionalProperties
 }
 
 func (o *APIResource) GetID() *int {

@@ -2,13 +2,36 @@
 
 package shared
 
+import (
+	"homework/pkg/utils"
+)
+
 type Pokedex struct {
-	Descriptions   []Description    `json:"descriptions"`
-	ID             int64            `json:"id"`
-	IsMainSeries   bool             `json:"is_main_series"`
-	Name           string           `json:"name"`
-	PokemonEntries []PokemonEntry   `json:"pokemon_entries"`
-	Region         NamedAPIResource `json:"region"`
+	AdditionalProperties map[string]interface{} `additionalProperties:"true" json:"-"`
+	Descriptions         []Description          `json:"descriptions"`
+	ID                   int64                  `json:"id"`
+	IsMainSeries         bool                   `json:"is_main_series"`
+	Name                 string                 `json:"name"`
+	PokemonEntries       []PokemonEntry         `json:"pokemon_entries"`
+	Region               NamedAPIResource       `json:"region"`
+}
+
+func (p Pokedex) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *Pokedex) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Pokedex) GetAdditionalProperties() map[string]interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.AdditionalProperties
 }
 
 func (o *Pokedex) GetDescriptions() []Description {

@@ -2,7 +2,12 @@
 
 package shared
 
+import (
+	"homework/pkg/utils"
+)
+
 type Nature struct {
+	AdditionalProperties       map[string]interface{}      `additionalProperties:"true" json:"-"`
 	DecreasedStat              string                      `json:"decreased_stat"`
 	HatesFlavor                string                      `json:"hates_flavor"`
 	ID                         int64                       `json:"id"`
@@ -11,6 +16,24 @@ type Nature struct {
 	MoveBattleStylePreferences []MoveBattleStylePreference `json:"move_battle_style_preferences,omitempty"`
 	Name                       string                      `json:"name"`
 	PokeathlonStatChanges      []NatureStatChange          `json:"pokeathlon_stat_changes,omitempty"`
+}
+
+func (n Nature) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(n, "", false)
+}
+
+func (n *Nature) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &n, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Nature) GetAdditionalProperties() map[string]interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.AdditionalProperties
 }
 
 func (o *Nature) GetDecreasedStat() string {
