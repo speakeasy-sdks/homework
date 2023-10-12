@@ -27,10 +27,13 @@ func (o *EggGroupListRequest) GetOffset() *int64 {
 }
 
 type EggGroupListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// OK
-	EggGroups   []shared.EggGroup
-	StatusCode  int
+	EggGroups []shared.EggGroup
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 
