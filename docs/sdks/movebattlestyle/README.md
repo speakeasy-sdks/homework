@@ -1,4 +1,5 @@
 # MoveBattleStyle
+(*MoveBattleStyle*)
 
 ### Available Operations
 
@@ -23,10 +24,7 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.MoveBattleStyle.MoveBattleStyleList(ctx, operations.MoveBattleStyleListRequest{
-        Limit: homework.Int64(99280),
-        Offset: homework.Int64(60225),
-    })
+    res, err := s.MoveBattleStyle.MoveBattleStyleList(ctx, operations.MoveBattleStyleListRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveBattleStyle.MoveBattleStyleRead(ctx, operations.MoveBattleStyleReadRequest{
-        ID: 969810,
+        ID: 152461,
     })
     if err != nil {
         log.Fatal(err)
