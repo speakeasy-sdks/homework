@@ -1,4 +1,5 @@
 # Type
+(*Type*)
 
 ### Available Operations
 
@@ -23,10 +24,7 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Type.TypeList(ctx, operations.TypeListRequest{
-        Limit: homework.Int64(971945),
-        Offset: homework.Int64(976460),
-    })
+    res, err := s.Type.TypeList(ctx, operations.TypeListRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Type.TypeRead(ctx, operations.TypeReadRequest{
-        ID: 878194,
+        ID: 792757,
     })
     if err != nil {
         log.Fatal(err)
