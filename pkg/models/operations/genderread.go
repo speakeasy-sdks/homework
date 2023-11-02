@@ -19,10 +19,13 @@ func (o *GenderReadRequest) GetID() int64 {
 }
 
 type GenderReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	Gender      *shared.Gender
-	StatusCode  int
+	Gender *shared.Gender
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 
