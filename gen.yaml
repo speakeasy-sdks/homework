@@ -2,21 +2,27 @@ configVersion: 1.0.0
 management:
   docChecksum: 43fef0072a06e79ad9149109d70739c6
   docVersion: "20220523"
-  speakeasyVersion: 1.89.0
-  generationVersion: 2.125.1
+  speakeasyVersion: 1.111.2
+  generationVersion: 2.173.0
 generation:
   comments:
     disableComments: false
     omitDescriptionIfSummaryPresent: false
   baseServerURL: ""
+  repoURL: https://github.com/speakeasy-sdks/homework.git
   sdkClassName: homework
   singleTagPerOp: false
   tagNamespacingDisabled: false
 features:
   go:
-    core: 2.88.4
+    core: 2.94.0
     globalServerURLs: 2.82.0
+    unions: 2.84.1
 go:
-  version: 0.1.2
+  version: 0.2.0
+  flattenGlobalSecurity: true
+  installationURL: https://github.com/speakeasy-sdks/homework
   maxMethodParams: 0
   packageName: homework
+  published: true
+  repoSubDirectory: .
