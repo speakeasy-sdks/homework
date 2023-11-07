@@ -76,3 +76,78 @@ func (o *Item) GetName() *string {
 	}
 	return o.Name
 }
+
+type ItemInput struct {
+	Attributes        []ItemAttribute       `json:"attributes,omitempty"`
+	Category          *ItemCategory         `json:"category,omitempty"`
+	Cost              *int                  `json:"cost,omitempty"`
+	EffectEntries     []VerboseEffect       `json:"effect_entries,omitempty"`
+	FlavorTextEntries []FlavorText          `json:"flavor_text_entries,omitempty"`
+	FlingEffect       *ItemFlingEffectInput `json:"fling_effect,omitempty"`
+	FlingPower        *int                  `json:"fling_power,omitempty"`
+	ID                *int                  `json:"id,omitempty"`
+	Name              *string               `json:"name,omitempty"`
+}
+
+func (o *ItemInput) GetAttributes() []ItemAttribute {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *ItemInput) GetCategory() *ItemCategory {
+	if o == nil {
+		return nil
+	}
+	return o.Category
+}
+
+func (o *ItemInput) GetCost() *int {
+	if o == nil {
+		return nil
+	}
+	return o.Cost
+}
+
+func (o *ItemInput) GetEffectEntries() []VerboseEffect {
+	if o == nil {
+		return nil
+	}
+	return o.EffectEntries
+}
+
+func (o *ItemInput) GetFlavorTextEntries() []FlavorText {
+	if o == nil {
+		return nil
+	}
+	return o.FlavorTextEntries
+}
+
+func (o *ItemInput) GetFlingEffect() *ItemFlingEffectInput {
+	if o == nil {
+		return nil
+	}
+	return o.FlingEffect
+}
+
+func (o *ItemInput) GetFlingPower() *int {
+	if o == nil {
+		return nil
+	}
+	return o.FlingPower
+}
+
+func (o *ItemInput) GetID() *int {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *ItemInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}

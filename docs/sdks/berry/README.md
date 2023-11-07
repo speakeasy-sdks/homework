@@ -1,4 +1,5 @@
 # Berry
+(*.Berry*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Berry.BerryList(ctx, operations.BerryListRequest{
-        Limit: homework.Int64(847252),
-        Offset: homework.Int64(423655),
-    })
+    res, err := s.Berry.BerryList(ctx, operations.BerryListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.Berries != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Berry.BerryRead(ctx, operations.BerryReadRequest{
-        ID: 623564,
+        ID: 104763,
     })
     if err != nil {
         log.Fatal(err)

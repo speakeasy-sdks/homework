@@ -1,4 +1,5 @@
 # ContestType
+(*.ContestType*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.ContestType.ContestTypeList(ctx, operations.ContestTypeListRequest{
-        Limit: homework.Int64(528895),
-        Offset: homework.Int64(479977),
-    })
+    res, err := s.ContestType.ContestTypeList(ctx, operations.ContestTypeListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.ContestTypeList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ContestType.ContestTypeRead(ctx, operations.ContestTypeReadRequest{
-        ID: 568045,
+        ID: 890831,
     })
     if err != nil {
         log.Fatal(err)

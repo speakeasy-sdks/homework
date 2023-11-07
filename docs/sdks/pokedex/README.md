@@ -1,4 +1,5 @@
 # Pokedex
+(*.Pokedex*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Pokedex.PokedexList(ctx, operations.PokedexListRequest{
-        Limit: homework.Int64(635059),
-        Offset: homework.Int64(161309),
-    })
+    res, err := s.Pokedex.PokedexList(ctx, operations.PokedexListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.PokedexList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Pokedex.PokedexRead(ctx, operations.PokedexReadRequest{
-        ID: 995300,
+        ID: 49683,
     })
     if err != nil {
         log.Fatal(err)

@@ -36,3 +36,38 @@ func (o *ItemFlingEffect) GetName() *string {
 	}
 	return o.Name
 }
+
+type ItemFlingEffectInput struct {
+	EffectEntries []VerboseEffect `json:"effect_entries,omitempty"`
+	ID            *int            `json:"id,omitempty"`
+	Items         []Item          `json:"items,omitempty"`
+	Name          *string         `json:"name,omitempty"`
+}
+
+func (o *ItemFlingEffectInput) GetEffectEntries() []VerboseEffect {
+	if o == nil {
+		return nil
+	}
+	return o.EffectEntries
+}
+
+func (o *ItemFlingEffectInput) GetID() *int {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *ItemFlingEffectInput) GetItems() []Item {
+	if o == nil {
+		return nil
+	}
+	return o.Items
+}
+
+func (o *ItemFlingEffectInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}

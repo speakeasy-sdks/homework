@@ -1,4 +1,5 @@
 # Pokemon
+(*.Pokemon*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Pokemon.PokemonList(ctx, operations.PokemonListRequest{
-        Limit: homework.Int64(653108),
-        Offset: homework.Int64(581850),
-    })
+    res, err := s.Pokemon.PokemonList(ctx, operations.PokemonListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.PokemonList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Pokemon.PokemonRead(ctx, operations.PokemonReadRequest{
-        ID: 253291,
+        ID: 386997,
     })
     if err != nil {
         log.Fatal(err)

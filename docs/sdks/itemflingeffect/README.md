@@ -1,4 +1,5 @@
 # ItemFlingEffect
+(*.ItemFlingEffect*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.ItemFlingEffect.ItemFlingEffectList(ctx, operations.ItemFlingEffectListRequest{
-        Limit: homework.Int64(186332),
-        Offset: homework.Int64(774234),
-    })
+    res, err := s.ItemFlingEffect.ItemFlingEffectList(ctx, operations.ItemFlingEffectListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.ItemFlingEffectList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemFlingEffect.ItemFlingEffectRead(ctx, operations.ItemFlingEffectReadRequest{
-        ID: 736918,
+        ID: 714930,
     })
     if err != nil {
         log.Fatal(err)

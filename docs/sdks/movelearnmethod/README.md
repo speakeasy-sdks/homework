@@ -1,4 +1,5 @@
 # MoveLearnMethod
+(*.MoveLearnMethod*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.MoveLearnMethod.MoveLearnMethodList(ctx, operations.MoveLearnMethodListRequest{
-        Limit: homework.Int64(128926),
-        Offset: homework.Int64(750686),
-    })
+    res, err := s.MoveLearnMethod.MoveLearnMethodList(ctx, operations.MoveLearnMethodListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.MoveLearnMethodList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveLearnMethod.MoveLearnMethodRead(ctx, operations.MoveLearnMethodReadRequest{
-        ID: 315428,
+        ID: 268867,
     })
     if err != nil {
         log.Fatal(err)

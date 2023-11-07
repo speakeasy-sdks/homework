@@ -5,7 +5,7 @@ package shared
 type PokemonSpeciesEvolutionChain struct {
 }
 
-type PokemonSpecies struct {
+type PokemonSpeciesInput struct {
 	BaseHappiness        *int                          `json:"base_happiness,omitempty"`
 	CaptureRate          *int                          `json:"capture_rate,omitempty"`
 	Color                *PokemonColor                 `json:"color,omitempty"`
@@ -33,175 +33,175 @@ type PokemonSpecies struct {
 	Varieties            []PokemonSpeciesVariety       `json:"varieties,omitempty"`
 }
 
-func (o *PokemonSpecies) GetBaseHappiness() *int {
+func (o *PokemonSpeciesInput) GetBaseHappiness() *int {
 	if o == nil {
 		return nil
 	}
 	return o.BaseHappiness
 }
 
-func (o *PokemonSpecies) GetCaptureRate() *int {
+func (o *PokemonSpeciesInput) GetCaptureRate() *int {
 	if o == nil {
 		return nil
 	}
 	return o.CaptureRate
 }
 
-func (o *PokemonSpecies) GetColor() *PokemonColor {
+func (o *PokemonSpeciesInput) GetColor() *PokemonColor {
 	if o == nil {
 		return nil
 	}
 	return o.Color
 }
 
-func (o *PokemonSpecies) GetEggGroups() []EggGroup {
+func (o *PokemonSpeciesInput) GetEggGroups() []EggGroup {
 	if o == nil {
 		return nil
 	}
 	return o.EggGroups
 }
 
-func (o *PokemonSpecies) GetEvolutionChain() *PokemonSpeciesEvolutionChain {
+func (o *PokemonSpeciesInput) GetEvolutionChain() *PokemonSpeciesEvolutionChain {
 	if o == nil {
 		return nil
 	}
 	return o.EvolutionChain
 }
 
-func (o *PokemonSpecies) GetEvolvesFromSpecies() *PokemonSpecies {
+func (o *PokemonSpeciesInput) GetEvolvesFromSpecies() *PokemonSpecies {
 	if o == nil {
 		return nil
 	}
 	return o.EvolvesFromSpecies
 }
 
-func (o *PokemonSpecies) GetFlavorTextEntries() []FlavorText {
+func (o *PokemonSpeciesInput) GetFlavorTextEntries() []FlavorText {
 	if o == nil {
 		return nil
 	}
 	return o.FlavorTextEntries
 }
 
-func (o *PokemonSpecies) GetFormDescriptions() []Description {
+func (o *PokemonSpeciesInput) GetFormDescriptions() []Description {
 	if o == nil {
 		return nil
 	}
 	return o.FormDescriptions
 }
 
-func (o *PokemonSpecies) GetFormsSwitchable() *bool {
+func (o *PokemonSpeciesInput) GetFormsSwitchable() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.FormsSwitchable
 }
 
-func (o *PokemonSpecies) GetGenderRate() *int {
+func (o *PokemonSpeciesInput) GetGenderRate() *int {
 	if o == nil {
 		return nil
 	}
 	return o.GenderRate
 }
 
-func (o *PokemonSpecies) GetGenera() []Genus {
+func (o *PokemonSpeciesInput) GetGenera() []Genus {
 	if o == nil {
 		return nil
 	}
 	return o.Genera
 }
 
-func (o *PokemonSpecies) GetGeneration() *Generation {
+func (o *PokemonSpeciesInput) GetGeneration() *Generation {
 	if o == nil {
 		return nil
 	}
 	return o.Generation
 }
 
-func (o *PokemonSpecies) GetGrowthRate() *GrowthRate {
+func (o *PokemonSpeciesInput) GetGrowthRate() *GrowthRate {
 	if o == nil {
 		return nil
 	}
 	return o.GrowthRate
 }
 
-func (o *PokemonSpecies) GetHabitat() *PokemonHabitat {
+func (o *PokemonSpeciesInput) GetHabitat() *PokemonHabitat {
 	if o == nil {
 		return nil
 	}
 	return o.Habitat
 }
 
-func (o *PokemonSpecies) GetHasGenderDifferences() *bool {
+func (o *PokemonSpeciesInput) GetHasGenderDifferences() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.HasGenderDifferences
 }
 
-func (o *PokemonSpecies) GetHatchCounter() *int {
+func (o *PokemonSpeciesInput) GetHatchCounter() *int {
 	if o == nil {
 		return nil
 	}
 	return o.HatchCounter
 }
 
-func (o *PokemonSpecies) GetID() *int {
+func (o *PokemonSpeciesInput) GetID() *int {
 	if o == nil {
 		return nil
 	}
 	return o.ID
 }
 
-func (o *PokemonSpecies) GetIsBaby() *bool {
+func (o *PokemonSpeciesInput) GetIsBaby() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.IsBaby
 }
 
-func (o *PokemonSpecies) GetName() *string {
+func (o *PokemonSpeciesInput) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *PokemonSpecies) GetNames() []Name {
+func (o *PokemonSpeciesInput) GetNames() []Name {
 	if o == nil {
 		return nil
 	}
 	return o.Names
 }
 
-func (o *PokemonSpecies) GetOrder() *int {
+func (o *PokemonSpeciesInput) GetOrder() *int {
 	if o == nil {
 		return nil
 	}
 	return o.Order
 }
 
-func (o *PokemonSpecies) GetPalParkEncounters() []PalParkEncounterArea {
+func (o *PokemonSpeciesInput) GetPalParkEncounters() []PalParkEncounterArea {
 	if o == nil {
 		return nil
 	}
 	return o.PalParkEncounters
 }
 
-func (o *PokemonSpecies) GetPokedexNumbers() []PokemonSpeciesDexEntry {
+func (o *PokemonSpeciesInput) GetPokedexNumbers() []PokemonSpeciesDexEntry {
 	if o == nil {
 		return nil
 	}
 	return o.PokedexNumbers
 }
 
-func (o *PokemonSpecies) GetShape() *PokemonShape {
+func (o *PokemonSpeciesInput) GetShape() *PokemonShape {
 	if o == nil {
 		return nil
 	}
 	return o.Shape
 }
 
-func (o *PokemonSpecies) GetVarieties() []PokemonSpeciesVariety {
+func (o *PokemonSpeciesInput) GetVarieties() []PokemonSpeciesVariety {
 	if o == nil {
 		return nil
 	}

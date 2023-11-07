@@ -1,4 +1,5 @@
 # MoveCategory
+(*.MoveCategory*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.MoveCategory.MoveCategoryList(ctx, operations.MoveCategoryListRequest{
-        Limit: homework.Int64(666767),
-        Offset: homework.Int64(653140),
-    })
+    res, err := s.MoveCategory.MoveCategoryList(ctx, operations.MoveCategoryListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.MoveCategoryList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveCategory.MoveCategoryRead(ctx, operations.MoveCategoryReadRequest{
-        ID: 670638,
+        ID: 69379,
     })
     if err != nil {
         log.Fatal(err)

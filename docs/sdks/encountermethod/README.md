@@ -1,4 +1,5 @@
 # EncounterMethod
+(*.EncounterMethod*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.EncounterMethod.EncounterMethodList(ctx, operations.EncounterMethodListRequest{
-        Limit: homework.Int64(832620),
-        Offset: homework.Int64(957156),
-    })
+    res, err := s.EncounterMethod.EncounterMethodList(ctx, operations.EncounterMethodListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.EncounterMethodList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -69,7 +67,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EncounterMethod.EncounterMethodRead(ctx, operations.EncounterMethodReadRequest{
-        ID: 778157,
+        ID: 175884,
     })
     if err != nil {
         log.Fatal(err)
