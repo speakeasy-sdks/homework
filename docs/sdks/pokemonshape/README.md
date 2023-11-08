@@ -1,4 +1,5 @@
 # PokemonShape
+(*.PokemonShape*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.PokemonShape.PokemonShapeList(ctx, operations.PokemonShapeListRequest{
-        Limit: homework.Int64(656330),
-        Offset: homework.Int64(317202),
-    })
+    res, err := s.PokemonShape.PokemonShapeList(ctx, operations.PokemonShapeListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.PokemonShapeList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.PokemonShapeListResponse](../../models/operations/pokemonshapelistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## PokemonShapeRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonShape.PokemonShapeRead(ctx, operations.PokemonShapeReadRequest{
-        ID: 138183,
+        ID: 914414,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.PokemonShapeReadResponse](../../models/operations/pokemonshapereadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

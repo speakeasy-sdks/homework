@@ -1,4 +1,5 @@
 # EggGroup
+(*.EggGroup*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.EggGroup.EggGroupList(ctx, operations.EggGroupListRequest{
-        Limit: homework.Int64(392785),
-        Offset: homework.Int64(925597),
-    })
+    res, err := s.EggGroup.EggGroupList(ctx, operations.EggGroupListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.EggGroups != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.EggGroupListResponse](../../models/operations/egggrouplistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## EggGroupRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EggGroup.EggGroupRead(ctx, operations.EggGroupReadRequest{
-        ID: 836079,
+        ID: 573949,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.EggGroupReadResponse](../../models/operations/egggroupreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

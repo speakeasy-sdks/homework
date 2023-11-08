@@ -26,39 +26,39 @@ func (o *MoveTargetListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// MoveTargetList200ApplicationJSON - OK
-type MoveTargetList200ApplicationJSON struct {
+// MoveTargetListResponseBody - OK
+type MoveTargetListResponseBody struct {
 	// The total number of move targets.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of move targets.
 	Next *string `json:"next,omitempty"`
 	// URL to retrieve the previous page of move targets.
-	Previous *string              `json:"previous,omitempty"`
-	Results  []shared.MoveTarget1 `json:"results,omitempty"`
+	Previous *string             `json:"previous,omitempty"`
+	Results  []shared.MoveTarget `json:"results,omitempty"`
 }
 
-func (o *MoveTargetList200ApplicationJSON) GetCount() *int64 {
+func (o *MoveTargetListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *MoveTargetList200ApplicationJSON) GetNext() *string {
+func (o *MoveTargetListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *MoveTargetList200ApplicationJSON) GetPrevious() *string {
+func (o *MoveTargetListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *MoveTargetList200ApplicationJSON) GetResults() []shared.MoveTarget1 {
+func (o *MoveTargetListResponseBody) GetResults() []shared.MoveTarget {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *MoveTargetList200ApplicationJSON) GetResults() []shared.MoveTarget1 {
 }
 
 type MoveTargetListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	MoveTargetList200ApplicationJSONObject *MoveTargetList200ApplicationJSON
+	Object *MoveTargetListResponseBody
 }
 
 func (o *MoveTargetListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *MoveTargetListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *MoveTargetListResponse) GetMoveTargetList200ApplicationJSONObject() *MoveTargetList200ApplicationJSON {
+func (o *MoveTargetListResponse) GetObject() *MoveTargetListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.MoveTargetList200ApplicationJSONObject
+	return o.Object
 }

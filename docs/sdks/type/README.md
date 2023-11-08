@@ -1,4 +1,5 @@
 # Type
+(*.Type*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Type.TypeList(ctx, operations.TypeListRequest{
-        Limit: homework.Int64(971945),
-        Offset: homework.Int64(976460),
-    })
+    res, err := s.Type.TypeList(ctx, operations.TypeListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.TypeList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.TypeListResponse](../../models/operations/typelistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## TypeRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Type.TypeRead(ctx, operations.TypeReadRequest{
-        ID: 878194,
+        ID: 792757,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.TypeReadResponse](../../models/operations/typereadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

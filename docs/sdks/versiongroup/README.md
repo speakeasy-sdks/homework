@@ -1,4 +1,5 @@
 # VersionGroup
+(*.VersionGroup*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.VersionGroup.VersionGroupList(ctx, operations.VersionGroupListRequest{
-        Limit: homework.Int64(55714),
-        Offset: homework.Int64(604846),
-    })
+    res, err := s.VersionGroup.VersionGroupList(ctx, operations.VersionGroupListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.VersionGroupList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.VersionGroupListResponse](../../models/operations/versiongrouplistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## VersionGroupRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.VersionGroup.VersionGroupRead(ctx, operations.VersionGroupReadRequest{
-        ID: 451159,
+        ID: 436844,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.VersionGroupReadResponse](../../models/operations/versiongroupreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

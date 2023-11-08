@@ -1,4 +1,5 @@
 # EncounterCondition
+(*.EncounterCondition*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.EncounterCondition.EncounterConditionList(ctx, operations.EncounterConditionListRequest{
-        Limit: homework.Int64(71036),
-        Offset: homework.Int64(337396),
-    })
+    res, err := s.EncounterCondition.EncounterConditionList(ctx, operations.EncounterConditionListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.EncounterConditionList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.EncounterConditionListResponse](../../models/operations/encounterconditionlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## EncounterConditionRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.EncounterCondition.EncounterConditionRead(ctx, operations.EncounterConditionReadRequest{
-        ID: 87129,
+        ID: 628973,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.EncounterConditionReadResponse](../../models/operations/encounterconditionreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

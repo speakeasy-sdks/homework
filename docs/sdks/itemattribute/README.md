@@ -1,4 +1,5 @@
 # ItemAttribute
+(*.ItemAttribute*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.ItemAttribute.ItemAttributeList(ctx, operations.ItemAttributeListRequest{
-        Limit: homework.Int64(758616),
-        Offset: homework.Int64(521848),
-    })
+    res, err := s.ItemAttribute.ItemAttributeList(ctx, operations.ItemAttributeListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.ItemAttributeList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.ItemAttributeListResponse](../../models/operations/itemattributelistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ItemAttributeRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemAttribute.ItemAttributeRead(ctx, operations.ItemAttributeReadRequest{
-        ID: 105907,
+        ID: 490327,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.ItemAttributeReadResponse](../../models/operations/itemattributereadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

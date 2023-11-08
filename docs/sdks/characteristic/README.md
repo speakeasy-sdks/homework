@@ -1,4 +1,5 @@
 # Characteristic
+(*.Characteristic*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Characteristic.CharacteristicList(ctx, operations.CharacteristicListRequest{
-        Limit: homework.Int64(963663),
-        Offset: homework.Int64(272656),
-    })
+    res, err := s.Characteristic.CharacteristicList(ctx, operations.CharacteristicListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.Characteristics != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.CharacteristicListResponse](../../models/operations/characteristiclistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## CharacteristicRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Characteristic.CharacteristicRead(ctx, operations.CharacteristicReadRequest{
-        ID: 383441,
+        ID: 598761,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.CharacteristicReadResponse](../../models/operations/characteristicreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

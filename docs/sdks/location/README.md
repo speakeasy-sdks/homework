@@ -1,4 +1,5 @@
 # Location
+(*.Location*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Location.LocationList(ctx, operations.LocationListRequest{
-        Limit: homework.Int64(617636),
-        Offset: homework.Int64(149675),
-    })
+    res, err := s.Location.LocationList(ctx, operations.LocationListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.LocationList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.LocationListResponse](../../models/operations/locationlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## LocationRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Location.LocationRead(ctx, operations.LocationReadRequest{
-        ID: 612096,
+        ID: 271382,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.LocationReadResponse](../../models/operations/locationreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

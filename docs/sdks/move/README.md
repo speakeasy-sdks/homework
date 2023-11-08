@@ -1,4 +1,5 @@
 # Move
+(*.Move*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Move.MoveList(ctx, operations.MoveListRequest{
-        Limit: homework.Int64(449950),
-        Offset: homework.Int64(359508),
-    })
+    res, err := s.Move.MoveList(ctx, operations.MoveListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.MoveList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.MoveListResponse](../../models/operations/movelistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## MoveRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Move.MoveRead(ctx, operations.MoveReadRequest{
-        ID: 613064,
+        ID: 552244,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.MoveReadResponse](../../models/operations/movereadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

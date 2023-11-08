@@ -1,4 +1,5 @@
 # PokemonForm
+(*.PokemonForm*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.PokemonForm.PokemonFormList(ctx, operations.PokemonFormListRequest{
-        Limit: homework.Int64(244425),
-        Offset: homework.Int64(623510),
-    })
+    res, err := s.PokemonForm.PokemonFormList(ctx, operations.PokemonFormListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.PokemonFormList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.PokemonFormListResponse](../../models/operations/pokemonformlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## PokemonFormRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonForm.PokemonFormRead(ctx, operations.PokemonFormReadRequest{
-        ID: 158969,
+        ID: 612634,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.PokemonFormReadResponse](../../models/operations/pokemonformreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

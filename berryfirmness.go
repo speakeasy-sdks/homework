@@ -15,17 +15,17 @@ import (
 	"strings"
 )
 
-type berryFirmness struct {
+type BerryFirmness struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newBerryFirmness(sdkConfig sdkConfiguration) *berryFirmness {
-	return &berryFirmness{
+func newBerryFirmness(sdkConfig sdkConfiguration) *BerryFirmness {
+	return &BerryFirmness{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
-func (s *berryFirmness) BerryFirmnessList(ctx context.Context, request operations.BerryFirmnessListRequest) (*operations.BerryFirmnessListResponse, error) {
+func (s *BerryFirmness) BerryFirmnessList(ctx context.Context, request operations.BerryFirmnessListRequest) (*operations.BerryFirmnessListResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/v2/berry-firmness/"
 
@@ -34,7 +34,7 @@ func (s *berryFirmness) BerryFirmnessList(ctx context.Context, request operation
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
+	req.Header.Set("user-agent", s.sdkConfiguration.UserAgent)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -50,13 +50,6 @@ func (s *berryFirmness) BerryFirmnessList(ctx context.Context, request operation
 		return nil, fmt.Errorf("error sending request: no response")
 	}
 
-	rawBody, err := io.ReadAll(httpRes.Body)
-	if err != nil {
-		return nil, fmt.Errorf("error reading response body: %w", err)
-	}
-	httpRes.Body.Close()
-	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.BerryFirmnessListResponse{
@@ -64,25 +57,36 @@ func (s *berryFirmness) BerryFirmnessList(ctx context.Context, request operation
 		ContentType: contentType,
 		RawResponse: httpRes,
 	}
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out operations.BerryFirmnessList200ApplicationJSON
+			var out operations.BerryFirmnessListResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.BerryFirmnessList200ApplicationJSONObject = &out
+			res.Object = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
-func (s *berryFirmness) BerryFirmnessRead(ctx context.Context, request operations.BerryFirmnessReadRequest) (*operations.BerryFirmnessReadResponse, error) {
+func (s *BerryFirmness) BerryFirmnessRead(ctx context.Context, request operations.BerryFirmnessReadRequest) (*operations.BerryFirmnessReadResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/v2/berry-firmness/{id}/", request, nil)
 	if err != nil {
@@ -94,7 +98,7 @@ func (s *berryFirmness) BerryFirmnessRead(ctx context.Context, request operation
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
+	req.Header.Set("user-agent", s.sdkConfiguration.UserAgent)
 
 	client := s.sdkConfiguration.DefaultClient
 
@@ -106,13 +110,6 @@ func (s *berryFirmness) BerryFirmnessRead(ctx context.Context, request operation
 		return nil, fmt.Errorf("error sending request: no response")
 	}
 
-	rawBody, err := io.ReadAll(httpRes.Body)
-	if err != nil {
-		return nil, fmt.Errorf("error reading response body: %w", err)
-	}
-	httpRes.Body.Close()
-	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.BerryFirmnessReadResponse{
@@ -120,6 +117,13 @@ func (s *berryFirmness) BerryFirmnessRead(ctx context.Context, request operation
 		ContentType: contentType,
 		RawResponse: httpRes,
 	}
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
@@ -133,6 +137,10 @@ func (s *berryFirmness) BerryFirmnessRead(ctx context.Context, request operation
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil

@@ -1,4 +1,5 @@
 # Item
+(*.Item*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Item.ItemList(ctx, operations.ItemListRequest{
-        Limit: homework.Int64(143353),
-        Offset: homework.Int64(537373),
-    })
+    res, err := s.Item.ItemList(ctx, operations.ItemListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.ItemList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.ItemListResponse](../../models/operations/itemlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ItemRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Item.ItemRead(ctx, operations.ItemReadRequest{
-        ID: 944669,
+        ID: 285148,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.ItemReadResponse](../../models/operations/itemreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

@@ -1,4 +1,5 @@
 # Gender
+(*.Gender*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Gender.GenderList(ctx, operations.GenderListRequest{
-        Limit: homework.Int64(800911),
-        Offset: homework.Int64(461479),
-    })
+    res, err := s.Gender.GenderList(ctx, operations.GenderListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.GenderList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.GenderListResponse](../../models/operations/genderlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GenderRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Gender.GenderRead(ctx, operations.GenderReadRequest{
-        ID: 520478,
+        ID: 403245,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.GenderReadResponse](../../models/operations/genderreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

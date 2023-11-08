@@ -1,4 +1,5 @@
 # GrowthRate
+(*.GrowthRate*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.GrowthRate.GrowthRateList(ctx, operations.GrowthRateListRequest{
-        Limit: homework.Int64(720633),
-        Offset: homework.Int64(639921),
-    })
+    res, err := s.GrowthRate.GrowthRateList(ctx, operations.GrowthRateListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.GrowthRateList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.GrowthRateListResponse](../../models/operations/growthratelistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GrowthRateRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.GrowthRate.GrowthRateRead(ctx, operations.GrowthRateReadRequest{
-        ID: 582020,
+        ID: 260960,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.GrowthRateReadResponse](../../models/operations/growthratereadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

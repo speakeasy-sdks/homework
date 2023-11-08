@@ -1,4 +1,5 @@
 # Stat
+(*.Stat*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Stat.StatList(ctx, operations.StatListRequest{
-        Limit: homework.Int64(13571),
-        Offset: homework.Int64(97101),
-    })
+    res, err := s.Stat.StatList(ctx, operations.StatListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.StatList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.StatListResponse](../../models/operations/statlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## StatRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Stat.StatRead(ctx, operations.StatReadRequest{
-        ID: 622846,
+        ID: 160697,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.StatReadResponse](../../models/operations/statreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

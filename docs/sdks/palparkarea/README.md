@@ -1,4 +1,5 @@
 # PalParkArea
+(*.PalParkArea*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.PalParkArea.PalParkAreaList(ctx, operations.PalParkAreaListRequest{
-        Limit: homework.Int64(634274),
-        Offset: homework.Int64(988374),
-    })
+    res, err := s.PalParkArea.PalParkAreaList(ctx, operations.PalParkAreaListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.PalParkAreaList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.PalParkAreaListResponse](../../models/operations/palparkarealistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## PalParkAreaRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PalParkArea.PalParkAreaRead(ctx, operations.PalParkAreaReadRequest{
-        ID: 958950,
+        ID: 950036,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.PalParkAreaReadResponse](../../models/operations/palparkareareadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

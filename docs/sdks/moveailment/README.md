@@ -1,4 +1,5 @@
 # MoveAilment
+(*.MoveAilment*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.MoveAilment.MoveAilmentList(ctx, operations.MoveAilmentListRequest{
-        Limit: homework.Int64(437032),
-        Offset: homework.Int64(902349),
-    })
+    res, err := s.MoveAilment.MoveAilmentList(ctx, operations.MoveAilmentListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.MoveAilmentList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.MoveAilmentListResponse](../../models/operations/moveailmentlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## MoveAilmentRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MoveAilment.MoveAilmentRead(ctx, operations.MoveAilmentReadRequest{
-        ID: 697631,
+        ID: 654813,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.MoveAilmentReadResponse](../../models/operations/moveailmentreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

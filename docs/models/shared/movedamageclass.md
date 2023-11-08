@@ -3,7 +3,8 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `Name`             | *string*           | :heavy_check_mark: | N/A                |
-| `URL`              | *string*           | :heavy_check_mark: | N/A                |
+| Field                                                      | Type                                                       | Required                                                   | Description                                                |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `Descriptions`                                             | [][shared.Description](../../models/shared/description.md) | :heavy_check_mark:                                         | N/A                                                        |
+| `ID`                                                       | *int*                                                      | :heavy_check_mark:                                         | N/A                                                        |
+| `Name`                                                     | *string*                                                   | :heavy_check_mark:                                         | N/A                                                        |

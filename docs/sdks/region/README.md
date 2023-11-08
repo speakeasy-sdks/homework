@@ -1,4 +1,5 @@
 # Region
+(*.Region*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Region.RegionList(ctx, operations.RegionListRequest{
-        Limit: homework.Int64(368725),
-        Offset: homework.Int64(662527),
-    })
+    res, err := s.Region.RegionList(ctx, operations.RegionListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.RegionList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.RegionListResponse](../../models/operations/regionlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## RegionRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Region.RegionRead(ctx, operations.RegionReadRequest{
-        ID: 820994,
+        ID: 521868,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.RegionReadResponse](../../models/operations/regionreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

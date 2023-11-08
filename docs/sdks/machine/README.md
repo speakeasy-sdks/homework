@@ -1,4 +1,5 @@
 # Machine
+(*.Machine*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Machine.MachineList(ctx, operations.MachineListRequest{
-        Limit: homework.Int64(943749),
-        Offset: homework.Int64(902599),
-    })
+    res, err := s.Machine.MachineList(ctx, operations.MachineListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.MachineList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.MachineListResponse](../../models/operations/machinelistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## MachineRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Machine.MachineRead(ctx, operations.MachineReadRequest{
-        ID: 681820,
+        ID: 49768,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.MachineReadResponse](../../models/operations/machinereadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

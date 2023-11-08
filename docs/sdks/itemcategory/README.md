@@ -1,4 +1,5 @@
 # ItemCategory
+(*.ItemCategory*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.ItemCategory.ItemCategoryList(ctx, operations.ItemCategoryListRequest{
-        Limit: homework.Int64(414662),
-        Offset: homework.Int64(473600),
-    })
+    res, err := s.ItemCategory.ItemCategoryList(ctx, operations.ItemCategoryListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.ItemCategoryList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.ItemCategoryListResponse](../../models/operations/itemcategorylistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ItemCategoryRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ItemCategory.ItemCategoryRead(ctx, operations.ItemCategoryReadRequest{
-        ID: 264555,
+        ID: 708802,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.ItemCategoryReadResponse](../../models/operations/itemcategoryreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

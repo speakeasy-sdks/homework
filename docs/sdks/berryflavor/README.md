@@ -1,4 +1,5 @@
 # BerryFlavor
+(*.BerryFlavor*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.BerryFlavor.BerryFlavorList(ctx, operations.BerryFlavorListRequest{
-        Limit: homework.Int64(297534),
-        Offset: homework.Int64(891773),
-    })
+    res, err := s.BerryFlavor.BerryFlavorList(ctx, operations.BerryFlavorListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.BerryFlavorList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.BerryFlavorListResponse](../../models/operations/berryflavorlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## BerryFlavorRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.BerryFlavor.BerryFlavorRead(ctx, operations.BerryFlavorReadRequest{
-        ID: 56713,
+        ID: 678235,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.BerryFlavorReadResponse](../../models/operations/berryflavorreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

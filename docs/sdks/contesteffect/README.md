@@ -1,4 +1,5 @@
 # ContestEffect
+(*.ContestEffect*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.ContestEffect.ContestEffectList(ctx, operations.ContestEffectListRequest{
-        Limit: homework.Int64(477665),
-        Offset: homework.Int64(791725),
-    })
+    res, err := s.ContestEffect.ContestEffectList(ctx, operations.ContestEffectListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.ContestEffectList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -48,7 +46,9 @@ func main() {
 ### Response
 
 **[*operations.ContestEffectListResponse](../../models/operations/contesteffectlistresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ContestEffectRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ContestEffect.ContestEffectRead(ctx, operations.ContestEffectReadRequest{
-        ID: 812169,
+        ID: 338469,
     })
     if err != nil {
         log.Fatal(err)
@@ -92,4 +92,6 @@ func main() {
 ### Response
 
 **[*operations.ContestEffectReadResponse](../../models/operations/contesteffectreadresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
