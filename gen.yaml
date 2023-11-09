@@ -2,21 +2,34 @@ configVersion: 1.0.0
 management:
   docChecksum: 43fef0072a06e79ad9149109d70739c6
   docVersion: "20220523"
-  speakeasyVersion: 1.89.0
-  generationVersion: 2.125.1
+  speakeasyVersion: 1.116.0
+  generationVersion: 2.185.0
 generation:
-  comments:
-    disableComments: false
-    omitDescriptionIfSummaryPresent: false
-  baseServerURL: ""
+  comments: {}
   sdkClassName: homework
-  singleTagPerOp: false
-  tagNamespacingDisabled: false
+  repoURL: https://github.com/speakeasy-sdks/homework.git
 features:
   go:
-    core: 2.88.4
+    core: 3.1.2
     globalServerURLs: 2.82.0
+    inputOutputModels: 2.82.0
+    unions: 2.85.0
 go:
-  version: 0.1.2
+  version: 0.2.0
+  clientServerStatusCodesAsErrors: true
+  flattenGlobalSecurity: false
+  imports:
+    option: openapi
+    paths:
+      callbacks: pkg/models/callbacks
+      errors: pkg/models/sdkerrors
+      operations: pkg/models/operations
+      shared: pkg/models/shared
+      webhooks: pkg/models/webhooks
+  inputModelSuffix: input
+  installationURL: https://github.com/speakeasy-sdks/homework
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: homework
+  published: true
+  repoSubDirectory: .
