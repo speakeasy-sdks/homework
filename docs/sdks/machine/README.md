@@ -1,4 +1,5 @@
 # Machine
+(*Machine*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Machine.MachineList(ctx, operations.MachineListRequest{
-        Limit: homework.Int64(943749),
-        Offset: homework.Int64(902599),
-    })
+    res, err := s.Machine.MachineList(ctx, operations.MachineListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.MachineList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -39,16 +37,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.MachineListRequest](../../models/operations/machinelistrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.MachineListRequest](../../pkg/models/operations/machinelistrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
-**[*operations.MachineListResponse](../../models/operations/machinelistresponse.md), error**
-
+**[*operations.MachineListResponse](../../pkg/models/operations/machinelistresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## MachineRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Machine.MachineRead(ctx, operations.MachineReadRequest{
-        ID: 681820,
+        ID: 49768,
     })
     if err != nil {
         log.Fatal(err)
@@ -83,13 +83,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.MachineReadRequest](../../models/operations/machinereadrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.MachineReadRequest](../../pkg/models/operations/machinereadrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
-**[*operations.MachineReadResponse](../../models/operations/machinereadresponse.md), error**
-
+**[*operations.MachineReadResponse](../../pkg/models/operations/machinereadresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
