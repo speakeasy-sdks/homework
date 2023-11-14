@@ -1,4 +1,5 @@
 # LocationArea
+(*LocationArea*)
 
 ### Available Operations
 
@@ -23,15 +24,12 @@ func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.LocationArea.LocationAreaList(ctx, operations.LocationAreaListRequest{
-        Limit: homework.Int64(222321),
-        Offset: homework.Int64(616934),
-    })
+    res, err := s.LocationArea.LocationAreaList(ctx, operations.LocationAreaListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.LocationAreaList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -39,16 +37,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.LocationAreaListRequest](../../models/operations/locationarealistrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.LocationAreaListRequest](../../pkg/models/operations/locationarealistrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.LocationAreaListResponse](../../models/operations/locationarealistresponse.md), error**
-
+**[*operations.LocationAreaListResponse](../../pkg/models/operations/locationarealistresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## LocationAreaRead
 
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LocationArea.LocationAreaRead(ctx, operations.LocationAreaReadRequest{
-        ID: 386489,
+        ID: 689350,
     })
     if err != nil {
         log.Fatal(err)
@@ -83,13 +83,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.LocationAreaReadRequest](../../models/operations/locationareareadrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.LocationAreaReadRequest](../../pkg/models/operations/locationareareadrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.LocationAreaReadResponse](../../models/operations/locationareareadresponse.md), error**
-
+**[*operations.LocationAreaReadResponse](../../pkg/models/operations/locationareareadresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
