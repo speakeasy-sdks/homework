@@ -26,8 +26,8 @@ func (o *EvolutionTriggerListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// EvolutionTriggerList200ApplicationJSON - OK
-type EvolutionTriggerList200ApplicationJSON struct {
+// EvolutionTriggerListResponseBody - OK
+type EvolutionTriggerListResponseBody struct {
 	// The total number of evolution triggers.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of evolution triggers.
@@ -37,28 +37,28 @@ type EvolutionTriggerList200ApplicationJSON struct {
 	Results  []shared.EvolutionTrigger `json:"results,omitempty"`
 }
 
-func (o *EvolutionTriggerList200ApplicationJSON) GetCount() *int64 {
+func (o *EvolutionTriggerListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *EvolutionTriggerList200ApplicationJSON) GetNext() *string {
+func (o *EvolutionTriggerListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *EvolutionTriggerList200ApplicationJSON) GetPrevious() *string {
+func (o *EvolutionTriggerListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *EvolutionTriggerList200ApplicationJSON) GetResults() []shared.EvolutionTrigger {
+func (o *EvolutionTriggerListResponseBody) GetResults() []shared.EvolutionTrigger {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *EvolutionTriggerList200ApplicationJSON) GetResults() []shared.Evolution
 }
 
 type EvolutionTriggerListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	EvolutionTriggerList200ApplicationJSONObject *EvolutionTriggerList200ApplicationJSON
+	Object *EvolutionTriggerListResponseBody
 }
 
 func (o *EvolutionTriggerListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *EvolutionTriggerListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *EvolutionTriggerListResponse) GetEvolutionTriggerList200ApplicationJSONObject() *EvolutionTriggerList200ApplicationJSON {
+func (o *EvolutionTriggerListResponse) GetObject() *EvolutionTriggerListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.EvolutionTriggerList200ApplicationJSONObject
+	return o.Object
 }
