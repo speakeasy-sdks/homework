@@ -26,8 +26,8 @@ func (o *MachineListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// MachineList200ApplicationJSON - OK
-type MachineList200ApplicationJSON struct {
+// MachineListResponseBody - OK
+type MachineListResponseBody struct {
 	// The total number of machines.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of machines.
@@ -37,28 +37,28 @@ type MachineList200ApplicationJSON struct {
 	Results  []shared.Machine `json:"results,omitempty"`
 }
 
-func (o *MachineList200ApplicationJSON) GetCount() *int64 {
+func (o *MachineListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *MachineList200ApplicationJSON) GetNext() *string {
+func (o *MachineListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *MachineList200ApplicationJSON) GetPrevious() *string {
+func (o *MachineListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *MachineList200ApplicationJSON) GetResults() []shared.Machine {
+func (o *MachineListResponseBody) GetResults() []shared.Machine {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *MachineList200ApplicationJSON) GetResults() []shared.Machine {
 }
 
 type MachineListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	MachineList200ApplicationJSONObject *MachineList200ApplicationJSON
+	Object *MachineListResponseBody
 }
 
 func (o *MachineListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *MachineListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *MachineListResponse) GetMachineList200ApplicationJSONObject() *MachineList200ApplicationJSON {
+func (o *MachineListResponse) GetObject() *MachineListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.MachineList200ApplicationJSONObject
+	return o.Object
 }
