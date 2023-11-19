@@ -26,8 +26,8 @@ func (o *ContestEffectListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// ContestEffectList200ApplicationJSON - A list of contest effects
-type ContestEffectList200ApplicationJSON struct {
+// ContestEffectListResponseBody - A list of contest effects
+type ContestEffectListResponseBody struct {
 	// The total number of contest effects
 	Count *int64 `json:"count,omitempty"`
 	// The URL to get the next page of contest effects (if it exists)
@@ -37,28 +37,28 @@ type ContestEffectList200ApplicationJSON struct {
 	Results  []shared.ContestEffect `json:"results,omitempty"`
 }
 
-func (o *ContestEffectList200ApplicationJSON) GetCount() *int64 {
+func (o *ContestEffectListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *ContestEffectList200ApplicationJSON) GetNext() *string {
+func (o *ContestEffectListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *ContestEffectList200ApplicationJSON) GetPrevious() *string {
+func (o *ContestEffectListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *ContestEffectList200ApplicationJSON) GetResults() []shared.ContestEffect {
+func (o *ContestEffectListResponseBody) GetResults() []shared.ContestEffect {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *ContestEffectList200ApplicationJSON) GetResults() []shared.ContestEffec
 }
 
 type ContestEffectListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// A list of contest effects
-	ContestEffectList200ApplicationJSONObject *ContestEffectList200ApplicationJSON
+	Object *ContestEffectListResponseBody
 }
 
 func (o *ContestEffectListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *ContestEffectListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *ContestEffectListResponse) GetContestEffectList200ApplicationJSONObject() *ContestEffectList200ApplicationJSON {
+func (o *ContestEffectListResponse) GetObject() *ContestEffectListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.ContestEffectList200ApplicationJSONObject
+	return o.Object
 }
