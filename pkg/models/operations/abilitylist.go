@@ -26,8 +26,8 @@ func (o *AbilityListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// AbilityList200ApplicationJSON - A list of abilities
-type AbilityList200ApplicationJSON struct {
+// AbilityListResponseBody - A list of abilities
+type AbilityListResponseBody struct {
 	// The total number of abilities available
 	Count *int64 `json:"count,omitempty"`
 	// The URL for the next page of abilities (null if none)
@@ -37,28 +37,28 @@ type AbilityList200ApplicationJSON struct {
 	Results  []shared.Ability `json:"results,omitempty"`
 }
 
-func (o *AbilityList200ApplicationJSON) GetCount() *int64 {
+func (o *AbilityListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *AbilityList200ApplicationJSON) GetNext() *string {
+func (o *AbilityListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *AbilityList200ApplicationJSON) GetPrevious() *string {
+func (o *AbilityListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *AbilityList200ApplicationJSON) GetResults() []shared.Ability {
+func (o *AbilityListResponseBody) GetResults() []shared.Ability {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *AbilityList200ApplicationJSON) GetResults() []shared.Ability {
 }
 
 type AbilityListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// A list of abilities
-	AbilityList200ApplicationJSONObject *AbilityList200ApplicationJSON
+	Object *AbilityListResponseBody
 }
 
 func (o *AbilityListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *AbilityListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *AbilityListResponse) GetAbilityList200ApplicationJSONObject() *AbilityList200ApplicationJSON {
+func (o *AbilityListResponse) GetObject() *AbilityListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.AbilityList200ApplicationJSONObject
+	return o.Object
 }
