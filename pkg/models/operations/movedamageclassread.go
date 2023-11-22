@@ -19,11 +19,14 @@ func (o *MoveDamageClassReadRequest) GetID() int64 {
 }
 
 type MoveDamageClassReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	MoveDamageClass *shared.MoveDamageClass1
-	StatusCode      int
-	RawResponse     *http.Response
+	MoveDamageClass *shared.MoveDamageClass
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 }
 
 func (o *MoveDamageClassReadResponse) GetContentType() string {
@@ -33,7 +36,7 @@ func (o *MoveDamageClassReadResponse) GetContentType() string {
 	return o.ContentType
 }
 
-func (o *MoveDamageClassReadResponse) GetMoveDamageClass() *shared.MoveDamageClass1 {
+func (o *MoveDamageClassReadResponse) GetMoveDamageClass() *shared.MoveDamageClass {
 	if o == nil {
 		return nil
 	}
