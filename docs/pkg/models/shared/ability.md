@@ -1,0 +1,12 @@
+# Ability
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `Generation`                                                                  | [*shared.AbilityGeneration](../../../pkg/models/shared/abilitygeneration.md)  | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `ID`                                                                          | **int*                                                                        | :heavy_minus_sign:                                                            | The identifier for this ability resource.                                     |
+| `IsMainSeries`                                                                | **bool*                                                                       | :heavy_minus_sign:                                                            | Whether or not this ability originated in the main series of the video games. |
+| `Name`                                                                        | **string*                                                                     | :heavy_minus_sign:                                                            | The name for this ability resource.                                           |
+| `Names`                                                                       | [][shared.Names](../../../pkg/models/shared/names.md)                         | :heavy_minus_sign:                                                            | N/A                                                                           |
