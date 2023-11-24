@@ -26,8 +26,8 @@ func (o *EncounterConditionListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// EncounterConditionList200ApplicationJSON - OK
-type EncounterConditionList200ApplicationJSON struct {
+// EncounterConditionListResponseBody - OK
+type EncounterConditionListResponseBody struct {
 	// The total number of encounter conditions.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of encounter conditions.
@@ -37,28 +37,28 @@ type EncounterConditionList200ApplicationJSON struct {
 	Results  []shared.EncounterCondition `json:"results,omitempty"`
 }
 
-func (o *EncounterConditionList200ApplicationJSON) GetCount() *int64 {
+func (o *EncounterConditionListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *EncounterConditionList200ApplicationJSON) GetNext() *string {
+func (o *EncounterConditionListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *EncounterConditionList200ApplicationJSON) GetPrevious() *string {
+func (o *EncounterConditionListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *EncounterConditionList200ApplicationJSON) GetResults() []shared.EncounterCondition {
+func (o *EncounterConditionListResponseBody) GetResults() []shared.EncounterCondition {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *EncounterConditionList200ApplicationJSON) GetResults() []shared.Encount
 }
 
 type EncounterConditionListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	EncounterConditionList200ApplicationJSONObject *EncounterConditionList200ApplicationJSON
+	Object *EncounterConditionListResponseBody
 }
 
 func (o *EncounterConditionListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *EncounterConditionListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *EncounterConditionListResponse) GetEncounterConditionList200ApplicationJSONObject() *EncounterConditionList200ApplicationJSON {
+func (o *EncounterConditionListResponse) GetObject() *EncounterConditionListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.EncounterConditionList200ApplicationJSONObject
+	return o.Object
 }
