@@ -26,39 +26,39 @@ func (o *ItemListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// ItemList200ApplicationJSON - OK
-type ItemList200ApplicationJSON struct {
+// ItemListResponseBody - OK
+type ItemListResponseBody struct {
 	// The total number of items.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of items.
 	Next *string `json:"next,omitempty"`
 	// URL to retrieve the previous page of items.
-	Previous *string       `json:"previous,omitempty"`
-	Results  []shared.Item `json:"results,omitempty"`
+	Previous *string            `json:"previous,omitempty"`
+	Results  []shared.ItemInput `json:"results,omitempty"`
 }
 
-func (o *ItemList200ApplicationJSON) GetCount() *int64 {
+func (o *ItemListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *ItemList200ApplicationJSON) GetNext() *string {
+func (o *ItemListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *ItemList200ApplicationJSON) GetPrevious() *string {
+func (o *ItemListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *ItemList200ApplicationJSON) GetResults() []shared.Item {
+func (o *ItemListResponseBody) GetResults() []shared.ItemInput {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *ItemList200ApplicationJSON) GetResults() []shared.Item {
 }
 
 type ItemListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	ItemList200ApplicationJSONObject *ItemList200ApplicationJSON
+	Object *ItemListResponseBody
 }
 
 func (o *ItemListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *ItemListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *ItemListResponse) GetItemList200ApplicationJSONObject() *ItemList200ApplicationJSON {
+func (o *ItemListResponse) GetObject() *ItemListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.ItemList200ApplicationJSONObject
+	return o.Object
 }

@@ -2,218 +2,218 @@
 
 package shared
 
-type TypeDamageRelationsDoubleDamageFrom struct {
+type DoubleDamageFrom struct {
 	// The name of the related type.
 	Name *string `json:"name,omitempty"`
 	// The URL of the API endpoint for the related type.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *TypeDamageRelationsDoubleDamageFrom) GetName() *string {
+func (o *DoubleDamageFrom) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *TypeDamageRelationsDoubleDamageFrom) GetURL() *string {
+func (o *DoubleDamageFrom) GetURL() *string {
 	if o == nil {
 		return nil
 	}
 	return o.URL
 }
 
-type TypeDamageRelationsDoubleDamageTo struct {
+type DoubleDamageTo struct {
 	// The name of the related type.
 	Name *string `json:"name,omitempty"`
 	// The URL of the API endpoint for the related type.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *TypeDamageRelationsDoubleDamageTo) GetName() *string {
+func (o *DoubleDamageTo) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *TypeDamageRelationsDoubleDamageTo) GetURL() *string {
+func (o *DoubleDamageTo) GetURL() *string {
 	if o == nil {
 		return nil
 	}
 	return o.URL
 }
 
-type TypeDamageRelationsHalfDamageFrom struct {
+type HalfDamageFrom struct {
 	// The name of the related type.
 	Name *string `json:"name,omitempty"`
 	// The URL of the API endpoint for the related type.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *TypeDamageRelationsHalfDamageFrom) GetName() *string {
+func (o *HalfDamageFrom) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *TypeDamageRelationsHalfDamageFrom) GetURL() *string {
+func (o *HalfDamageFrom) GetURL() *string {
 	if o == nil {
 		return nil
 	}
 	return o.URL
 }
 
-type TypeDamageRelationsHalfDamageTo struct {
+type HalfDamageTo struct {
 	// The name of the related type.
 	Name *string `json:"name,omitempty"`
 	// The URL of the API endpoint for the related type.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *TypeDamageRelationsHalfDamageTo) GetName() *string {
+func (o *HalfDamageTo) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *TypeDamageRelationsHalfDamageTo) GetURL() *string {
+func (o *HalfDamageTo) GetURL() *string {
 	if o == nil {
 		return nil
 	}
 	return o.URL
 }
 
-type TypeDamageRelationsNoDamageFrom struct {
+type NoDamageFrom struct {
 	// The name of the related type.
 	Name *string `json:"name,omitempty"`
 	// The URL of the API endpoint for the related type.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *TypeDamageRelationsNoDamageFrom) GetName() *string {
+func (o *NoDamageFrom) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *TypeDamageRelationsNoDamageFrom) GetURL() *string {
+func (o *NoDamageFrom) GetURL() *string {
 	if o == nil {
 		return nil
 	}
 	return o.URL
 }
 
-type TypeDamageRelationsNoDamageTo struct {
+type NoDamageTo struct {
 	// The name of the related type.
 	Name *string `json:"name,omitempty"`
 	// The URL of the API endpoint for the related type.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *TypeDamageRelationsNoDamageTo) GetName() *string {
+func (o *NoDamageTo) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *TypeDamageRelationsNoDamageTo) GetURL() *string {
+func (o *NoDamageTo) GetURL() *string {
 	if o == nil {
 		return nil
 	}
 	return o.URL
 }
 
-type TypeDamageRelations struct {
-	DoubleDamageFrom []TypeDamageRelationsDoubleDamageFrom `json:"double_damage_from,omitempty"`
-	DoubleDamageTo   []TypeDamageRelationsDoubleDamageTo   `json:"double_damage_to,omitempty"`
-	HalfDamageFrom   []TypeDamageRelationsHalfDamageFrom   `json:"half_damage_from,omitempty"`
-	HalfDamageTo     []TypeDamageRelationsHalfDamageTo     `json:"half_damage_to,omitempty"`
-	NoDamageFrom     []TypeDamageRelationsNoDamageFrom     `json:"no_damage_from,omitempty"`
-	NoDamageTo       []TypeDamageRelationsNoDamageTo       `json:"no_damage_to,omitempty"`
+type DamageRelations struct {
+	DoubleDamageFrom []DoubleDamageFrom `json:"double_damage_from,omitempty"`
+	DoubleDamageTo   []DoubleDamageTo   `json:"double_damage_to,omitempty"`
+	HalfDamageFrom   []HalfDamageFrom   `json:"half_damage_from,omitempty"`
+	HalfDamageTo     []HalfDamageTo     `json:"half_damage_to,omitempty"`
+	NoDamageFrom     []NoDamageFrom     `json:"no_damage_from,omitempty"`
+	NoDamageTo       []NoDamageTo       `json:"no_damage_to,omitempty"`
 }
 
-func (o *TypeDamageRelations) GetDoubleDamageFrom() []TypeDamageRelationsDoubleDamageFrom {
+func (o *DamageRelations) GetDoubleDamageFrom() []DoubleDamageFrom {
 	if o == nil {
 		return nil
 	}
 	return o.DoubleDamageFrom
 }
 
-func (o *TypeDamageRelations) GetDoubleDamageTo() []TypeDamageRelationsDoubleDamageTo {
+func (o *DamageRelations) GetDoubleDamageTo() []DoubleDamageTo {
 	if o == nil {
 		return nil
 	}
 	return o.DoubleDamageTo
 }
 
-func (o *TypeDamageRelations) GetHalfDamageFrom() []TypeDamageRelationsHalfDamageFrom {
+func (o *DamageRelations) GetHalfDamageFrom() []HalfDamageFrom {
 	if o == nil {
 		return nil
 	}
 	return o.HalfDamageFrom
 }
 
-func (o *TypeDamageRelations) GetHalfDamageTo() []TypeDamageRelationsHalfDamageTo {
+func (o *DamageRelations) GetHalfDamageTo() []HalfDamageTo {
 	if o == nil {
 		return nil
 	}
 	return o.HalfDamageTo
 }
 
-func (o *TypeDamageRelations) GetNoDamageFrom() []TypeDamageRelationsNoDamageFrom {
+func (o *DamageRelations) GetNoDamageFrom() []NoDamageFrom {
 	if o == nil {
 		return nil
 	}
 	return o.NoDamageFrom
 }
 
-func (o *TypeDamageRelations) GetNoDamageTo() []TypeDamageRelationsNoDamageTo {
+func (o *DamageRelations) GetNoDamageTo() []NoDamageTo {
 	if o == nil {
 		return nil
 	}
 	return o.NoDamageTo
 }
 
-type TypeGameIndicesGeneration struct {
+type TypeSchemasGeneration struct {
 	// The generation this game index is related to.
 	Name *string `json:"name,omitempty"`
 	// The URL of the API endpoint for the generation.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *TypeGameIndicesGeneration) GetName() *string {
+func (o *TypeSchemasGeneration) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *TypeGameIndicesGeneration) GetURL() *string {
+func (o *TypeSchemasGeneration) GetURL() *string {
 	if o == nil {
 		return nil
 	}
 	return o.URL
 }
 
-type TypeGameIndices struct {
+type GameIndices struct {
 	// The internal id of an api resource within game data.
-	GameIndex  *int                       `json:"game_index,omitempty"`
-	Generation *TypeGameIndicesGeneration `json:"generation,omitempty"`
+	GameIndex  *int                   `json:"game_index,omitempty"`
+	Generation *TypeSchemasGeneration `json:"generation,omitempty"`
 }
 
-func (o *TypeGameIndices) GetGameIndex() *int {
+func (o *GameIndices) GetGameIndex() *int {
 	if o == nil {
 		return nil
 	}
 	return o.GameIndex
 }
 
-func (o *TypeGameIndices) GetGeneration() *TypeGameIndicesGeneration {
+func (o *GameIndices) GetGeneration() *TypeSchemasGeneration {
 	if o == nil {
 		return nil
 	}
@@ -262,21 +262,21 @@ func (o *TypeMoveDamageClass) GetURL() *string {
 	return o.URL
 }
 
-type TypeNamesLanguage struct {
+type TypeLanguage struct {
 	// The name of the language.
 	Name *string `json:"name,omitempty"`
 	// The URL of the API endpoint for the language.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *TypeNamesLanguage) GetName() *string {
+func (o *TypeLanguage) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *TypeNamesLanguage) GetURL() *string {
+func (o *TypeLanguage) GetURL() *string {
 	if o == nil {
 		return nil
 	}
@@ -284,12 +284,12 @@ func (o *TypeNamesLanguage) GetURL() *string {
 }
 
 type TypeNames struct {
-	Language *TypeNamesLanguage `json:"language,omitempty"`
+	Language *TypeLanguage `json:"language,omitempty"`
 	// The localized name for an API resource in a specific language.
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *TypeNames) GetLanguage() *TypeNamesLanguage {
+func (o *TypeNames) GetLanguage() *TypeLanguage {
 	if o == nil {
 		return nil
 	}
@@ -315,9 +315,9 @@ func (o *TypePokemon) GetSlot() *int64 {
 }
 
 type Type struct {
-	DamageRelations *TypeDamageRelations `json:"damage_relations,omitempty"`
-	GameIndices     []TypeGameIndices    `json:"game_indices,omitempty"`
-	Generation      *TypeGeneration      `json:"generation,omitempty"`
+	DamageRelations *DamageRelations `json:"damage_relations,omitempty"`
+	GameIndices     []GameIndices    `json:"game_indices,omitempty"`
+	Generation      *TypeGeneration  `json:"generation,omitempty"`
 	// The identifier for this type resource.
 	ID              *int                 `json:"id,omitempty"`
 	MoveDamageClass *TypeMoveDamageClass `json:"move_damage_class,omitempty"`
@@ -327,14 +327,14 @@ type Type struct {
 	Pokemon []TypePokemon `json:"pokemon,omitempty"`
 }
 
-func (o *Type) GetDamageRelations() *TypeDamageRelations {
+func (o *Type) GetDamageRelations() *DamageRelations {
 	if o == nil {
 		return nil
 	}
 	return o.DamageRelations
 }
 
-func (o *Type) GetGameIndices() []TypeGameIndices {
+func (o *Type) GetGameIndices() []GameIndices {
 	if o == nil {
 		return nil
 	}
