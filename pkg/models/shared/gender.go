@@ -2,12 +2,12 @@
 
 package shared
 
-type GenderPokemonSpeciesDetails struct {
+type PokemonSpeciesDetails struct {
 	// The chance of this Pokémon being female, in eighths; or -1 for genderless
 	Rate *int64 `json:"rate,omitempty"`
 }
 
-func (o *GenderPokemonSpeciesDetails) GetRate() *int64 {
+func (o *PokemonSpeciesDetails) GetRate() *int64 {
 	if o == nil {
 		return nil
 	}
@@ -18,8 +18,8 @@ type Gender struct {
 	// The identifier for this gender resource
 	ID *int64 `json:"id,omitempty"`
 	// The name for this gender resource
-	Name                  *string                       `json:"name,omitempty"`
-	PokemonSpeciesDetails []GenderPokemonSpeciesDetails `json:"pokemon_species_details,omitempty"`
+	Name                  *string                 `json:"name,omitempty"`
+	PokemonSpeciesDetails []PokemonSpeciesDetails `json:"pokemon_species_details,omitempty"`
 }
 
 func (o *Gender) GetID() *int64 {
@@ -36,7 +36,7 @@ func (o *Gender) GetName() *string {
 	return o.Name
 }
 
-func (o *Gender) GetPokemonSpeciesDetails() []GenderPokemonSpeciesDetails {
+func (o *Gender) GetPokemonSpeciesDetails() []PokemonSpeciesDetails {
 	if o == nil {
 		return nil
 	}
