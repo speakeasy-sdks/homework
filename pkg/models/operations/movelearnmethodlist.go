@@ -26,8 +26,8 @@ func (o *MoveLearnMethodListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// MoveLearnMethodList200ApplicationJSON - OK
-type MoveLearnMethodList200ApplicationJSON struct {
+// MoveLearnMethodListResponseBody - OK
+type MoveLearnMethodListResponseBody struct {
 	// The total number of move learn methods.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of move learn methods.
@@ -37,28 +37,28 @@ type MoveLearnMethodList200ApplicationJSON struct {
 	Results  []shared.MoveLearnMethod `json:"results,omitempty"`
 }
 
-func (o *MoveLearnMethodList200ApplicationJSON) GetCount() *int64 {
+func (o *MoveLearnMethodListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *MoveLearnMethodList200ApplicationJSON) GetNext() *string {
+func (o *MoveLearnMethodListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *MoveLearnMethodList200ApplicationJSON) GetPrevious() *string {
+func (o *MoveLearnMethodListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *MoveLearnMethodList200ApplicationJSON) GetResults() []shared.MoveLearnMethod {
+func (o *MoveLearnMethodListResponseBody) GetResults() []shared.MoveLearnMethod {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *MoveLearnMethodList200ApplicationJSON) GetResults() []shared.MoveLearnM
 }
 
 type MoveLearnMethodListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	MoveLearnMethodList200ApplicationJSONObject *MoveLearnMethodList200ApplicationJSON
+	Object *MoveLearnMethodListResponseBody
 }
 
 func (o *MoveLearnMethodListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *MoveLearnMethodListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *MoveLearnMethodListResponse) GetMoveLearnMethodList200ApplicationJSONObject() *MoveLearnMethodList200ApplicationJSON {
+func (o *MoveLearnMethodListResponse) GetObject() *MoveLearnMethodListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.MoveLearnMethodList200ApplicationJSONObject
+	return o.Object
 }
