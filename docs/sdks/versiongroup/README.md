@@ -1,4 +1,5 @@
 # VersionGroup
+(*VersionGroup*)
 
 ### Available Operations
 
@@ -13,25 +14,22 @@
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.VersionGroup.VersionGroupList(ctx, operations.VersionGroupListRequest{
-        Limit: homework.Int64(55714),
-        Offset: homework.Int64(604846),
-    })
+    res, err := s.VersionGroup.VersionGroupList(ctx, operations.VersionGroupListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.VersionGroupList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -39,16 +37,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.VersionGroupListRequest](../../models/operations/versiongrouplistrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.VersionGroupListRequest](../../pkg/models/operations/versiongrouplistrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.VersionGroupListResponse](../../models/operations/versiongrouplistresponse.md), error**
-
+**[*operations.VersionGroupListResponse](../../pkg/models/operations/versiongrouplistresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## VersionGroupRead
 
@@ -58,10 +58,10 @@ func main() {
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.VersionGroup.VersionGroupRead(ctx, operations.VersionGroupReadRequest{
-        ID: 451159,
+        ID: 436844,
     })
     if err != nil {
         log.Fatal(err)
@@ -83,13 +83,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.VersionGroupReadRequest](../../models/operations/versiongroupreadrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.VersionGroupReadRequest](../../pkg/models/operations/versiongroupreadrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.VersionGroupReadResponse](../../models/operations/versiongroupreadresponse.md), error**
-
+**[*operations.VersionGroupReadResponse](../../pkg/models/operations/versiongroupreadresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
