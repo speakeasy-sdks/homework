@@ -26,8 +26,8 @@ func (o *RegionListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// RegionList200ApplicationJSON - OK
-type RegionList200ApplicationJSON struct {
+// RegionListResponseBody - OK
+type RegionListResponseBody struct {
 	// The total number of regions.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of regions.
@@ -37,28 +37,28 @@ type RegionList200ApplicationJSON struct {
 	Results  []shared.Region `json:"results,omitempty"`
 }
 
-func (o *RegionList200ApplicationJSON) GetCount() *int64 {
+func (o *RegionListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *RegionList200ApplicationJSON) GetNext() *string {
+func (o *RegionListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *RegionList200ApplicationJSON) GetPrevious() *string {
+func (o *RegionListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *RegionList200ApplicationJSON) GetResults() []shared.Region {
+func (o *RegionListResponseBody) GetResults() []shared.Region {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *RegionList200ApplicationJSON) GetResults() []shared.Region {
 }
 
 type RegionListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	RegionList200ApplicationJSONObject *RegionList200ApplicationJSON
+	Object *RegionListResponseBody
 }
 
 func (o *RegionListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *RegionListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *RegionListResponse) GetRegionList200ApplicationJSONObject() *RegionList200ApplicationJSON {
+func (o *RegionListResponse) GetObject() *RegionListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.RegionList200ApplicationJSONObject
+	return o.Object
 }
