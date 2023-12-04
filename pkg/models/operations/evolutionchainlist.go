@@ -26,8 +26,8 @@ func (o *EvolutionChainListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// EvolutionChainList200ApplicationJSON - OK
-type EvolutionChainList200ApplicationJSON struct {
+// EvolutionChainListResponseBody - OK
+type EvolutionChainListResponseBody struct {
 	// The total number of evolution chains.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of evolution chains.
@@ -37,28 +37,28 @@ type EvolutionChainList200ApplicationJSON struct {
 	Results  []shared.EvolutionChain `json:"results,omitempty"`
 }
 
-func (o *EvolutionChainList200ApplicationJSON) GetCount() *int64 {
+func (o *EvolutionChainListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *EvolutionChainList200ApplicationJSON) GetNext() *string {
+func (o *EvolutionChainListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *EvolutionChainList200ApplicationJSON) GetPrevious() *string {
+func (o *EvolutionChainListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *EvolutionChainList200ApplicationJSON) GetResults() []shared.EvolutionChain {
+func (o *EvolutionChainListResponseBody) GetResults() []shared.EvolutionChain {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *EvolutionChainList200ApplicationJSON) GetResults() []shared.EvolutionCh
 }
 
 type EvolutionChainListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	EvolutionChainList200ApplicationJSONObject *EvolutionChainList200ApplicationJSON
+	Object *EvolutionChainListResponseBody
 }
 
 func (o *EvolutionChainListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *EvolutionChainListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *EvolutionChainListResponse) GetEvolutionChainList200ApplicationJSONObject() *EvolutionChainList200ApplicationJSON {
+func (o *EvolutionChainListResponse) GetObject() *EvolutionChainListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.EvolutionChainList200ApplicationJSONObject
+	return o.Object
 }
