@@ -26,8 +26,8 @@ func (o *NatureListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// NatureList200ApplicationJSON - OK
-type NatureList200ApplicationJSON struct {
+// NatureListResponseBody - OK
+type NatureListResponseBody struct {
 	// The total number of natures.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of natures.
@@ -37,28 +37,28 @@ type NatureList200ApplicationJSON struct {
 	Results  []shared.Nature `json:"results,omitempty"`
 }
 
-func (o *NatureList200ApplicationJSON) GetCount() *int64 {
+func (o *NatureListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *NatureList200ApplicationJSON) GetNext() *string {
+func (o *NatureListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *NatureList200ApplicationJSON) GetPrevious() *string {
+func (o *NatureListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *NatureList200ApplicationJSON) GetResults() []shared.Nature {
+func (o *NatureListResponseBody) GetResults() []shared.Nature {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *NatureList200ApplicationJSON) GetResults() []shared.Nature {
 }
 
 type NatureListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	NatureList200ApplicationJSONObject *NatureList200ApplicationJSON
+	Object *NatureListResponseBody
 }
 
 func (o *NatureListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *NatureListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *NatureListResponse) GetNatureList200ApplicationJSONObject() *NatureList200ApplicationJSON {
+func (o *NatureListResponse) GetObject() *NatureListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.NatureList200ApplicationJSONObject
+	return o.Object
 }
