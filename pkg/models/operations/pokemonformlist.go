@@ -26,8 +26,8 @@ func (o *PokemonFormListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// PokemonFormList200ApplicationJSON - OK
-type PokemonFormList200ApplicationJSON struct {
+// PokemonFormListResponseBody - OK
+type PokemonFormListResponseBody struct {
 	// The total number of pokemon forms.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of pokemon forms.
@@ -37,28 +37,28 @@ type PokemonFormList200ApplicationJSON struct {
 	Results  []shared.PokemonForm `json:"results,omitempty"`
 }
 
-func (o *PokemonFormList200ApplicationJSON) GetCount() *int64 {
+func (o *PokemonFormListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *PokemonFormList200ApplicationJSON) GetNext() *string {
+func (o *PokemonFormListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *PokemonFormList200ApplicationJSON) GetPrevious() *string {
+func (o *PokemonFormListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *PokemonFormList200ApplicationJSON) GetResults() []shared.PokemonForm {
+func (o *PokemonFormListResponseBody) GetResults() []shared.PokemonForm {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *PokemonFormList200ApplicationJSON) GetResults() []shared.PokemonForm {
 }
 
 type PokemonFormListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	PokemonFormList200ApplicationJSONObject *PokemonFormList200ApplicationJSON
+	Object *PokemonFormListResponseBody
 }
 
 func (o *PokemonFormListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *PokemonFormListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *PokemonFormListResponse) GetPokemonFormList200ApplicationJSONObject() *PokemonFormList200ApplicationJSON {
+func (o *PokemonFormListResponse) GetObject() *PokemonFormListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.PokemonFormList200ApplicationJSONObject
+	return o.Object
 }
