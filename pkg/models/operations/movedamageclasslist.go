@@ -26,39 +26,39 @@ func (o *MoveDamageClassListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// MoveDamageClassList200ApplicationJSON - OK
-type MoveDamageClassList200ApplicationJSON struct {
+// MoveDamageClassListResponseBody - OK
+type MoveDamageClassListResponseBody struct {
 	// The total number of move damage classes.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of move damage classes.
 	Next *string `json:"next,omitempty"`
 	// URL to retrieve the previous page of move damage classes.
-	Previous *string                   `json:"previous,omitempty"`
-	Results  []shared.MoveDamageClass1 `json:"results,omitempty"`
+	Previous *string                  `json:"previous,omitempty"`
+	Results  []shared.MoveDamageClass `json:"results,omitempty"`
 }
 
-func (o *MoveDamageClassList200ApplicationJSON) GetCount() *int64 {
+func (o *MoveDamageClassListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *MoveDamageClassList200ApplicationJSON) GetNext() *string {
+func (o *MoveDamageClassListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *MoveDamageClassList200ApplicationJSON) GetPrevious() *string {
+func (o *MoveDamageClassListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *MoveDamageClassList200ApplicationJSON) GetResults() []shared.MoveDamageClass1 {
+func (o *MoveDamageClassListResponseBody) GetResults() []shared.MoveDamageClass {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *MoveDamageClassList200ApplicationJSON) GetResults() []shared.MoveDamage
 }
 
 type MoveDamageClassListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	MoveDamageClassList200ApplicationJSONObject *MoveDamageClassList200ApplicationJSON
+	Object *MoveDamageClassListResponseBody
 }
 
 func (o *MoveDamageClassListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *MoveDamageClassListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *MoveDamageClassListResponse) GetMoveDamageClassList200ApplicationJSONObject() *MoveDamageClassList200ApplicationJSON {
+func (o *MoveDamageClassListResponse) GetObject() *MoveDamageClassListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.MoveDamageClassList200ApplicationJSONObject
+	return o.Object
 }
