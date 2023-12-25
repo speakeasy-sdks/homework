@@ -19,10 +19,13 @@ func (o *MoveReadRequest) GetID() int64 {
 }
 
 type MoveReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	Move        *shared.Move
-	StatusCode  int
+	Move *shared.MoveInput
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 
@@ -33,7 +36,7 @@ func (o *MoveReadResponse) GetContentType() string {
 	return o.ContentType
 }
 
-func (o *MoveReadResponse) GetMove() *shared.Move {
+func (o *MoveReadResponse) GetMove() *shared.MoveInput {
 	if o == nil {
 		return nil
 	}
