@@ -26,8 +26,8 @@ func (o *MoveBattleStyleListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// MoveBattleStyleList200ApplicationJSON - OK
-type MoveBattleStyleList200ApplicationJSON struct {
+// MoveBattleStyleListResponseBody - OK
+type MoveBattleStyleListResponseBody struct {
 	// The total number of move battle styles.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of move battle styles.
@@ -37,28 +37,28 @@ type MoveBattleStyleList200ApplicationJSON struct {
 	Results  []shared.MoveBattleStyle `json:"results,omitempty"`
 }
 
-func (o *MoveBattleStyleList200ApplicationJSON) GetCount() *int64 {
+func (o *MoveBattleStyleListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *MoveBattleStyleList200ApplicationJSON) GetNext() *string {
+func (o *MoveBattleStyleListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *MoveBattleStyleList200ApplicationJSON) GetPrevious() *string {
+func (o *MoveBattleStyleListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *MoveBattleStyleList200ApplicationJSON) GetResults() []shared.MoveBattleStyle {
+func (o *MoveBattleStyleListResponseBody) GetResults() []shared.MoveBattleStyle {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *MoveBattleStyleList200ApplicationJSON) GetResults() []shared.MoveBattle
 }
 
 type MoveBattleStyleListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	MoveBattleStyleList200ApplicationJSONObject *MoveBattleStyleList200ApplicationJSON
+	Object *MoveBattleStyleListResponseBody
 }
 
 func (o *MoveBattleStyleListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *MoveBattleStyleListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *MoveBattleStyleListResponse) GetMoveBattleStyleList200ApplicationJSONObject() *MoveBattleStyleList200ApplicationJSON {
+func (o *MoveBattleStyleListResponse) GetObject() *MoveBattleStyleListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.MoveBattleStyleList200ApplicationJSONObject
+	return o.Object
 }
