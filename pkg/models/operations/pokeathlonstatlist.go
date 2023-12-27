@@ -26,8 +26,8 @@ func (o *PokeathlonStatListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// PokeathlonStatList200ApplicationJSON - OK
-type PokeathlonStatList200ApplicationJSON struct {
+// PokeathlonStatListResponseBody - OK
+type PokeathlonStatListResponseBody struct {
 	// The total number of pokeathlon stats.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of pokeathlon stats.
@@ -37,28 +37,28 @@ type PokeathlonStatList200ApplicationJSON struct {
 	Results  []shared.PokeathlonStat `json:"results,omitempty"`
 }
 
-func (o *PokeathlonStatList200ApplicationJSON) GetCount() *int64 {
+func (o *PokeathlonStatListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *PokeathlonStatList200ApplicationJSON) GetNext() *string {
+func (o *PokeathlonStatListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *PokeathlonStatList200ApplicationJSON) GetPrevious() *string {
+func (o *PokeathlonStatListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *PokeathlonStatList200ApplicationJSON) GetResults() []shared.PokeathlonStat {
+func (o *PokeathlonStatListResponseBody) GetResults() []shared.PokeathlonStat {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *PokeathlonStatList200ApplicationJSON) GetResults() []shared.PokeathlonS
 }
 
 type PokeathlonStatListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	PokeathlonStatList200ApplicationJSONObject *PokeathlonStatList200ApplicationJSON
+	Object *PokeathlonStatListResponseBody
 }
 
 func (o *PokeathlonStatListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *PokeathlonStatListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *PokeathlonStatListResponse) GetPokeathlonStatList200ApplicationJSONObject() *PokeathlonStatList200ApplicationJSON {
+func (o *PokeathlonStatListResponse) GetObject() *PokeathlonStatListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.PokeathlonStatList200ApplicationJSONObject
+	return o.Object
 }
