@@ -26,8 +26,8 @@ func (o *SuperContestEffectListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// SuperContestEffectList200ApplicationJSON - OK
-type SuperContestEffectList200ApplicationJSON struct {
+// SuperContestEffectListResponseBody - OK
+type SuperContestEffectListResponseBody struct {
 	// The total number of super contest effects.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of super contest effects.
@@ -37,28 +37,28 @@ type SuperContestEffectList200ApplicationJSON struct {
 	Results  []shared.SuperContestEffect `json:"results,omitempty"`
 }
 
-func (o *SuperContestEffectList200ApplicationJSON) GetCount() *int64 {
+func (o *SuperContestEffectListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *SuperContestEffectList200ApplicationJSON) GetNext() *string {
+func (o *SuperContestEffectListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *SuperContestEffectList200ApplicationJSON) GetPrevious() *string {
+func (o *SuperContestEffectListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *SuperContestEffectList200ApplicationJSON) GetResults() []shared.SuperContestEffect {
+func (o *SuperContestEffectListResponseBody) GetResults() []shared.SuperContestEffect {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *SuperContestEffectList200ApplicationJSON) GetResults() []shared.SuperCo
 }
 
 type SuperContestEffectListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	SuperContestEffectList200ApplicationJSONObject *SuperContestEffectList200ApplicationJSON
+	Object *SuperContestEffectListResponseBody
 }
 
 func (o *SuperContestEffectListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *SuperContestEffectListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *SuperContestEffectListResponse) GetSuperContestEffectList200ApplicationJSONObject() *SuperContestEffectList200ApplicationJSON {
+func (o *SuperContestEffectListResponse) GetObject() *SuperContestEffectListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.SuperContestEffectList200ApplicationJSONObject
+	return o.Object
 }

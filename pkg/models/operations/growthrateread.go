@@ -19,10 +19,13 @@ func (o *GrowthRateReadRequest) GetID() int64 {
 }
 
 type GrowthRateReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	GrowthRate  *shared.GrowthRate
-	StatusCode  int
+	GrowthRate *shared.GrowthRate
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 

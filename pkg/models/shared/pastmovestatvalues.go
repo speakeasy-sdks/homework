@@ -2,19 +2,19 @@
 
 package shared
 
-type PastMoveStatValuesEffectEntries struct {
+type EffectEntries struct {
 	Effect       *VerboseEffect    `json:"effect,omitempty"`
 	VersionGroup *NamedAPIResource `json:"version_group,omitempty"`
 }
 
-func (o *PastMoveStatValuesEffectEntries) GetEffect() *VerboseEffect {
+func (o *EffectEntries) GetEffect() *VerboseEffect {
 	if o == nil {
 		return nil
 	}
 	return o.Effect
 }
 
-func (o *PastMoveStatValuesEffectEntries) GetVersionGroup() *NamedAPIResource {
+func (o *EffectEntries) GetVersionGroup() *NamedAPIResource {
 	if o == nil {
 		return nil
 	}
@@ -27,7 +27,7 @@ type PastMoveStatValues struct {
 	// The percent value of effect occurring.
 	EffectChance *int64 `json:"effect_chance,omitempty"`
 	// The list of previous effects this move has had across version groups.
-	EffectEntries []PastMoveStatValuesEffectEntries `json:"effect_entries,omitempty"`
+	EffectEntries []EffectEntries `json:"effect_entries,omitempty"`
 	// The base power of this move with a value of 0 if it does not have a base power.
 	Power int64 `json:"power"`
 	// The power points this move has left.
@@ -49,7 +49,7 @@ func (o *PastMoveStatValues) GetEffectChance() *int64 {
 	return o.EffectChance
 }
 
-func (o *PastMoveStatValues) GetEffectEntries() []PastMoveStatValuesEffectEntries {
+func (o *PastMoveStatValues) GetEffectEntries() []EffectEntries {
 	if o == nil {
 		return nil
 	}
