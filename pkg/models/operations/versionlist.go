@@ -26,8 +26,8 @@ func (o *VersionListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// VersionList200ApplicationJSON - OK
-type VersionList200ApplicationJSON struct {
+// VersionListResponseBody - OK
+type VersionListResponseBody struct {
 	// The total number of versions.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of versions.
@@ -37,28 +37,28 @@ type VersionList200ApplicationJSON struct {
 	Results  []shared.Version `json:"results,omitempty"`
 }
 
-func (o *VersionList200ApplicationJSON) GetCount() *int64 {
+func (o *VersionListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *VersionList200ApplicationJSON) GetNext() *string {
+func (o *VersionListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *VersionList200ApplicationJSON) GetPrevious() *string {
+func (o *VersionListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *VersionList200ApplicationJSON) GetResults() []shared.Version {
+func (o *VersionListResponseBody) GetResults() []shared.Version {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *VersionList200ApplicationJSON) GetResults() []shared.Version {
 }
 
 type VersionListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	VersionList200ApplicationJSONObject *VersionList200ApplicationJSON
+	Object *VersionListResponseBody
 }
 
 func (o *VersionListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *VersionListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *VersionListResponse) GetVersionList200ApplicationJSONObject() *VersionList200ApplicationJSON {
+func (o *VersionListResponse) GetObject() *VersionListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.VersionList200ApplicationJSONObject
+	return o.Object
 }
