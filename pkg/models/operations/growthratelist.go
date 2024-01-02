@@ -26,8 +26,8 @@ func (o *GrowthRateListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// GrowthRateList200ApplicationJSON - OK
-type GrowthRateList200ApplicationJSON struct {
+// GrowthRateListResponseBody - OK
+type GrowthRateListResponseBody struct {
 	// The total number of growth rates.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of growth rates.
@@ -37,28 +37,28 @@ type GrowthRateList200ApplicationJSON struct {
 	Results  []shared.GrowthRate `json:"results,omitempty"`
 }
 
-func (o *GrowthRateList200ApplicationJSON) GetCount() *int64 {
+func (o *GrowthRateListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *GrowthRateList200ApplicationJSON) GetNext() *string {
+func (o *GrowthRateListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *GrowthRateList200ApplicationJSON) GetPrevious() *string {
+func (o *GrowthRateListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *GrowthRateList200ApplicationJSON) GetResults() []shared.GrowthRate {
+func (o *GrowthRateListResponseBody) GetResults() []shared.GrowthRate {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *GrowthRateList200ApplicationJSON) GetResults() []shared.GrowthRate {
 }
 
 type GrowthRateListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	GrowthRateList200ApplicationJSONObject *GrowthRateList200ApplicationJSON
+	Object *GrowthRateListResponseBody
 }
 
 func (o *GrowthRateListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *GrowthRateListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *GrowthRateListResponse) GetGrowthRateList200ApplicationJSONObject() *GrowthRateList200ApplicationJSON {
+func (o *GrowthRateListResponse) GetObject() *GrowthRateListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.GrowthRateList200ApplicationJSONObject
+	return o.Object
 }

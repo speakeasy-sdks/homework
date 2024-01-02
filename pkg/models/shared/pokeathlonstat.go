@@ -2,22 +2,22 @@
 
 package shared
 
-// PokeathlonStatAffectingNatures - A detail of natures which affect this Pokéathlon stat positively or negatively
-type PokeathlonStatAffectingNatures struct {
+// AffectingNatures - A detail of natures which affect this Pokéathlon stat positively or negatively
+type AffectingNatures struct {
 	// A list of natures that negatively affect this Pokéathlon stat
 	Decrease []NaturePokeathlonStatAffectSets `json:"decrease,omitempty"`
 	// A list of natures that positively affect this Pokéathlon stat
 	Increase []NaturePokeathlonStatAffectSets `json:"increase,omitempty"`
 }
 
-func (o *PokeathlonStatAffectingNatures) GetDecrease() []NaturePokeathlonStatAffectSets {
+func (o *AffectingNatures) GetDecrease() []NaturePokeathlonStatAffectSets {
 	if o == nil {
 		return nil
 	}
 	return o.Decrease
 }
 
-func (o *PokeathlonStatAffectingNatures) GetIncrease() []NaturePokeathlonStatAffectSets {
+func (o *AffectingNatures) GetIncrease() []NaturePokeathlonStatAffectSets {
 	if o == nil {
 		return nil
 	}
@@ -26,7 +26,7 @@ func (o *PokeathlonStatAffectingNatures) GetIncrease() []NaturePokeathlonStatAff
 
 type PokeathlonStat struct {
 	// A detail of natures which affect this Pokéathlon stat positively or negatively
-	AffectingNatures PokeathlonStatAffectingNatures `json:"affecting_natures"`
+	AffectingNatures AffectingNatures `json:"affecting_natures"`
 	// The identifier for this Pokéathlon stat resource
 	ID int64 `json:"id"`
 	// The name for this Pokéathlon stat resource
@@ -35,9 +35,9 @@ type PokeathlonStat struct {
 	Names []Name `json:"names"`
 }
 
-func (o *PokeathlonStat) GetAffectingNatures() PokeathlonStatAffectingNatures {
+func (o *PokeathlonStat) GetAffectingNatures() AffectingNatures {
 	if o == nil {
-		return PokeathlonStatAffectingNatures{}
+		return AffectingNatures{}
 	}
 	return o.AffectingNatures
 }

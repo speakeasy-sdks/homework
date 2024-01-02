@@ -19,11 +19,14 @@ func (o *ItemFlingEffectReadRequest) GetID() int64 {
 }
 
 type ItemFlingEffectReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	ItemFlingEffect *shared.ItemFlingEffect
-	StatusCode      int
-	RawResponse     *http.Response
+	ItemFlingEffect *shared.ItemFlingEffectInput
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 }
 
 func (o *ItemFlingEffectReadResponse) GetContentType() string {
@@ -33,7 +36,7 @@ func (o *ItemFlingEffectReadResponse) GetContentType() string {
 	return o.ContentType
 }
 
-func (o *ItemFlingEffectReadResponse) GetItemFlingEffect() *shared.ItemFlingEffect {
+func (o *ItemFlingEffectReadResponse) GetItemFlingEffect() *shared.ItemFlingEffectInput {
 	if o == nil {
 		return nil
 	}
