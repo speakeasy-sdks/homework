@@ -2,19 +2,19 @@
 
 package shared
 
-type PokemonHeldItemVersionDetails struct {
+type VersionDetails struct {
 	Rarity  *int64   `json:"rarity,omitempty"`
 	Version *Version `json:"version,omitempty"`
 }
 
-func (o *PokemonHeldItemVersionDetails) GetRarity() *int64 {
+func (o *VersionDetails) GetRarity() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Rarity
 }
 
-func (o *PokemonHeldItemVersionDetails) GetVersion() *Version {
+func (o *VersionDetails) GetVersion() *Version {
 	if o == nil {
 		return nil
 	}
@@ -22,8 +22,8 @@ func (o *PokemonHeldItemVersionDetails) GetVersion() *Version {
 }
 
 type PokemonHeldItem struct {
-	Item           *Item                           `json:"item,omitempty"`
-	VersionDetails []PokemonHeldItemVersionDetails `json:"version_details,omitempty"`
+	Item           *Item            `json:"item,omitempty"`
+	VersionDetails []VersionDetails `json:"version_details,omitempty"`
 }
 
 func (o *PokemonHeldItem) GetItem() *Item {
@@ -33,7 +33,7 @@ func (o *PokemonHeldItem) GetItem() *Item {
 	return o.Item
 }
 
-func (o *PokemonHeldItem) GetVersionDetails() []PokemonHeldItemVersionDetails {
+func (o *PokemonHeldItem) GetVersionDetails() []VersionDetails {
 	if o == nil {
 		return nil
 	}

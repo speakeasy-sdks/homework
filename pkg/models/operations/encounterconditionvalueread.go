@@ -19,11 +19,14 @@ func (o *EncounterConditionValueReadRequest) GetID() int64 {
 }
 
 type EncounterConditionValueReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
 	EncounterConditionValue *shared.EncounterConditionValue
-	StatusCode              int
-	RawResponse             *http.Response
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 }
 
 func (o *EncounterConditionValueReadResponse) GetContentType() string {
