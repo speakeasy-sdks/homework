@@ -26,8 +26,8 @@ func (o *BerryFlavorListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// BerryFlavorList200ApplicationJSON - OK
-type BerryFlavorList200ApplicationJSON struct {
+// BerryFlavorListResponseBody - OK
+type BerryFlavorListResponseBody struct {
 	// The total number of berry flavors
 	Count *int64 `json:"count,omitempty"`
 	// The URL to the next page of berry flavors (if any)
@@ -37,28 +37,28 @@ type BerryFlavorList200ApplicationJSON struct {
 	Results  []shared.BerryFlavor `json:"results,omitempty"`
 }
 
-func (o *BerryFlavorList200ApplicationJSON) GetCount() *int64 {
+func (o *BerryFlavorListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *BerryFlavorList200ApplicationJSON) GetNext() *string {
+func (o *BerryFlavorListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *BerryFlavorList200ApplicationJSON) GetPrevious() *string {
+func (o *BerryFlavorListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *BerryFlavorList200ApplicationJSON) GetResults() []shared.BerryFlavor {
+func (o *BerryFlavorListResponseBody) GetResults() []shared.BerryFlavor {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *BerryFlavorList200ApplicationJSON) GetResults() []shared.BerryFlavor {
 }
 
 type BerryFlavorListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	BerryFlavorList200ApplicationJSONObject *BerryFlavorList200ApplicationJSON
+	Object *BerryFlavorListResponseBody
 }
 
 func (o *BerryFlavorListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *BerryFlavorListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *BerryFlavorListResponse) GetBerryFlavorList200ApplicationJSONObject() *BerryFlavorList200ApplicationJSON {
+func (o *BerryFlavorListResponse) GetObject() *BerryFlavorListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.BerryFlavorList200ApplicationJSONObject
+	return o.Object
 }

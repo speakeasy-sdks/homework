@@ -26,8 +26,8 @@ func (o *GenderListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// GenderList200ApplicationJSON - OK
-type GenderList200ApplicationJSON struct {
+// GenderListResponseBody - OK
+type GenderListResponseBody struct {
 	// The total number of genders.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of genders.
@@ -37,28 +37,28 @@ type GenderList200ApplicationJSON struct {
 	Results  []shared.Gender `json:"results,omitempty"`
 }
 
-func (o *GenderList200ApplicationJSON) GetCount() *int64 {
+func (o *GenderListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *GenderList200ApplicationJSON) GetNext() *string {
+func (o *GenderListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *GenderList200ApplicationJSON) GetPrevious() *string {
+func (o *GenderListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *GenderList200ApplicationJSON) GetResults() []shared.Gender {
+func (o *GenderListResponseBody) GetResults() []shared.Gender {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *GenderList200ApplicationJSON) GetResults() []shared.Gender {
 }
 
 type GenderListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	GenderList200ApplicationJSONObject *GenderList200ApplicationJSON
+	Object *GenderListResponseBody
 }
 
 func (o *GenderListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *GenderListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *GenderListResponse) GetGenderList200ApplicationJSONObject() *GenderList200ApplicationJSON {
+func (o *GenderListResponse) GetObject() *GenderListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.GenderList200ApplicationJSONObject
+	return o.Object
 }
