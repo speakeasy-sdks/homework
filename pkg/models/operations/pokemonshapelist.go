@@ -26,8 +26,8 @@ func (o *PokemonShapeListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// PokemonShapeList200ApplicationJSON - OK
-type PokemonShapeList200ApplicationJSON struct {
+// PokemonShapeListResponseBody - OK
+type PokemonShapeListResponseBody struct {
 	// The total number of pokemon shapes.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of pokemon shapes.
@@ -37,28 +37,28 @@ type PokemonShapeList200ApplicationJSON struct {
 	Results  []shared.PokemonShape `json:"results,omitempty"`
 }
 
-func (o *PokemonShapeList200ApplicationJSON) GetCount() *int64 {
+func (o *PokemonShapeListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *PokemonShapeList200ApplicationJSON) GetNext() *string {
+func (o *PokemonShapeListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *PokemonShapeList200ApplicationJSON) GetPrevious() *string {
+func (o *PokemonShapeListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *PokemonShapeList200ApplicationJSON) GetResults() []shared.PokemonShape {
+func (o *PokemonShapeListResponseBody) GetResults() []shared.PokemonShape {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *PokemonShapeList200ApplicationJSON) GetResults() []shared.PokemonShape 
 }
 
 type PokemonShapeListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	PokemonShapeList200ApplicationJSONObject *PokemonShapeList200ApplicationJSON
+	Object *PokemonShapeListResponseBody
 }
 
 func (o *PokemonShapeListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *PokemonShapeListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *PokemonShapeListResponse) GetPokemonShapeList200ApplicationJSONObject() *PokemonShapeList200ApplicationJSON {
+func (o *PokemonShapeListResponse) GetObject() *PokemonShapeListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.PokemonShapeList200ApplicationJSONObject
+	return o.Object
 }
