@@ -2,18 +2,18 @@
 
 package shared
 
-type BerryFirmnessBerries struct {
+type Berries struct {
 }
 
 type BerryFirmness struct {
-	Berries []BerryFirmnessBerries `json:"berries,omitempty"`
+	Berries []Berries `json:"berries,omitempty"`
 	// The identifier for this berry firmness resource
 	ID int64 `json:"id"`
 	// The name for this berry firmness resource
 	Name string `json:"name"`
 }
 
-func (o *BerryFirmness) GetBerries() []BerryFirmnessBerries {
+func (o *BerryFirmness) GetBerries() []Berries {
 	if o == nil {
 		return nil
 	}
