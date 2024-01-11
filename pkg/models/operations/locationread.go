@@ -19,10 +19,13 @@ func (o *LocationReadRequest) GetID() int64 {
 }
 
 type LocationReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	Location    *shared.Location
-	StatusCode  int
+	Location *shared.Location
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 
