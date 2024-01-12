@@ -1,0 +1,13 @@
+# DamageRelations
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `DoubleDamageFrom`                                                          | [][shared.DoubleDamageFrom](../../../pkg/models/shared/doubledamagefrom.md) | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `DoubleDamageTo`                                                            | [][shared.DoubleDamageTo](../../../pkg/models/shared/doubledamageto.md)     | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `HalfDamageFrom`                                                            | [][shared.HalfDamageFrom](../../../pkg/models/shared/halfdamagefrom.md)     | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `HalfDamageTo`                                                              | [][shared.HalfDamageTo](../../../pkg/models/shared/halfdamageto.md)         | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `NoDamageFrom`                                                              | [][shared.NoDamageFrom](../../../pkg/models/shared/nodamagefrom.md)         | :heavy_minus_sign:                                                          | N/A                                                                         |
+| `NoDamageTo`                                                                | [][shared.NoDamageTo](../../../pkg/models/shared/nodamageto.md)             | :heavy_minus_sign:                                                          | N/A                                                                         |

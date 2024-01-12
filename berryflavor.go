@@ -15,17 +15,17 @@ import (
 	"strings"
 )
 
-type berryFlavor struct {
+type BerryFlavor struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newBerryFlavor(sdkConfig sdkConfiguration) *berryFlavor {
-	return &berryFlavor{
+func newBerryFlavor(sdkConfig sdkConfiguration) *BerryFlavor {
+	return &BerryFlavor{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
-func (s *berryFlavor) BerryFlavorList(ctx context.Context, request operations.BerryFlavorListRequest) (*operations.BerryFlavorListResponse, error) {
+func (s *BerryFlavor) BerryFlavorList(ctx context.Context, request operations.BerryFlavorListRequest) (*operations.BerryFlavorListResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/api/v2/berry-flavor/"
 
@@ -34,7 +34,7 @@ func (s *berryFlavor) BerryFlavorList(ctx context.Context, request operations.Be
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
+	req.Header.Set("user-agent", s.sdkConfiguration.UserAgent)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -50,13 +50,6 @@ func (s *berryFlavor) BerryFlavorList(ctx context.Context, request operations.Be
 		return nil, fmt.Errorf("error sending request: no response")
 	}
 
-	rawBody, err := io.ReadAll(httpRes.Body)
-	if err != nil {
-		return nil, fmt.Errorf("error reading response body: %w", err)
-	}
-	httpRes.Body.Close()
-	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.BerryFlavorListResponse{
@@ -64,25 +57,36 @@ func (s *berryFlavor) BerryFlavorList(ctx context.Context, request operations.Be
 		ContentType: contentType,
 		RawResponse: httpRes,
 	}
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out operations.BerryFlavorList200ApplicationJSON
+			var out operations.BerryFlavorListResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.BerryFlavorList200ApplicationJSONObject = &out
+			res.Object = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
-func (s *berryFlavor) BerryFlavorRead(ctx context.Context, request operations.BerryFlavorReadRequest) (*operations.BerryFlavorReadResponse, error) {
+func (s *BerryFlavor) BerryFlavorRead(ctx context.Context, request operations.BerryFlavorReadRequest) (*operations.BerryFlavorReadResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/v2/berry-flavor/{id}/", request, nil)
 	if err != nil {
@@ -94,7 +98,7 @@ func (s *berryFlavor) BerryFlavorRead(ctx context.Context, request operations.Be
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
+	req.Header.Set("user-agent", s.sdkConfiguration.UserAgent)
 
 	client := s.sdkConfiguration.DefaultClient
 
@@ -106,13 +110,6 @@ func (s *berryFlavor) BerryFlavorRead(ctx context.Context, request operations.Be
 		return nil, fmt.Errorf("error sending request: no response")
 	}
 
-	rawBody, err := io.ReadAll(httpRes.Body)
-	if err != nil {
-		return nil, fmt.Errorf("error reading response body: %w", err)
-	}
-	httpRes.Body.Close()
-	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.BerryFlavorReadResponse{
@@ -120,6 +117,13 @@ func (s *berryFlavor) BerryFlavorRead(ctx context.Context, request operations.Be
 		ContentType: contentType,
 		RawResponse: httpRes,
 	}
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
@@ -133,6 +137,10 @@ func (s *berryFlavor) BerryFlavorRead(ctx context.Context, request operations.Be
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
