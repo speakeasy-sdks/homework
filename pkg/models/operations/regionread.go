@@ -19,10 +19,13 @@ func (o *RegionReadRequest) GetID() int64 {
 }
 
 type RegionReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	Region      *shared.Region
-	StatusCode  int
+	Region *shared.Region
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 

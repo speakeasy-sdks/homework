@@ -27,18 +27,14 @@ func (o *BerryListRequest) GetOffset() *int64 {
 }
 
 type BerryListResponse struct {
-	// OK
-	Berries     []shared.Berry
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
-}
-
-func (o *BerryListResponse) GetBerries() []shared.Berry {
-	if o == nil {
-		return nil
-	}
-	return o.Berries
+	// OK
+	Classes []shared.Berry
 }
 
 func (o *BerryListResponse) GetContentType() string {
@@ -60,4 +56,11 @@ func (o *BerryListResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *BerryListResponse) GetClasses() []shared.Berry {
+	if o == nil {
+		return nil
+	}
+	return o.Classes
 }
