@@ -1,4 +1,5 @@
 # Stat
+(*Stat*)
 
 ### Available Operations
 
@@ -13,25 +14,22 @@
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Stat.StatList(ctx, operations.StatListRequest{
-        Limit: homework.Int64(13571),
-        Offset: homework.Int64(97101),
-    })
+    res, err := s.Stat.StatList(ctx, operations.StatListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.StatList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -39,16 +37,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
-| `request`                                                                | [operations.StatListRequest](../../models/operations/statlistrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.StatListRequest](../../pkg/models/operations/statlistrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
 
-**[*operations.StatListResponse](../../models/operations/statlistresponse.md), error**
-
+**[*operations.StatListResponse](../../pkg/models/operations/statlistresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## StatRead
 
@@ -58,10 +58,10 @@ func main() {
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Stat.StatRead(ctx, operations.StatReadRequest{
-        ID: 622846,
+        ID: 160697,
     })
     if err != nil {
         log.Fatal(err)
@@ -83,13 +83,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
-| `request`                                                                | [operations.StatReadRequest](../../models/operations/statreadrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.StatReadRequest](../../pkg/models/operations/statreadrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
 
-**[*operations.StatReadResponse](../../models/operations/statreadresponse.md), error**
-
+**[*operations.StatReadResponse](../../pkg/models/operations/statreadresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

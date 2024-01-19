@@ -26,8 +26,8 @@ func (o *LocationListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// LocationList200ApplicationJSON - OK
-type LocationList200ApplicationJSON struct {
+// LocationListResponseBody - OK
+type LocationListResponseBody struct {
 	// The total number of locations.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of locations.
@@ -37,28 +37,28 @@ type LocationList200ApplicationJSON struct {
 	Results  []shared.Location `json:"results,omitempty"`
 }
 
-func (o *LocationList200ApplicationJSON) GetCount() *int64 {
+func (o *LocationListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *LocationList200ApplicationJSON) GetNext() *string {
+func (o *LocationListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *LocationList200ApplicationJSON) GetPrevious() *string {
+func (o *LocationListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *LocationList200ApplicationJSON) GetResults() []shared.Location {
+func (o *LocationListResponseBody) GetResults() []shared.Location {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *LocationList200ApplicationJSON) GetResults() []shared.Location {
 }
 
 type LocationListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	LocationList200ApplicationJSONObject *LocationList200ApplicationJSON
+	Object *LocationListResponseBody
 }
 
 func (o *LocationListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *LocationListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *LocationListResponse) GetLocationList200ApplicationJSONObject() *LocationList200ApplicationJSON {
+func (o *LocationListResponse) GetObject() *LocationListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.LocationList200ApplicationJSONObject
+	return o.Object
 }
