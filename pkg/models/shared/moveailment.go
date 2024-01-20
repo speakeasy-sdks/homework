@@ -3,9 +3,9 @@
 package shared
 
 type MoveAilment struct {
-	ID    int64  `json:"id"`
-	Moves []Move `json:"moves"`
-	Name  string `json:"name"`
+	ID    int64       `json:"id"`
+	Moves []MoveInput `json:"moves"`
+	Name  string      `json:"name"`
 }
 
 func (o *MoveAilment) GetID() int64 {
@@ -15,9 +15,9 @@ func (o *MoveAilment) GetID() int64 {
 	return o.ID
 }
 
-func (o *MoveAilment) GetMoves() []Move {
+func (o *MoveAilment) GetMoves() []MoveInput {
 	if o == nil {
-		return []Move{}
+		return []MoveInput{}
 	}
 	return o.Moves
 }
