@@ -26,8 +26,8 @@ func (o *StatListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// StatList200ApplicationJSON - OK
-type StatList200ApplicationJSON struct {
+// StatListResponseBody - OK
+type StatListResponseBody struct {
 	// The total number of stats.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of stats.
@@ -37,28 +37,28 @@ type StatList200ApplicationJSON struct {
 	Results  []shared.Stat `json:"results,omitempty"`
 }
 
-func (o *StatList200ApplicationJSON) GetCount() *int64 {
+func (o *StatListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *StatList200ApplicationJSON) GetNext() *string {
+func (o *StatListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *StatList200ApplicationJSON) GetPrevious() *string {
+func (o *StatListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *StatList200ApplicationJSON) GetResults() []shared.Stat {
+func (o *StatListResponseBody) GetResults() []shared.Stat {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *StatList200ApplicationJSON) GetResults() []shared.Stat {
 }
 
 type StatListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	StatList200ApplicationJSONObject *StatList200ApplicationJSON
+	Object *StatListResponseBody
 }
 
 func (o *StatListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *StatListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *StatListResponse) GetStatList200ApplicationJSONObject() *StatList200ApplicationJSON {
+func (o *StatListResponse) GetObject() *StatListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.StatList200ApplicationJSONObject
+	return o.Object
 }
