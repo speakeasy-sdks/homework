@@ -26,39 +26,39 @@ func (o *PokemonSpeciesListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// PokemonSpeciesList200ApplicationJSON - OK
-type PokemonSpeciesList200ApplicationJSON struct {
+// PokemonSpeciesListResponseBody - OK
+type PokemonSpeciesListResponseBody struct {
 	// The total number of pokemon species list.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of pokemon species list.
 	Next *string `json:"next,omitempty"`
 	// URL to retrieve the previous page of pokemon species list.
-	Previous *string                 `json:"previous,omitempty"`
-	Results  []shared.PokemonSpecies `json:"results,omitempty"`
+	Previous *string                      `json:"previous,omitempty"`
+	Results  []shared.PokemonSpeciesInput `json:"results,omitempty"`
 }
 
-func (o *PokemonSpeciesList200ApplicationJSON) GetCount() *int64 {
+func (o *PokemonSpeciesListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *PokemonSpeciesList200ApplicationJSON) GetNext() *string {
+func (o *PokemonSpeciesListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *PokemonSpeciesList200ApplicationJSON) GetPrevious() *string {
+func (o *PokemonSpeciesListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *PokemonSpeciesList200ApplicationJSON) GetResults() []shared.PokemonSpecies {
+func (o *PokemonSpeciesListResponseBody) GetResults() []shared.PokemonSpeciesInput {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *PokemonSpeciesList200ApplicationJSON) GetResults() []shared.PokemonSpec
 }
 
 type PokemonSpeciesListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	PokemonSpeciesList200ApplicationJSONObject *PokemonSpeciesList200ApplicationJSON
+	Object *PokemonSpeciesListResponseBody
 }
 
 func (o *PokemonSpeciesListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *PokemonSpeciesListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *PokemonSpeciesListResponse) GetPokemonSpeciesList200ApplicationJSONObject() *PokemonSpeciesList200ApplicationJSON {
+func (o *PokemonSpeciesListResponse) GetObject() *PokemonSpeciesListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.PokemonSpeciesList200ApplicationJSONObject
+	return o.Object
 }
