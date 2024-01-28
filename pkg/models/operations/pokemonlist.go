@@ -26,8 +26,8 @@ func (o *PokemonListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// PokemonList200ApplicationJSON - OK
-type PokemonList200ApplicationJSON struct {
+// PokemonListResponseBody - OK
+type PokemonListResponseBody struct {
 	// The total number of pokemons.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of pokemons.
@@ -37,28 +37,28 @@ type PokemonList200ApplicationJSON struct {
 	Results  []shared.Pokemon `json:"results,omitempty"`
 }
 
-func (o *PokemonList200ApplicationJSON) GetCount() *int64 {
+func (o *PokemonListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *PokemonList200ApplicationJSON) GetNext() *string {
+func (o *PokemonListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *PokemonList200ApplicationJSON) GetPrevious() *string {
+func (o *PokemonListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *PokemonList200ApplicationJSON) GetResults() []shared.Pokemon {
+func (o *PokemonListResponseBody) GetResults() []shared.Pokemon {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *PokemonList200ApplicationJSON) GetResults() []shared.Pokemon {
 }
 
 type PokemonListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	PokemonList200ApplicationJSONObject *PokemonList200ApplicationJSON
+	Object *PokemonListResponseBody
 }
 
 func (o *PokemonListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *PokemonListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *PokemonListResponse) GetPokemonList200ApplicationJSONObject() *PokemonList200ApplicationJSON {
+func (o *PokemonListResponse) GetObject() *PokemonListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.PokemonList200ApplicationJSONObject
+	return o.Object
 }
