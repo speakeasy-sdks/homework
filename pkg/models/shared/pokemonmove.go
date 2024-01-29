@@ -2,28 +2,28 @@
 
 package shared
 
-type PokemonMoveVersionGroupDetails struct {
+type VersionGroupDetails struct {
 	// The minimum level to learn the move
 	LevelLearnedAt  int64            `json:"level_learned_at"`
 	MoveLearnMethod NamedAPIResource `json:"move_learn_method"`
 	VersionGroup    NamedAPIResource `json:"version_group"`
 }
 
-func (o *PokemonMoveVersionGroupDetails) GetLevelLearnedAt() int64 {
+func (o *VersionGroupDetails) GetLevelLearnedAt() int64 {
 	if o == nil {
 		return 0
 	}
 	return o.LevelLearnedAt
 }
 
-func (o *PokemonMoveVersionGroupDetails) GetMoveLearnMethod() NamedAPIResource {
+func (o *VersionGroupDetails) GetMoveLearnMethod() NamedAPIResource {
 	if o == nil {
 		return NamedAPIResource{}
 	}
 	return o.MoveLearnMethod
 }
 
-func (o *PokemonMoveVersionGroupDetails) GetVersionGroup() NamedAPIResource {
+func (o *VersionGroupDetails) GetVersionGroup() NamedAPIResource {
 	if o == nil {
 		return NamedAPIResource{}
 	}
@@ -34,7 +34,7 @@ type PokemonMove struct {
 	Move *NamedAPIResource `json:"move,omitempty"`
 	// A list of details showing how the Pokémon can learn the move
 	//
-	VersionGroupDetails []PokemonMoveVersionGroupDetails `json:"version_group_details,omitempty"`
+	VersionGroupDetails []VersionGroupDetails `json:"version_group_details,omitempty"`
 }
 
 func (o *PokemonMove) GetMove() *NamedAPIResource {
@@ -44,7 +44,7 @@ func (o *PokemonMove) GetMove() *NamedAPIResource {
 	return o.Move
 }
 
-func (o *PokemonMove) GetVersionGroupDetails() []PokemonMoveVersionGroupDetails {
+func (o *PokemonMove) GetVersionGroupDetails() []VersionGroupDetails {
 	if o == nil {
 		return nil
 	}
