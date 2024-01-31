@@ -19,10 +19,13 @@ func (o *PokemonFormReadRequest) GetID() int64 {
 }
 
 type PokemonFormReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
 	PokemonForm *shared.PokemonForm
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 
