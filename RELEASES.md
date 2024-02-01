@@ -29,3 +29,13 @@ Based on:
 - [go v0.1.2] .
 ### Releases
 - [Go v0.1.2] https://github.com/speakeasy-sdks/homework/releases/tag/v0.1.2 - .
+
+## 2024-02-01 00:51:38
+### Changes
+Based on:
+- OpenAPI Doc 20220523 
+- Speakeasy CLI 1.161.0 (2.245.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.2.0] .
+### Releases
+- [Go v0.2.0] https://github.com/speakeasy-sdks/homework/releases/tag/v0.2.0 - .
