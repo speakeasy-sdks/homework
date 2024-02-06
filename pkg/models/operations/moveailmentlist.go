@@ -26,8 +26,8 @@ func (o *MoveAilmentListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// MoveAilmentList200ApplicationJSON - OK
-type MoveAilmentList200ApplicationJSON struct {
+// MoveAilmentListResponseBody - OK
+type MoveAilmentListResponseBody struct {
 	// The total number of move ailments.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of move ailments.
@@ -37,28 +37,28 @@ type MoveAilmentList200ApplicationJSON struct {
 	Results  []shared.MoveAilment `json:"results,omitempty"`
 }
 
-func (o *MoveAilmentList200ApplicationJSON) GetCount() *int64 {
+func (o *MoveAilmentListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *MoveAilmentList200ApplicationJSON) GetNext() *string {
+func (o *MoveAilmentListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *MoveAilmentList200ApplicationJSON) GetPrevious() *string {
+func (o *MoveAilmentListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *MoveAilmentList200ApplicationJSON) GetResults() []shared.MoveAilment {
+func (o *MoveAilmentListResponseBody) GetResults() []shared.MoveAilment {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *MoveAilmentList200ApplicationJSON) GetResults() []shared.MoveAilment {
 }
 
 type MoveAilmentListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	MoveAilmentList200ApplicationJSONObject *MoveAilmentList200ApplicationJSON
+	Object *MoveAilmentListResponseBody
 }
 
 func (o *MoveAilmentListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *MoveAilmentListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *MoveAilmentListResponse) GetMoveAilmentList200ApplicationJSONObject() *MoveAilmentList200ApplicationJSON {
+func (o *MoveAilmentListResponse) GetObject() *MoveAilmentListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.MoveAilmentList200ApplicationJSONObject
+	return o.Object
 }
