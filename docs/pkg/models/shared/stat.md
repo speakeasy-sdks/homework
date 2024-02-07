@@ -1,0 +1,13 @@
+# Stat
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `AffectingMoves`                                                                   | [*shared.MoveStatAffectSets](../../../pkg/models/shared/movestataffectsets.md)     | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `AffectingNatures`                                                                 | [*shared.NatureStatAffectSets](../../../pkg/models/shared/naturestataffectsets.md) | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `GameIndex`                                                                        | *int*                                                                              | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `ID`                                                                               | *int*                                                                              | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `IsBattleOnly`                                                                     | **bool*                                                                            | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `Name`                                                                             | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
