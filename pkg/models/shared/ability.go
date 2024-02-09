@@ -23,41 +23,41 @@ func (o *AbilityGeneration) GetURL() *string {
 	return o.URL
 }
 
-type AbilityNamesLanguage struct {
+type AbilityLanguage struct {
 	// The name of the language.
 	Name *string `json:"name,omitempty"`
 	// The URL of the API endpoint for the language.
 	URL *string `json:"url,omitempty"`
 }
 
-func (o *AbilityNamesLanguage) GetName() *string {
+func (o *AbilityLanguage) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *AbilityNamesLanguage) GetURL() *string {
+func (o *AbilityLanguage) GetURL() *string {
 	if o == nil {
 		return nil
 	}
 	return o.URL
 }
 
-type AbilityNames struct {
-	Language *AbilityNamesLanguage `json:"language,omitempty"`
+type Names struct {
+	Language *AbilityLanguage `json:"language,omitempty"`
 	// The localized name for an API resource in a specific language.
 	Name *string `json:"name,omitempty"`
 }
 
-func (o *AbilityNames) GetLanguage() *AbilityNamesLanguage {
+func (o *Names) GetLanguage() *AbilityLanguage {
 	if o == nil {
 		return nil
 	}
 	return o.Language
 }
 
-func (o *AbilityNames) GetName() *string {
+func (o *Names) GetName() *string {
 	if o == nil {
 		return nil
 	}
@@ -71,8 +71,8 @@ type Ability struct {
 	// Whether or not this ability originated in the main series of the video games.
 	IsMainSeries *bool `json:"is_main_series,omitempty"`
 	// The name for this ability resource.
-	Name  *string        `json:"name,omitempty"`
-	Names []AbilityNames `json:"names,omitempty"`
+	Name  *string `json:"name,omitempty"`
+	Names []Names `json:"names,omitempty"`
 }
 
 func (o *Ability) GetGeneration() *AbilityGeneration {
@@ -103,7 +103,7 @@ func (o *Ability) GetName() *string {
 	return o.Name
 }
 
-func (o *Ability) GetNames() []AbilityNames {
+func (o *Ability) GetNames() []Names {
 	if o == nil {
 		return nil
 	}
