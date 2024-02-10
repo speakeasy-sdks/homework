@@ -26,8 +26,8 @@ func (o *BerryFirmnessListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// BerryFirmnessList200ApplicationJSON - OK
-type BerryFirmnessList200ApplicationJSON struct {
+// BerryFirmnessListResponseBody - OK
+type BerryFirmnessListResponseBody struct {
 	// The total number of berry firmnesses available from this API.
 	Count *int64 `json:"count,omitempty"`
 	// The URL for the next page of results, or null if there are no more results.
@@ -37,28 +37,28 @@ type BerryFirmnessList200ApplicationJSON struct {
 	Results  []shared.BerryFirmness `json:"results,omitempty"`
 }
 
-func (o *BerryFirmnessList200ApplicationJSON) GetCount() *int64 {
+func (o *BerryFirmnessListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *BerryFirmnessList200ApplicationJSON) GetNext() *string {
+func (o *BerryFirmnessListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *BerryFirmnessList200ApplicationJSON) GetPrevious() *string {
+func (o *BerryFirmnessListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *BerryFirmnessList200ApplicationJSON) GetResults() []shared.BerryFirmness {
+func (o *BerryFirmnessListResponseBody) GetResults() []shared.BerryFirmness {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *BerryFirmnessList200ApplicationJSON) GetResults() []shared.BerryFirmnes
 }
 
 type BerryFirmnessListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	BerryFirmnessList200ApplicationJSONObject *BerryFirmnessList200ApplicationJSON
+	Object *BerryFirmnessListResponseBody
 }
 
 func (o *BerryFirmnessListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *BerryFirmnessListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *BerryFirmnessListResponse) GetBerryFirmnessList200ApplicationJSONObject() *BerryFirmnessList200ApplicationJSON {
+func (o *BerryFirmnessListResponse) GetObject() *BerryFirmnessListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.BerryFirmnessList200ApplicationJSONObject
+	return o.Object
 }
