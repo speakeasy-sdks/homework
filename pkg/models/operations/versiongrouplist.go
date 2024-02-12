@@ -26,8 +26,8 @@ func (o *VersionGroupListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// VersionGroupList200ApplicationJSON - OK
-type VersionGroupList200ApplicationJSON struct {
+// VersionGroupListResponseBody - OK
+type VersionGroupListResponseBody struct {
 	// The total number of version groups.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of version groups.
@@ -37,28 +37,28 @@ type VersionGroupList200ApplicationJSON struct {
 	Results  []shared.VersionGroup `json:"results,omitempty"`
 }
 
-func (o *VersionGroupList200ApplicationJSON) GetCount() *int64 {
+func (o *VersionGroupListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *VersionGroupList200ApplicationJSON) GetNext() *string {
+func (o *VersionGroupListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *VersionGroupList200ApplicationJSON) GetPrevious() *string {
+func (o *VersionGroupListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *VersionGroupList200ApplicationJSON) GetResults() []shared.VersionGroup {
+func (o *VersionGroupListResponseBody) GetResults() []shared.VersionGroup {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *VersionGroupList200ApplicationJSON) GetResults() []shared.VersionGroup 
 }
 
 type VersionGroupListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	VersionGroupList200ApplicationJSONObject *VersionGroupList200ApplicationJSON
+	Object *VersionGroupListResponseBody
 }
 
 func (o *VersionGroupListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *VersionGroupListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *VersionGroupListResponse) GetVersionGroupList200ApplicationJSONObject() *VersionGroupList200ApplicationJSON {
+func (o *VersionGroupListResponse) GetObject() *VersionGroupListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.VersionGroupList200ApplicationJSONObject
+	return o.Object
 }
