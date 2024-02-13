@@ -26,8 +26,8 @@ func (o *ItemAttributeListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// ItemAttributeList200ApplicationJSON - OK
-type ItemAttributeList200ApplicationJSON struct {
+// ItemAttributeListResponseBody - OK
+type ItemAttributeListResponseBody struct {
 	// The total number of item attributes.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of item attributes.
@@ -37,28 +37,28 @@ type ItemAttributeList200ApplicationJSON struct {
 	Results  []shared.ItemAttribute `json:"results,omitempty"`
 }
 
-func (o *ItemAttributeList200ApplicationJSON) GetCount() *int64 {
+func (o *ItemAttributeListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *ItemAttributeList200ApplicationJSON) GetNext() *string {
+func (o *ItemAttributeListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *ItemAttributeList200ApplicationJSON) GetPrevious() *string {
+func (o *ItemAttributeListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *ItemAttributeList200ApplicationJSON) GetResults() []shared.ItemAttribute {
+func (o *ItemAttributeListResponseBody) GetResults() []shared.ItemAttribute {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *ItemAttributeList200ApplicationJSON) GetResults() []shared.ItemAttribut
 }
 
 type ItemAttributeListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	ItemAttributeList200ApplicationJSONObject *ItemAttributeList200ApplicationJSON
+	Object *ItemAttributeListResponseBody
 }
 
 func (o *ItemAttributeListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *ItemAttributeListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *ItemAttributeListResponse) GetItemAttributeList200ApplicationJSONObject() *ItemAttributeList200ApplicationJSON {
+func (o *ItemAttributeListResponse) GetObject() *ItemAttributeListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.ItemAttributeList200ApplicationJSONObject
+	return o.Object
 }
