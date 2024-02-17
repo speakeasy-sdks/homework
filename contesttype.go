@@ -6,35 +6,41 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"homework/internal/hooks"
 	"homework/pkg/models/operations"
 	"homework/pkg/models/sdkerrors"
 	"homework/pkg/models/shared"
 	"homework/pkg/utils"
 	"io"
 	"net/http"
-	"strings"
+	"net/url"
 )
 
-type contestType struct {
+type ContestType struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newContestType(sdkConfig sdkConfiguration) *contestType {
-	return &contestType{
+func newContestType(sdkConfig sdkConfiguration) *ContestType {
+	return &ContestType{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
-func (s *contestType) ContestTypeList(ctx context.Context, request operations.ContestTypeListRequest) (*operations.ContestTypeListResponse, error) {
-	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
-	url := strings.TrimSuffix(baseURL, "/") + "/api/v2/contest-type/"
+func (s *ContestType) ContestTypeList(ctx context.Context, request operations.ContestTypeListRequest) (*operations.ContestTypeListResponse, error) {
+	hookCtx := hooks.HookContext{OperationID: "contest-type_list"}
 
-	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
+	opURL, err := url.JoinPath(baseURL, "/api/v2/contest-type/")
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, "GET", opURL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
+	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
 	if err := utils.PopulateQueryParams(ctx, req, request, nil); err != nil {
 		return nil, fmt.Errorf("error populating query params: %w", err)
@@ -42,20 +48,32 @@ func (s *contestType) ContestTypeList(ctx context.Context, request operations.Co
 
 	client := s.sdkConfiguration.DefaultClient
 
-	httpRes, err := client.Do(req)
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
 	if err != nil {
-		return nil, fmt.Errorf("error sending request: %w", err)
-	}
-	if httpRes == nil {
-		return nil, fmt.Errorf("error sending request: no response")
+		return nil, err
 	}
 
-	rawBody, err := io.ReadAll(httpRes.Body)
-	if err != nil {
-		return nil, fmt.Errorf("error reading response body: %w", err)
+	httpRes, err := client.Do(req)
+	if err != nil || httpRes == nil {
+		if err != nil {
+			err = fmt.Errorf("error sending request: %w", err)
+		} else {
+			err = fmt.Errorf("error sending request: no response")
+		}
+
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		return nil, err
+	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		if err != nil {
+			return nil, err
+		}
 	}
-	httpRes.Body.Close()
-	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -64,46 +82,87 @@ func (s *contestType) ContestTypeList(ctx context.Context, request operations.Co
 		ContentType: contentType,
 		RawResponse: httpRes,
 	}
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
+
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
-			var out operations.ContestTypeList200ApplicationJSON
+			var out operations.ContestTypeListResponseBody
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.ContestTypeList200ApplicationJSONObject = &out
+			res.Object = &out
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil
 }
 
-func (s *contestType) ContestTypeRead(ctx context.Context, request operations.ContestTypeReadRequest) (*operations.ContestTypeReadResponse, error) {
+func (s *ContestType) ContestTypeRead(ctx context.Context, request operations.ContestTypeReadRequest) (*operations.ContestTypeReadResponse, error) {
+	hookCtx := hooks.HookContext{OperationID: "contest-type_read"}
+
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
-	url, err := utils.GenerateURL(ctx, baseURL, "/api/v2/contest-type/{id}/", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/api/v2/contest-type/{id}/", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
 
-	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+	req, err := http.NewRequestWithContext(ctx, "GET", opURL, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
+	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
 	client := s.sdkConfiguration.DefaultClient
 
-	httpRes, err := client.Do(req)
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
 	if err != nil {
-		return nil, fmt.Errorf("error sending request: %w", err)
+		return nil, err
 	}
-	if httpRes == nil {
-		return nil, fmt.Errorf("error sending request: no response")
+
+	httpRes, err := client.Do(req)
+	if err != nil || httpRes == nil {
+		if err != nil {
+			err = fmt.Errorf("error sending request: %w", err)
+		} else {
+			err = fmt.Errorf("error sending request: no response")
+		}
+
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		return nil, err
+	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	contentType := httpRes.Header.Get("Content-Type")
+
+	res := &operations.ContestTypeReadResponse{
+		StatusCode:  httpRes.StatusCode,
+		ContentType: contentType,
+		RawResponse: httpRes,
 	}
 
 	rawBody, err := io.ReadAll(httpRes.Body)
@@ -113,13 +172,6 @@ func (s *contestType) ContestTypeRead(ctx context.Context, request operations.Co
 	httpRes.Body.Close()
 	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
-	contentType := httpRes.Header.Get("Content-Type")
-
-	res := &operations.ContestTypeReadResponse{
-		StatusCode:  httpRes.StatusCode,
-		ContentType: contentType,
-		RawResponse: httpRes,
-	}
 	switch {
 	case httpRes.StatusCode == 200:
 		switch {
@@ -133,6 +185,10 @@ func (s *contestType) ContestTypeRead(ctx context.Context, request operations.Co
 		default:
 			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
+	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
+		fallthrough
+	case httpRes.StatusCode >= 500 && httpRes.StatusCode < 600:
+		return nil, sdkerrors.NewSDKError("API error occurred", httpRes.StatusCode, string(rawBody), httpRes)
 	}
 
 	return res, nil

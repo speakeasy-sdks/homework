@@ -19,10 +19,13 @@ func (o *MoveAilmentReadRequest) GetID() int64 {
 }
 
 type MoveAilmentReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
 	MoveAilment *shared.MoveAilment
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 

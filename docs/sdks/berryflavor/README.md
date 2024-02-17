@@ -1,4 +1,5 @@
 # BerryFlavor
+(*BerryFlavor*)
 
 ### Available Operations
 
@@ -13,25 +14,22 @@
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.BerryFlavor.BerryFlavorList(ctx, operations.BerryFlavorListRequest{
-        Limit: homework.Int64(297534),
-        Offset: homework.Int64(891773),
-    })
+    res, err := s.BerryFlavor.BerryFlavorList(ctx, operations.BerryFlavorListRequest{})
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.BerryFlavorList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -39,16 +37,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.BerryFlavorListRequest](../../models/operations/berryflavorlistrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.BerryFlavorListRequest](../../pkg/models/operations/berryflavorlistrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
-**[*operations.BerryFlavorListResponse](../../models/operations/berryflavorlistresponse.md), error**
-
+**[*operations.BerryFlavorListResponse](../../pkg/models/operations/berryflavorlistresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## BerryFlavorRead
 
@@ -58,10 +58,10 @@ func main() {
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
@@ -69,7 +69,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.BerryFlavor.BerryFlavorRead(ctx, operations.BerryFlavorReadRequest{
-        ID: 56713,
+        ID: 678235,
     })
     if err != nil {
         log.Fatal(err)
@@ -83,13 +83,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.BerryFlavorReadRequest](../../models/operations/berryflavorreadrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.BerryFlavorReadRequest](../../pkg/models/operations/berryflavorreadrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
-**[*operations.BerryFlavorReadResponse](../../models/operations/berryflavorreadresponse.md), error**
-
+**[*operations.BerryFlavorReadResponse](../../pkg/models/operations/berryflavorreadresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
