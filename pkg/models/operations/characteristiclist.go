@@ -27,18 +27,14 @@ func (o *CharacteristicListRequest) GetOffset() *int64 {
 }
 
 type CharacteristicListResponse struct {
+	// HTTP response content type for this operation
+	ContentType string
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 	// Successful response with a list of characteristics
-	Characteristics []shared.Characteristic
-	ContentType     string
-	StatusCode      int
-	RawResponse     *http.Response
-}
-
-func (o *CharacteristicListResponse) GetCharacteristics() []shared.Characteristic {
-	if o == nil {
-		return nil
-	}
-	return o.Characteristics
+	Classes []shared.Characteristic
 }
 
 func (o *CharacteristicListResponse) GetContentType() string {
@@ -60,4 +56,11 @@ func (o *CharacteristicListResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *CharacteristicListResponse) GetClasses() []shared.Characteristic {
+	if o == nil {
+		return nil
+	}
+	return o.Classes
 }

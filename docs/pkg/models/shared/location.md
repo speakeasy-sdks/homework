@@ -1,0 +1,13 @@
+# Location
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `Areas`                                                                           | [][shared.NamedAPIResource](../../../pkg/models/shared/namedapiresource.md)       | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `GameIndices`                                                                     | [][shared.GenerationGameIndex](../../../pkg/models/shared/generationgameindex.md) | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `ID`                                                                              | **int*                                                                            | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `Name`                                                                            | **string*                                                                         | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `Names`                                                                           | [][shared.Name](../../../pkg/models/shared/name.md)                               | :heavy_minus_sign:                                                                | N/A                                                                               |
+| `Region`                                                                          | [*shared.NamedAPIResource](../../../pkg/models/shared/namedapiresource.md)        | :heavy_minus_sign:                                                                | N/A                                                                               |
