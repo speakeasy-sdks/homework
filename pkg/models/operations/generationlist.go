@@ -26,8 +26,8 @@ func (o *GenerationListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// GenerationList200ApplicationJSON - OK
-type GenerationList200ApplicationJSON struct {
+// GenerationListResponseBody - OK
+type GenerationListResponseBody struct {
 	// The total number of generations.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of generations.
@@ -37,28 +37,28 @@ type GenerationList200ApplicationJSON struct {
 	Results  []shared.Generation `json:"results,omitempty"`
 }
 
-func (o *GenerationList200ApplicationJSON) GetCount() *int64 {
+func (o *GenerationListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *GenerationList200ApplicationJSON) GetNext() *string {
+func (o *GenerationListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *GenerationList200ApplicationJSON) GetPrevious() *string {
+func (o *GenerationListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *GenerationList200ApplicationJSON) GetResults() []shared.Generation {
+func (o *GenerationListResponseBody) GetResults() []shared.Generation {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *GenerationList200ApplicationJSON) GetResults() []shared.Generation {
 }
 
 type GenerationListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	GenerationList200ApplicationJSONObject *GenerationList200ApplicationJSON
+	Object *GenerationListResponseBody
 }
 
 func (o *GenerationListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *GenerationListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *GenerationListResponse) GetGenerationList200ApplicationJSONObject() *GenerationList200ApplicationJSON {
+func (o *GenerationListResponse) GetObject() *GenerationListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.GenerationList200ApplicationJSONObject
+	return o.Object
 }
