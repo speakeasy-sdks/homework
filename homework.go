@@ -4,6 +4,7 @@ package homework
 
 import (
 	"fmt"
+	"homework/internal/hooks"
 	"homework/pkg/utils"
 	"net/http"
 	"time"
@@ -47,7 +48,9 @@ type sdkConfiguration struct {
 	OpenAPIDocVersion string
 	SDKVersion        string
 	GenVersion        string
+	UserAgent         string
 	RetryConfig       *utils.RetryConfig
+	Hooks             *hooks.Hooks
 }
 
 func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
@@ -59,54 +62,54 @@ func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
 }
 
 type Homework struct {
-	Ability                 *ability
-	Berry                   *berry
-	BerryFirmness           *berryFirmness
-	BerryFlavor             *berryFlavor
-	Characteristic          *characteristic
-	ContestEffect           *contestEffect
-	ContestType             *contestType
-	EggGroup                *eggGroup
-	EncounterCondition      *encounterCondition
-	EncounterConditionValue *encounterConditionValue
-	EncounterMethod         *encounterMethod
-	EvolutionChain          *evolutionChain
-	EvolutionTrigger        *evolutionTrigger
-	Gender                  *gender
-	Generation              *generation
-	GrowthRate              *growthRate
-	Item                    *item
-	ItemAttribute           *itemAttribute
-	ItemCategory            *itemCategory
-	ItemFlingEffect         *itemFlingEffect
-	ItemPocket              *itemPocket
-	Language                *language
-	Location                *location
-	LocationArea            *locationArea
-	Machine                 *machine
-	Move                    *move
-	MoveAilment             *moveAilment
-	MoveBattleStyle         *moveBattleStyle
-	MoveCategory            *moveCategory
-	MoveDamageClass         *moveDamageClass
-	MoveLearnMethod         *moveLearnMethod
-	MoveTarget              *moveTarget
-	Nature                  *nature
-	PalParkArea             *palParkArea
-	PokeathlonStat          *pokeathlonStat
-	Pokedex                 *pokedex
-	Pokemon                 *pokemon
-	PokemonColor            *pokemonColor
-	PokemonForm             *pokemonForm
-	PokemonHabitat          *pokemonHabitat
-	PokemonShape            *pokemonShape
-	PokemonSpecies          *pokemonSpecies
-	Region                  *region
-	Stat                    *stat
-	SuperContestEffect      *superContestEffect
-	Type                    *typeT
-	Version                 *version
-	VersionGroup            *versionGroup
+	Ability                 *Ability
+	BerryFirmness           *BerryFirmness
+	BerryFlavor             *BerryFlavor
+	Berry                   *Berry
+	Characteristic          *Characteristic
+	ContestEffect           *ContestEffect
+	ContestType             *ContestType
+	EggGroup                *EggGroup
+	EncounterConditionValue *EncounterConditionValue
+	EncounterCondition      *EncounterCondition
+	EncounterMethod         *EncounterMethod
+	EvolutionChain          *EvolutionChain
+	EvolutionTrigger        *EvolutionTrigger
+	Gender                  *Gender
+	Generation              *Generation
+	GrowthRate              *GrowthRate
+	ItemAttribute           *ItemAttribute
+	ItemCategory            *ItemCategory
+	ItemFlingEffect         *ItemFlingEffect
+	ItemPocket              *ItemPocket
+	Item                    *Item
+	Language                *Language
+	LocationArea            *LocationArea
+	Location                *Location
+	Machine                 *Machine
+	MoveAilment             *MoveAilment
+	MoveBattleStyle         *MoveBattleStyle
+	MoveCategory            *MoveCategory
+	MoveDamageClass         *MoveDamageClass
+	MoveLearnMethod         *MoveLearnMethod
+	MoveTarget              *MoveTarget
+	Move                    *Move
+	Nature                  *Nature
+	PalParkArea             *PalParkArea
+	PokeathlonStat          *PokeathlonStat
+	Pokedex                 *Pokedex
+	PokemonColor            *PokemonColor
+	PokemonForm             *PokemonForm
+	PokemonHabitat          *PokemonHabitat
+	PokemonShape            *PokemonShape
+	PokemonSpecies          *PokemonSpecies
+	Pokemon                 *Pokemon
+	Region                  *Region
+	Stat                    *Stat
+	SuperContestEffect      *SuperContestEffect
+	Type                    *Type
+	VersionGroup            *VersionGroup
+	Version                 *Version
 
 	sdkConfiguration sdkConfiguration
 }
@@ -161,13 +164,17 @@ func New(opts ...SDKOption) *Homework {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "20220523",
-			SDKVersion:        "0.1.2",
-			GenVersion:        "2.125.1",
+			SDKVersion:        "0.2.0",
+			GenVersion:        "2.269.0",
+			UserAgent:         "speakeasy-sdk/go 0.2.0 2.269.0 20220523 homework",
+			Hooks:             hooks.New(),
 		},
 	}
 	for _, opt := range opts {
 		opt(sdk)
 	}
+
+	sdk.sdkConfiguration.DefaultClient = sdk.sdkConfiguration.Hooks.ClientInit(sdk.sdkConfiguration.DefaultClient)
 
 	// Use WithClient to override the default client if you would like to customize the timeout
 	if sdk.sdkConfiguration.DefaultClient == nil {
@@ -179,11 +186,11 @@ func New(opts ...SDKOption) *Homework {
 
 	sdk.Ability = newAbility(sdk.sdkConfiguration)
 
-	sdk.Berry = newBerry(sdk.sdkConfiguration)
-
 	sdk.BerryFirmness = newBerryFirmness(sdk.sdkConfiguration)
 
 	sdk.BerryFlavor = newBerryFlavor(sdk.sdkConfiguration)
+
+	sdk.Berry = newBerry(sdk.sdkConfiguration)
 
 	sdk.Characteristic = newCharacteristic(sdk.sdkConfiguration)
 
@@ -193,9 +200,9 @@ func New(opts ...SDKOption) *Homework {
 
 	sdk.EggGroup = newEggGroup(sdk.sdkConfiguration)
 
-	sdk.EncounterCondition = newEncounterCondition(sdk.sdkConfiguration)
-
 	sdk.EncounterConditionValue = newEncounterConditionValue(sdk.sdkConfiguration)
+
+	sdk.EncounterCondition = newEncounterCondition(sdk.sdkConfiguration)
 
 	sdk.EncounterMethod = newEncounterMethod(sdk.sdkConfiguration)
 
@@ -209,8 +216,6 @@ func New(opts ...SDKOption) *Homework {
 
 	sdk.GrowthRate = newGrowthRate(sdk.sdkConfiguration)
 
-	sdk.Item = newItem(sdk.sdkConfiguration)
-
 	sdk.ItemAttribute = newItemAttribute(sdk.sdkConfiguration)
 
 	sdk.ItemCategory = newItemCategory(sdk.sdkConfiguration)
@@ -219,15 +224,15 @@ func New(opts ...SDKOption) *Homework {
 
 	sdk.ItemPocket = newItemPocket(sdk.sdkConfiguration)
 
-	sdk.Language = newLanguage(sdk.sdkConfiguration)
+	sdk.Item = newItem(sdk.sdkConfiguration)
 
-	sdk.Location = newLocation(sdk.sdkConfiguration)
+	sdk.Language = newLanguage(sdk.sdkConfiguration)
 
 	sdk.LocationArea = newLocationArea(sdk.sdkConfiguration)
 
-	sdk.Machine = newMachine(sdk.sdkConfiguration)
+	sdk.Location = newLocation(sdk.sdkConfiguration)
 
-	sdk.Move = newMove(sdk.sdkConfiguration)
+	sdk.Machine = newMachine(sdk.sdkConfiguration)
 
 	sdk.MoveAilment = newMoveAilment(sdk.sdkConfiguration)
 
@@ -241,6 +246,8 @@ func New(opts ...SDKOption) *Homework {
 
 	sdk.MoveTarget = newMoveTarget(sdk.sdkConfiguration)
 
+	sdk.Move = newMove(sdk.sdkConfiguration)
+
 	sdk.Nature = newNature(sdk.sdkConfiguration)
 
 	sdk.PalParkArea = newPalParkArea(sdk.sdkConfiguration)
@@ -248,8 +255,6 @@ func New(opts ...SDKOption) *Homework {
 	sdk.PokeathlonStat = newPokeathlonStat(sdk.sdkConfiguration)
 
 	sdk.Pokedex = newPokedex(sdk.sdkConfiguration)
-
-	sdk.Pokemon = newPokemon(sdk.sdkConfiguration)
 
 	sdk.PokemonColor = newPokemonColor(sdk.sdkConfiguration)
 
@@ -261,6 +266,8 @@ func New(opts ...SDKOption) *Homework {
 
 	sdk.PokemonSpecies = newPokemonSpecies(sdk.sdkConfiguration)
 
+	sdk.Pokemon = newPokemon(sdk.sdkConfiguration)
+
 	sdk.Region = newRegion(sdk.sdkConfiguration)
 
 	sdk.Stat = newStat(sdk.sdkConfiguration)
@@ -269,9 +276,9 @@ func New(opts ...SDKOption) *Homework {
 
 	sdk.Type = newType(sdk.sdkConfiguration)
 
-	sdk.Version = newVersion(sdk.sdkConfiguration)
-
 	sdk.VersionGroup = newVersionGroup(sdk.sdkConfiguration)
+
+	sdk.Version = newVersion(sdk.sdkConfiguration)
 
 	return sdk
 }
