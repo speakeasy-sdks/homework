@@ -26,8 +26,8 @@ func (o *LocationAreaListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// LocationAreaList200ApplicationJSON - OK
-type LocationAreaList200ApplicationJSON struct {
+// LocationAreaListResponseBody - OK
+type LocationAreaListResponseBody struct {
 	// The total number of location areas.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of location areas.
@@ -37,28 +37,28 @@ type LocationAreaList200ApplicationJSON struct {
 	Results  []shared.LocationArea `json:"results,omitempty"`
 }
 
-func (o *LocationAreaList200ApplicationJSON) GetCount() *int64 {
+func (o *LocationAreaListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *LocationAreaList200ApplicationJSON) GetNext() *string {
+func (o *LocationAreaListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *LocationAreaList200ApplicationJSON) GetPrevious() *string {
+func (o *LocationAreaListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *LocationAreaList200ApplicationJSON) GetResults() []shared.LocationArea {
+func (o *LocationAreaListResponseBody) GetResults() []shared.LocationArea {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *LocationAreaList200ApplicationJSON) GetResults() []shared.LocationArea 
 }
 
 type LocationAreaListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	LocationAreaList200ApplicationJSONObject *LocationAreaList200ApplicationJSON
+	Object *LocationAreaListResponseBody
 }
 
 func (o *LocationAreaListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *LocationAreaListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *LocationAreaListResponse) GetLocationAreaList200ApplicationJSONObject() *LocationAreaList200ApplicationJSON {
+func (o *LocationAreaListResponse) GetObject() *LocationAreaListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.LocationAreaList200ApplicationJSONObject
+	return o.Object
 }
