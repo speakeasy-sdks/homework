@@ -19,11 +19,14 @@ func (o *MoveCategoryReadRequest) GetID() int64 {
 }
 
 type MoveCategoryReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
 	MoveCategory *shared.MoveCategory
-	StatusCode   int
-	RawResponse  *http.Response
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 }
 
 func (o *MoveCategoryReadResponse) GetContentType() string {

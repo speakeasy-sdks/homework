@@ -26,8 +26,8 @@ func (o *PalParkAreaListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// PalParkAreaList200ApplicationJSON - OK
-type PalParkAreaList200ApplicationJSON struct {
+// PalParkAreaListResponseBody - OK
+type PalParkAreaListResponseBody struct {
 	// The total number of pal park areas.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of pal park areas.
@@ -37,28 +37,28 @@ type PalParkAreaList200ApplicationJSON struct {
 	Results  []shared.PalParkArea `json:"results,omitempty"`
 }
 
-func (o *PalParkAreaList200ApplicationJSON) GetCount() *int64 {
+func (o *PalParkAreaListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *PalParkAreaList200ApplicationJSON) GetNext() *string {
+func (o *PalParkAreaListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *PalParkAreaList200ApplicationJSON) GetPrevious() *string {
+func (o *PalParkAreaListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *PalParkAreaList200ApplicationJSON) GetResults() []shared.PalParkArea {
+func (o *PalParkAreaListResponseBody) GetResults() []shared.PalParkArea {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *PalParkAreaList200ApplicationJSON) GetResults() []shared.PalParkArea {
 }
 
 type PalParkAreaListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	PalParkAreaList200ApplicationJSONObject *PalParkAreaList200ApplicationJSON
+	Object *PalParkAreaListResponseBody
 }
 
 func (o *PalParkAreaListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *PalParkAreaListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *PalParkAreaListResponse) GetPalParkAreaList200ApplicationJSONObject() *PalParkAreaList200ApplicationJSON {
+func (o *PalParkAreaListResponse) GetObject() *PalParkAreaListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.PalParkAreaList200ApplicationJSONObject
+	return o.Object
 }
