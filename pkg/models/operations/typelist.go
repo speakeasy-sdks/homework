@@ -26,8 +26,8 @@ func (o *TypeListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// TypeList200ApplicationJSON - OK
-type TypeList200ApplicationJSON struct {
+// TypeListResponseBody - OK
+type TypeListResponseBody struct {
 	// The total number of types.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of types.
@@ -37,28 +37,28 @@ type TypeList200ApplicationJSON struct {
 	Results  []shared.Type `json:"results,omitempty"`
 }
 
-func (o *TypeList200ApplicationJSON) GetCount() *int64 {
+func (o *TypeListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *TypeList200ApplicationJSON) GetNext() *string {
+func (o *TypeListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *TypeList200ApplicationJSON) GetPrevious() *string {
+func (o *TypeListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *TypeList200ApplicationJSON) GetResults() []shared.Type {
+func (o *TypeListResponseBody) GetResults() []shared.Type {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *TypeList200ApplicationJSON) GetResults() []shared.Type {
 }
 
 type TypeListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	TypeList200ApplicationJSONObject *TypeList200ApplicationJSON
+	Object *TypeListResponseBody
 }
 
 func (o *TypeListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *TypeListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *TypeListResponse) GetTypeList200ApplicationJSONObject() *TypeList200ApplicationJSON {
+func (o *TypeListResponse) GetObject() *TypeListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.TypeList200ApplicationJSONObject
+	return o.Object
 }
