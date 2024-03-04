@@ -26,8 +26,8 @@ func (o *EncounterMethodListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// EncounterMethodList200ApplicationJSON - OK
-type EncounterMethodList200ApplicationJSON struct {
+// EncounterMethodListResponseBody - OK
+type EncounterMethodListResponseBody struct {
 	// The total number of encounter methods.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of encounter methods.
@@ -37,28 +37,28 @@ type EncounterMethodList200ApplicationJSON struct {
 	Results  []shared.EncounterMethod `json:"results,omitempty"`
 }
 
-func (o *EncounterMethodList200ApplicationJSON) GetCount() *int64 {
+func (o *EncounterMethodListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *EncounterMethodList200ApplicationJSON) GetNext() *string {
+func (o *EncounterMethodListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *EncounterMethodList200ApplicationJSON) GetPrevious() *string {
+func (o *EncounterMethodListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *EncounterMethodList200ApplicationJSON) GetResults() []shared.EncounterMethod {
+func (o *EncounterMethodListResponseBody) GetResults() []shared.EncounterMethod {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *EncounterMethodList200ApplicationJSON) GetResults() []shared.EncounterM
 }
 
 type EncounterMethodListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	EncounterMethodList200ApplicationJSONObject *EncounterMethodList200ApplicationJSON
+	Object *EncounterMethodListResponseBody
 }
 
 func (o *EncounterMethodListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *EncounterMethodListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *EncounterMethodListResponse) GetEncounterMethodList200ApplicationJSONObject() *EncounterMethodList200ApplicationJSON {
+func (o *EncounterMethodListResponse) GetObject() *EncounterMethodListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.EncounterMethodList200ApplicationJSONObject
+	return o.Object
 }
