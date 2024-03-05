@@ -26,39 +26,39 @@ func (o *MoveListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// MoveList200ApplicationJSON - OK
-type MoveList200ApplicationJSON struct {
+// MoveListResponseBody - OK
+type MoveListResponseBody struct {
 	// The total number of moves.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of moves.
 	Next *string `json:"next,omitempty"`
 	// URL to retrieve the previous page of moves.
-	Previous *string       `json:"previous,omitempty"`
-	Results  []shared.Move `json:"results,omitempty"`
+	Previous *string            `json:"previous,omitempty"`
+	Results  []shared.MoveInput `json:"results,omitempty"`
 }
 
-func (o *MoveList200ApplicationJSON) GetCount() *int64 {
+func (o *MoveListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *MoveList200ApplicationJSON) GetNext() *string {
+func (o *MoveListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *MoveList200ApplicationJSON) GetPrevious() *string {
+func (o *MoveListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *MoveList200ApplicationJSON) GetResults() []shared.Move {
+func (o *MoveListResponseBody) GetResults() []shared.MoveInput {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *MoveList200ApplicationJSON) GetResults() []shared.Move {
 }
 
 type MoveListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	MoveList200ApplicationJSONObject *MoveList200ApplicationJSON
+	Object *MoveListResponseBody
 }
 
 func (o *MoveListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *MoveListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *MoveListResponse) GetMoveList200ApplicationJSONObject() *MoveList200ApplicationJSON {
+func (o *MoveListResponse) GetObject() *MoveListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.MoveList200ApplicationJSONObject
+	return o.Object
 }
