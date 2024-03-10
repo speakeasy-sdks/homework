@@ -6,58 +6,52 @@
     
 </div>
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ```bash
 go get github.com/speakeasy-sdks/homework
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
+
+### Example
+
 ```go
 package main
 
-import(
+import (
 	"context"
-	"log"
 	"homework"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
-    s := homework.New()
+	s := homework.New()
 
-    ctx := context.Background()
-    res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{
-        Limit: homework.Int64(715190),
-        Offset: homework.Int64(844266),
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.AbilityList200ApplicationJSONObject != nil {
-        // handle response
-    }
+	ctx := context.Background()
+	res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{})
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.Object != nil {
+		// handle response
+	}
 }
+
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [Ability](docs/sdks/ability/README.md)
 
 * [AbilityList](docs/sdks/ability/README.md#abilitylist)
 * [AbilityRead](docs/sdks/ability/README.md#abilityread)
-
-### [Berry](docs/sdks/berry/README.md)
-
-* [BerryList](docs/sdks/berry/README.md#berrylist)
-* [BerryRead](docs/sdks/berry/README.md#berryread)
 
 ### [BerryFirmness](docs/sdks/berryfirmness/README.md)
 
@@ -68,6 +62,11 @@ func main() {
 
 * [BerryFlavorList](docs/sdks/berryflavor/README.md#berryflavorlist)
 * [BerryFlavorRead](docs/sdks/berryflavor/README.md#berryflavorread)
+
+### [Berry](docs/sdks/berry/README.md)
+
+* [BerryList](docs/sdks/berry/README.md#berrylist)
+* [BerryRead](docs/sdks/berry/README.md#berryread)
 
 ### [Characteristic](docs/sdks/characteristic/README.md)
 
@@ -89,15 +88,15 @@ func main() {
 * [EggGroupList](docs/sdks/egggroup/README.md#egggrouplist)
 * [EggGroupRead](docs/sdks/egggroup/README.md#egggroupread)
 
-### [EncounterCondition](docs/sdks/encountercondition/README.md)
-
-* [EncounterConditionList](docs/sdks/encountercondition/README.md#encounterconditionlist)
-* [EncounterConditionRead](docs/sdks/encountercondition/README.md#encounterconditionread)
-
 ### [EncounterConditionValue](docs/sdks/encounterconditionvalue/README.md)
 
 * [EncounterConditionValueList](docs/sdks/encounterconditionvalue/README.md#encounterconditionvaluelist)
 * [EncounterConditionValueRead](docs/sdks/encounterconditionvalue/README.md#encounterconditionvalueread)
+
+### [EncounterCondition](docs/sdks/encountercondition/README.md)
+
+* [EncounterConditionList](docs/sdks/encountercondition/README.md#encounterconditionlist)
+* [EncounterConditionRead](docs/sdks/encountercondition/README.md#encounterconditionread)
 
 ### [EncounterMethod](docs/sdks/encountermethod/README.md)
 
@@ -129,11 +128,6 @@ func main() {
 * [GrowthRateList](docs/sdks/growthrate/README.md#growthratelist)
 * [GrowthRateRead](docs/sdks/growthrate/README.md#growthrateread)
 
-### [Item](docs/sdks/item/README.md)
-
-* [ItemList](docs/sdks/item/README.md#itemlist)
-* [ItemRead](docs/sdks/item/README.md#itemread)
-
 ### [ItemAttribute](docs/sdks/itemattribute/README.md)
 
 * [ItemAttributeList](docs/sdks/itemattribute/README.md#itemattributelist)
@@ -154,30 +148,30 @@ func main() {
 * [ItemPocketList](docs/sdks/itempocket/README.md#itempocketlist)
 * [ItemPocketRead](docs/sdks/itempocket/README.md#itempocketread)
 
+### [Item](docs/sdks/item/README.md)
+
+* [ItemList](docs/sdks/item/README.md#itemlist)
+* [ItemRead](docs/sdks/item/README.md#itemread)
+
 ### [Language](docs/sdks/language/README.md)
 
 * [LanguageList](docs/sdks/language/README.md#languagelist)
 * [LanguageRead](docs/sdks/language/README.md#languageread)
-
-### [Location](docs/sdks/location/README.md)
-
-* [LocationList](docs/sdks/location/README.md#locationlist)
-* [LocationRead](docs/sdks/location/README.md#locationread)
 
 ### [LocationArea](docs/sdks/locationarea/README.md)
 
 * [LocationAreaList](docs/sdks/locationarea/README.md#locationarealist)
 * [LocationAreaRead](docs/sdks/locationarea/README.md#locationarearead)
 
+### [Location](docs/sdks/location/README.md)
+
+* [LocationList](docs/sdks/location/README.md#locationlist)
+* [LocationRead](docs/sdks/location/README.md#locationread)
+
 ### [Machine](docs/sdks/machine/README.md)
 
 * [MachineList](docs/sdks/machine/README.md#machinelist)
 * [MachineRead](docs/sdks/machine/README.md#machineread)
-
-### [Move](docs/sdks/move/README.md)
-
-* [MoveList](docs/sdks/move/README.md#movelist)
-* [MoveRead](docs/sdks/move/README.md#moveread)
 
 ### [MoveAilment](docs/sdks/moveailment/README.md)
 
@@ -209,6 +203,11 @@ func main() {
 * [MoveTargetList](docs/sdks/movetarget/README.md#movetargetlist)
 * [MoveTargetRead](docs/sdks/movetarget/README.md#movetargetread)
 
+### [Move](docs/sdks/move/README.md)
+
+* [MoveList](docs/sdks/move/README.md#movelist)
+* [MoveRead](docs/sdks/move/README.md#moveread)
+
 ### [Nature](docs/sdks/nature/README.md)
 
 * [NatureList](docs/sdks/nature/README.md#naturelist)
@@ -228,11 +227,6 @@ func main() {
 
 * [PokedexList](docs/sdks/pokedex/README.md#pokedexlist)
 * [PokedexRead](docs/sdks/pokedex/README.md#pokedexread)
-
-### [Pokemon](docs/sdks/pokemon/README.md)
-
-* [PokemonList](docs/sdks/pokemon/README.md#pokemonlist)
-* [PokemonRead](docs/sdks/pokemon/README.md#pokemonread)
 
 ### [PokemonColor](docs/sdks/pokemoncolor/README.md)
 
@@ -259,6 +253,11 @@ func main() {
 * [PokemonSpeciesList](docs/sdks/pokemonspecies/README.md#pokemonspecieslist)
 * [PokemonSpeciesRead](docs/sdks/pokemonspecies/README.md#pokemonspeciesread)
 
+### [Pokemon](docs/sdks/pokemon/README.md)
+
+* [PokemonList](docs/sdks/pokemon/README.md#pokemonlist)
+* [PokemonRead](docs/sdks/pokemon/README.md#pokemonread)
+
 ### [Region](docs/sdks/region/README.md)
 
 * [RegionList](docs/sdks/region/README.md#regionlist)
@@ -279,44 +278,170 @@ func main() {
 * [TypeList](docs/sdks/type/README.md#typelist)
 * [TypeRead](docs/sdks/type/README.md#typeread)
 
-### [Version](docs/sdks/version/README.md)
-
-* [VersionList](docs/sdks/version/README.md#versionlist)
-* [VersionRead](docs/sdks/version/README.md#versionread)
-
 ### [VersionGroup](docs/sdks/versiongroup/README.md)
 
 * [VersionGroupList](docs/sdks/versiongroup/README.md#versiongrouplist)
 * [VersionGroupRead](docs/sdks/versiongroup/README.md#versiongroupread)
-<!-- End SDK Available Operations -->
+
+### [Version](docs/sdks/version/README.md)
+
+* [VersionList](docs/sdks/version/README.md#versionlist)
+* [VersionRead](docs/sdks/version/README.md#versionread)
+<!-- End Available Resources and Operations [operations] -->
 
 
 
-<!-- Start Dev Containers -->
 
 
 
-<!-- End Dev Containers -->
+
+<!-- Start Special Types [types] -->
+## Special Types
 
 
+<!-- End Special Types [types] -->
 
-<!-- Start Pagination -->
-# Pagination
+<!-- Start Error Handling [errors] -->
+## Error Handling
 
-Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
-returned response object will have a `Next` method that can be called to pull down the next group of results. If the
-return value of `Next` is `nil`, then there are no more pages to be fetched.
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
 
-Here's an example of one such pagination call:
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"errors"
+	"homework"
+	"homework/pkg/models/operations"
+	"homework/pkg/models/sdkerrors"
+	"log"
+)
+
+func main() {
+	s := homework.New()
+
+	ctx := context.Background()
+	res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{})
+	if err != nil {
+
+		var e *sdkerrors.SDKError
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+	}
+}
+
+```
+<!-- End Error Handling [errors] -->
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://pokeapi.co/` | None |
+
+#### Example
+
+```go
+package main
+
+import (
+	"context"
+	"homework"
+	"homework/pkg/models/operations"
+	"log"
+)
+
+func main() {
+	s := homework.New(
+		homework.WithServerIndex(0),
+	)
+
+	ctx := context.Background()
+	res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{})
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.Object != nil {
+		// handle response
+	}
+}
+
+```
 
 
-<!-- End Pagination -->
+### Override Server URL Per-Client
 
+The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
+```go
+package main
 
+import (
+	"context"
+	"homework"
+	"homework/pkg/models/operations"
+	"log"
+)
 
-<!-- Start Go Types -->
+func main() {
+	s := homework.New(
+		homework.WithServerURL("https://pokeapi.co/"),
+	)
 
-<!-- End Go Types -->
+	ctx := context.Background()
+	res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{})
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.Object != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Server Selection [server] -->
+
+<!-- Start Custom HTTP Client [http-client] -->
+## Custom HTTP Client
+
+The Go SDK makes API calls that wrap an internal HTTP client. The requirements for the HTTP client are very simple. It must match this interface:
+
+```go
+type HTTPClient interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+```
+
+The built-in `net/http` client satisfies this interface and a default client based on the built-in is provided by default. To replace this default with a client of your own, you can implement this interface yourself or provide your own client configured as desired. Here's a simple example, which adds a client with a 30 second timeout.
+
+```go
+import (
+	"net/http"
+	"time"
+	"github.com/myorg/your-go-sdk"
+)
+
+var (
+	httpClient = &http.Client{Timeout: 30 * time.Second}
+	sdkClient  = sdk.New(sdk.WithClient(httpClient))
+)
+```
+
+This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
+<!-- End Custom HTTP Client [http-client] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
