@@ -26,8 +26,8 @@ func (o *PokemonHabitatListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// PokemonHabitatList200ApplicationJSON - OK
-type PokemonHabitatList200ApplicationJSON struct {
+// PokemonHabitatListResponseBody - OK
+type PokemonHabitatListResponseBody struct {
 	// The total number of pokemon habitats.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of pokemon habitats.
@@ -37,28 +37,28 @@ type PokemonHabitatList200ApplicationJSON struct {
 	Results  []shared.PokemonHabitat `json:"results,omitempty"`
 }
 
-func (o *PokemonHabitatList200ApplicationJSON) GetCount() *int64 {
+func (o *PokemonHabitatListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *PokemonHabitatList200ApplicationJSON) GetNext() *string {
+func (o *PokemonHabitatListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *PokemonHabitatList200ApplicationJSON) GetPrevious() *string {
+func (o *PokemonHabitatListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *PokemonHabitatList200ApplicationJSON) GetResults() []shared.PokemonHabitat {
+func (o *PokemonHabitatListResponseBody) GetResults() []shared.PokemonHabitat {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *PokemonHabitatList200ApplicationJSON) GetResults() []shared.PokemonHabi
 }
 
 type PokemonHabitatListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	PokemonHabitatList200ApplicationJSONObject *PokemonHabitatList200ApplicationJSON
+	Object *PokemonHabitatListResponseBody
 }
 
 func (o *PokemonHabitatListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *PokemonHabitatListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *PokemonHabitatListResponse) GetPokemonHabitatList200ApplicationJSONObject() *PokemonHabitatList200ApplicationJSON {
+func (o *PokemonHabitatListResponse) GetObject() *PokemonHabitatListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.PokemonHabitatList200ApplicationJSONObject
+	return o.Object
 }
