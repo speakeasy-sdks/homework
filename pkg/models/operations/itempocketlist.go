@@ -26,8 +26,8 @@ func (o *ItemPocketListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// ItemPocketList200ApplicationJSON - OK
-type ItemPocketList200ApplicationJSON struct {
+// ItemPocketListResponseBody - OK
+type ItemPocketListResponseBody struct {
 	// The total number of item pockets.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of item pockets.
@@ -37,28 +37,28 @@ type ItemPocketList200ApplicationJSON struct {
 	Results  []shared.ItemPocket `json:"results,omitempty"`
 }
 
-func (o *ItemPocketList200ApplicationJSON) GetCount() *int64 {
+func (o *ItemPocketListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *ItemPocketList200ApplicationJSON) GetNext() *string {
+func (o *ItemPocketListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *ItemPocketList200ApplicationJSON) GetPrevious() *string {
+func (o *ItemPocketListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *ItemPocketList200ApplicationJSON) GetResults() []shared.ItemPocket {
+func (o *ItemPocketListResponseBody) GetResults() []shared.ItemPocket {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *ItemPocketList200ApplicationJSON) GetResults() []shared.ItemPocket {
 }
 
 type ItemPocketListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	ItemPocketList200ApplicationJSONObject *ItemPocketList200ApplicationJSON
+	Object *ItemPocketListResponseBody
 }
 
 func (o *ItemPocketListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *ItemPocketListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *ItemPocketListResponse) GetItemPocketList200ApplicationJSONObject() *ItemPocketList200ApplicationJSON {
+func (o *ItemPocketListResponse) GetObject() *ItemPocketListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.ItemPocketList200ApplicationJSONObject
+	return o.Object
 }
