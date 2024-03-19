@@ -26,8 +26,8 @@ func (o *ContestTypeListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// ContestTypeList200ApplicationJSON - Successful response containing a list of contest types
-type ContestTypeList200ApplicationJSON struct {
+// ContestTypeListResponseBody - Successful response containing a list of contest types
+type ContestTypeListResponseBody struct {
 	// The total number of contest types returned
 	Count *int64 `json:"count,omitempty"`
 	// URL to the next page of contest types, if any
@@ -37,28 +37,28 @@ type ContestTypeList200ApplicationJSON struct {
 	Results  []shared.ContestType `json:"results,omitempty"`
 }
 
-func (o *ContestTypeList200ApplicationJSON) GetCount() *int64 {
+func (o *ContestTypeListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *ContestTypeList200ApplicationJSON) GetNext() *string {
+func (o *ContestTypeListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *ContestTypeList200ApplicationJSON) GetPrevious() *string {
+func (o *ContestTypeListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *ContestTypeList200ApplicationJSON) GetResults() []shared.ContestType {
+func (o *ContestTypeListResponseBody) GetResults() []shared.ContestType {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *ContestTypeList200ApplicationJSON) GetResults() []shared.ContestType {
 }
 
 type ContestTypeListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// Successful response containing a list of contest types
-	ContestTypeList200ApplicationJSONObject *ContestTypeList200ApplicationJSON
+	Object *ContestTypeListResponseBody
 }
 
 func (o *ContestTypeListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *ContestTypeListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *ContestTypeListResponse) GetContestTypeList200ApplicationJSONObject() *ContestTypeList200ApplicationJSON {
+func (o *ContestTypeListResponse) GetObject() *ContestTypeListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.ContestTypeList200ApplicationJSONObject
+	return o.Object
 }
