@@ -4,22 +4,428 @@ package shared
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
+	"homework/pkg/utils"
 )
 
-// EvolutionChainChainEvolutionDetailsTimeOfDay - The required time of day. Day or night.
-type EvolutionChainChainEvolutionDetailsTimeOfDay string
+type Schemas struct {
+	Attributes        []ItemAttribute  `json:"attributes,omitempty"`
+	Category          *ItemCategory    `json:"category,omitempty"`
+	Cost              *int             `json:"cost,omitempty"`
+	EffectEntries     []VerboseEffect  `json:"effect_entries,omitempty"`
+	FlavorTextEntries []FlavorText     `json:"flavor_text_entries,omitempty"`
+	FlingEffect       *ItemFlingEffect `json:"fling_effect,omitempty"`
+	FlingPower        *int             `json:"fling_power,omitempty"`
+	ID                *int             `json:"id,omitempty"`
+	Name              *string          `json:"name,omitempty"`
+}
+
+func (o *Schemas) GetAttributes() []ItemAttribute {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *Schemas) GetCategory() *ItemCategory {
+	if o == nil {
+		return nil
+	}
+	return o.Category
+}
+
+func (o *Schemas) GetCost() *int {
+	if o == nil {
+		return nil
+	}
+	return o.Cost
+}
+
+func (o *Schemas) GetEffectEntries() []VerboseEffect {
+	if o == nil {
+		return nil
+	}
+	return o.EffectEntries
+}
+
+func (o *Schemas) GetFlavorTextEntries() []FlavorText {
+	if o == nil {
+		return nil
+	}
+	return o.FlavorTextEntries
+}
+
+func (o *Schemas) GetFlingEffect() *ItemFlingEffect {
+	if o == nil {
+		return nil
+	}
+	return o.FlingEffect
+}
+
+func (o *Schemas) GetFlingPower() *int {
+	if o == nil {
+		return nil
+	}
+	return o.FlingPower
+}
+
+func (o *Schemas) GetID() *int {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *Schemas) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+type BabyTriggerItemType string
 
 const (
-	EvolutionChainChainEvolutionDetailsTimeOfDayDay   EvolutionChainChainEvolutionDetailsTimeOfDay = "day"
-	EvolutionChainChainEvolutionDetailsTimeOfDayNight EvolutionChainChainEvolutionDetailsTimeOfDay = "night"
+	BabyTriggerItemTypeSchemas BabyTriggerItemType = "Schemas"
 )
 
-func (e EvolutionChainChainEvolutionDetailsTimeOfDay) ToPointer() *EvolutionChainChainEvolutionDetailsTimeOfDay {
+// BabyTriggerItem - The item that a baby Pokémon would be holding when born during a forced evolution
+type BabyTriggerItem struct {
+	Schemas *Schemas
+
+	Type BabyTriggerItemType
+}
+
+func CreateBabyTriggerItemSchemas(schemas Schemas) BabyTriggerItem {
+	typ := BabyTriggerItemTypeSchemas
+
+	return BabyTriggerItem{
+		Schemas: &schemas,
+		Type:    typ,
+	}
+}
+
+func (u *BabyTriggerItem) UnmarshalJSON(data []byte) error {
+
+	schemas := Schemas{}
+	if err := utils.UnmarshalJSON(data, &schemas, "", true, true); err == nil {
+		u.Schemas = &schemas
+		u.Type = BabyTriggerItemTypeSchemas
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u BabyTriggerItem) MarshalJSON() ([]byte, error) {
+	if u.Schemas != nil {
+		return utils.MarshalJSON(u.Schemas, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
+type HeldItemType string
+
+const (
+	HeldItemTypeItemInput HeldItemType = "Item_input"
+)
+
+type HeldItem struct {
+	ItemInput *ItemInput
+
+	Type HeldItemType
+}
+
+func CreateHeldItemItemInput(itemInput ItemInput) HeldItem {
+	typ := HeldItemTypeItemInput
+
+	return HeldItem{
+		ItemInput: &itemInput,
+		Type:      typ,
+	}
+}
+
+func (u *HeldItem) UnmarshalJSON(data []byte) error {
+
+	itemInput := ItemInput{}
+	if err := utils.UnmarshalJSON(data, &itemInput, "", true, true); err == nil {
+		u.ItemInput = &itemInput
+		u.Type = HeldItemTypeItemInput
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u HeldItem) MarshalJSON() ([]byte, error) {
+	if u.ItemInput != nil {
+		return utils.MarshalJSON(u.ItemInput, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
+type EvolutionChainItemType string
+
+const (
+	EvolutionChainItemTypeItemInput EvolutionChainItemType = "Item_input"
+)
+
+type EvolutionChainItem struct {
+	ItemInput *ItemInput
+
+	Type EvolutionChainItemType
+}
+
+func CreateEvolutionChainItemItemInput(itemInput ItemInput) EvolutionChainItem {
+	typ := EvolutionChainItemTypeItemInput
+
+	return EvolutionChainItem{
+		ItemInput: &itemInput,
+		Type:      typ,
+	}
+}
+
+func (u *EvolutionChainItem) UnmarshalJSON(data []byte) error {
+
+	itemInput := ItemInput{}
+	if err := utils.UnmarshalJSON(data, &itemInput, "", true, true); err == nil {
+		u.ItemInput = &itemInput
+		u.Type = EvolutionChainItemTypeItemInput
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u EvolutionChainItem) MarshalJSON() ([]byte, error) {
+	if u.ItemInput != nil {
+		return utils.MarshalJSON(u.ItemInput, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
+type KnownMoveUnionType string
+
+const (
+	KnownMoveUnionTypeMoveInput KnownMoveUnionType = "Move_input"
+)
+
+type KnownMove struct {
+	MoveInput *MoveInput
+
+	Type KnownMoveUnionType
+}
+
+func CreateKnownMoveMoveInput(moveInput MoveInput) KnownMove {
+	typ := KnownMoveUnionTypeMoveInput
+
+	return KnownMove{
+		MoveInput: &moveInput,
+		Type:      typ,
+	}
+}
+
+func (u *KnownMove) UnmarshalJSON(data []byte) error {
+
+	moveInput := MoveInput{}
+	if err := utils.UnmarshalJSON(data, &moveInput, "", true, true); err == nil {
+		u.MoveInput = &moveInput
+		u.Type = KnownMoveUnionTypeMoveInput
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u KnownMove) MarshalJSON() ([]byte, error) {
+	if u.MoveInput != nil {
+		return utils.MarshalJSON(u.MoveInput, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
+type KnownMoveTypeType string
+
+const (
+	KnownMoveTypeTypeType KnownMoveTypeType = "Type"
+)
+
+type KnownMoveType struct {
+	Type *Type
+
+	Type KnownMoveTypeType
+}
+
+func CreateKnownMoveTypeType(typeT Type) KnownMoveType {
+	typ := KnownMoveTypeTypeType
+
+	return KnownMoveType{
+		Type: &typeT,
+		Type: typ,
+	}
+}
+
+func (u *KnownMoveType) UnmarshalJSON(data []byte) error {
+
+	typeVar := Type{}
+	if err := utils.UnmarshalJSON(data, &typeVar, "", true, true); err == nil {
+		u.Type = &typeVar
+		u.Type = KnownMoveTypeTypeType
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u KnownMoveType) MarshalJSON() ([]byte, error) {
+	if u.Type != nil {
+		return utils.MarshalJSON(u.Type, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
+type EvolutionChainLocationType string
+
+const (
+	EvolutionChainLocationTypeLocation EvolutionChainLocationType = "Location"
+)
+
+type EvolutionChainLocation struct {
+	Location *Location
+
+	Type EvolutionChainLocationType
+}
+
+func CreateEvolutionChainLocationLocation(location Location) EvolutionChainLocation {
+	typ := EvolutionChainLocationTypeLocation
+
+	return EvolutionChainLocation{
+		Location: &location,
+		Type:     typ,
+	}
+}
+
+func (u *EvolutionChainLocation) UnmarshalJSON(data []byte) error {
+
+	location := Location{}
+	if err := utils.UnmarshalJSON(data, &location, "", true, true); err == nil {
+		u.Location = &location
+		u.Type = EvolutionChainLocationTypeLocation
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u EvolutionChainLocation) MarshalJSON() ([]byte, error) {
+	if u.Location != nil {
+		return utils.MarshalJSON(u.Location, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
+type PartySpeciesType string
+
+const (
+	PartySpeciesTypePokemonSpeciesInput PartySpeciesType = "PokemonSpecies_input"
+)
+
+type PartySpecies struct {
+	PokemonSpeciesInput *PokemonSpeciesInput
+
+	Type PartySpeciesType
+}
+
+func CreatePartySpeciesPokemonSpeciesInput(pokemonSpeciesInput PokemonSpeciesInput) PartySpecies {
+	typ := PartySpeciesTypePokemonSpeciesInput
+
+	return PartySpecies{
+		PokemonSpeciesInput: &pokemonSpeciesInput,
+		Type:                typ,
+	}
+}
+
+func (u *PartySpecies) UnmarshalJSON(data []byte) error {
+
+	pokemonSpeciesInput := PokemonSpeciesInput{}
+	if err := utils.UnmarshalJSON(data, &pokemonSpeciesInput, "", true, true); err == nil {
+		u.PokemonSpeciesInput = &pokemonSpeciesInput
+		u.Type = PartySpeciesTypePokemonSpeciesInput
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u PartySpecies) MarshalJSON() ([]byte, error) {
+	if u.PokemonSpeciesInput != nil {
+		return utils.MarshalJSON(u.PokemonSpeciesInput, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
+type PartyTypeType string
+
+const (
+	PartyTypeTypeType PartyTypeType = "Type"
+)
+
+type PartyType struct {
+	Type *Type
+
+	Type PartyTypeType
+}
+
+func CreatePartyTypeType(typeT Type) PartyType {
+	typ := PartyTypeTypeType
+
+	return PartyType{
+		Type: &typeT,
+		Type: typ,
+	}
+}
+
+func (u *PartyType) UnmarshalJSON(data []byte) error {
+
+	typeVar := Type{}
+	if err := utils.UnmarshalJSON(data, &typeVar, "", true, true); err == nil {
+		u.Type = &typeVar
+		u.Type = PartyTypeTypeType
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u PartyType) MarshalJSON() ([]byte, error) {
+	if u.Type != nil {
+		return utils.MarshalJSON(u.Type, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
+// TimeOfDay - The required time of day. Day or night.
+type TimeOfDay string
+
+const (
+	TimeOfDayDay   TimeOfDay = "day"
+	TimeOfDayNight TimeOfDay = "night"
+)
+
+func (e TimeOfDay) ToPointer() *TimeOfDay {
 	return &e
 }
 
-func (e *EvolutionChainChainEvolutionDetailsTimeOfDay) UnmarshalJSON(data []byte) error {
+func (e *TimeOfDay) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -28,21 +434,62 @@ func (e *EvolutionChainChainEvolutionDetailsTimeOfDay) UnmarshalJSON(data []byte
 	case "day":
 		fallthrough
 	case "night":
-		*e = EvolutionChainChainEvolutionDetailsTimeOfDay(v)
+		*e = TimeOfDay(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for EvolutionChainChainEvolutionDetailsTimeOfDay: %v", v)
+		return fmt.Errorf("invalid value for TimeOfDay: %v", v)
 	}
 }
 
-type EvolutionChainChainEvolutionDetails struct {
+type TradeSpeciesType string
+
+const (
+	TradeSpeciesTypePokemonSpeciesInput TradeSpeciesType = "PokemonSpecies_input"
+)
+
+type TradeSpecies struct {
+	PokemonSpeciesInput *PokemonSpeciesInput
+
+	Type TradeSpeciesType
+}
+
+func CreateTradeSpeciesPokemonSpeciesInput(pokemonSpeciesInput PokemonSpeciesInput) TradeSpecies {
+	typ := TradeSpeciesTypePokemonSpeciesInput
+
+	return TradeSpecies{
+		PokemonSpeciesInput: &pokemonSpeciesInput,
+		Type:                typ,
+	}
+}
+
+func (u *TradeSpecies) UnmarshalJSON(data []byte) error {
+
+	pokemonSpeciesInput := PokemonSpeciesInput{}
+	if err := utils.UnmarshalJSON(data, &pokemonSpeciesInput, "", true, true); err == nil {
+		u.PokemonSpeciesInput = &pokemonSpeciesInput
+		u.Type = TradeSpeciesTypePokemonSpeciesInput
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u TradeSpecies) MarshalJSON() ([]byte, error) {
+	if u.PokemonSpeciesInput != nil {
+		return utils.MarshalJSON(u.PokemonSpeciesInput, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
+}
+
+type EvolutionDetails struct {
 	// The required female gender of the evolving Pokémon species. Must be either 1 or 2, or null if the Pokémon species has no gender or the gender is fixed.
-	Gender        *int64    `json:"gender,omitempty"`
-	HeldItem      *Item     `json:"held_item,omitempty"`
-	Item          *Item     `json:"item,omitempty"`
-	KnownMove     *Move     `json:"known_move,omitempty"`
-	KnownMoveType *Type     `json:"known_move_type,omitempty"`
-	Location      *Location `json:"location,omitempty"`
+	Gender        *int64                  `json:"gender,omitempty"`
+	HeldItem      *HeldItem               `json:"held_item,omitempty"`
+	Item          *EvolutionChainItem     `json:"item,omitempty"`
+	KnownMove     *KnownMove              `json:"known_move,omitempty"`
+	KnownMoveType *KnownMoveType          `json:"known_move_type,omitempty"`
+	Location      *EvolutionChainLocation `json:"location,omitempty"`
 	// The minimum required affection of the evolving Pokémon species
 	MinAffection *int64 `json:"min_affection,omitempty"`
 	// The minimum required beauty of the evolving Pokémon species
@@ -52,168 +499,168 @@ type EvolutionChainChainEvolutionDetails struct {
 	// The minimum required level of the evolving Pokémon species
 	MinLevel *int64 `json:"min_level,omitempty"`
 	// Whether or not it must be raining in the overworld to evolve into this Pokémon species
-	NeedsOverworldRain *bool           `json:"needs_overworld_rain,omitempty"`
-	PartySpecies       *PokemonSpecies `json:"party_species,omitempty"`
-	PartyType          *Type           `json:"party_type,omitempty"`
+	NeedsOverworldRain *bool         `json:"needs_overworld_rain,omitempty"`
+	PartySpecies       *PartySpecies `json:"party_species,omitempty"`
+	PartyType          *PartyType    `json:"party_type,omitempty"`
 	// The required relation between the Pokémon's Attack and Defense stats. 1 means Attack > Defense, 0 means Attack = Defense, and -1 means Attack < Defense.
 	RelativePhysicalStats *int64 `json:"relative_physical_stats,omitempty"`
 	// The required time of day. Day or night.
-	TimeOfDay    *EvolutionChainChainEvolutionDetailsTimeOfDay `json:"time_of_day,omitempty"`
-	TradeSpecies *PokemonSpecies                               `json:"trade_species,omitempty"`
-	Trigger      *EvolutionTrigger                             `json:"trigger,omitempty"`
+	TimeOfDay    *TimeOfDay        `json:"time_of_day,omitempty"`
+	TradeSpecies *TradeSpecies     `json:"trade_species,omitempty"`
+	Trigger      *EvolutionTrigger `json:"trigger,omitempty"`
 	// Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.
 	TurnUpsideDown *bool `json:"turn_upside_down,omitempty"`
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetGender() *int64 {
+func (o *EvolutionDetails) GetGender() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Gender
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetHeldItem() *Item {
+func (o *EvolutionDetails) GetHeldItem() *HeldItem {
 	if o == nil {
 		return nil
 	}
 	return o.HeldItem
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetItem() *Item {
+func (o *EvolutionDetails) GetItem() *EvolutionChainItem {
 	if o == nil {
 		return nil
 	}
 	return o.Item
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetKnownMove() *Move {
+func (o *EvolutionDetails) GetKnownMove() *KnownMove {
 	if o == nil {
 		return nil
 	}
 	return o.KnownMove
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetKnownMoveType() *Type {
+func (o *EvolutionDetails) GetKnownMoveType() *KnownMoveType {
 	if o == nil {
 		return nil
 	}
 	return o.KnownMoveType
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetLocation() *Location {
+func (o *EvolutionDetails) GetLocation() *EvolutionChainLocation {
 	if o == nil {
 		return nil
 	}
 	return o.Location
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetMinAffection() *int64 {
+func (o *EvolutionDetails) GetMinAffection() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MinAffection
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetMinBeauty() *int64 {
+func (o *EvolutionDetails) GetMinBeauty() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MinBeauty
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetMinHappiness() *int64 {
+func (o *EvolutionDetails) GetMinHappiness() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MinHappiness
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetMinLevel() *int64 {
+func (o *EvolutionDetails) GetMinLevel() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.MinLevel
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetNeedsOverworldRain() *bool {
+func (o *EvolutionDetails) GetNeedsOverworldRain() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.NeedsOverworldRain
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetPartySpecies() *PokemonSpecies {
+func (o *EvolutionDetails) GetPartySpecies() *PartySpecies {
 	if o == nil {
 		return nil
 	}
 	return o.PartySpecies
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetPartyType() *Type {
+func (o *EvolutionDetails) GetPartyType() *PartyType {
 	if o == nil {
 		return nil
 	}
 	return o.PartyType
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetRelativePhysicalStats() *int64 {
+func (o *EvolutionDetails) GetRelativePhysicalStats() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.RelativePhysicalStats
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetTimeOfDay() *EvolutionChainChainEvolutionDetailsTimeOfDay {
+func (o *EvolutionDetails) GetTimeOfDay() *TimeOfDay {
 	if o == nil {
 		return nil
 	}
 	return o.TimeOfDay
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetTradeSpecies() *PokemonSpecies {
+func (o *EvolutionDetails) GetTradeSpecies() *TradeSpecies {
 	if o == nil {
 		return nil
 	}
 	return o.TradeSpecies
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetTrigger() *EvolutionTrigger {
+func (o *EvolutionDetails) GetTrigger() *EvolutionTrigger {
 	if o == nil {
 		return nil
 	}
 	return o.Trigger
 }
 
-func (o *EvolutionChainChainEvolutionDetails) GetTurnUpsideDown() *bool {
+func (o *EvolutionDetails) GetTurnUpsideDown() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.TurnUpsideDown
 }
 
-type EvolutionChainChain struct {
+type Chain struct {
 	// The chain of Pokémon species that forms part of this evolution chain
-	EvolutionDetails []EvolutionChainChainEvolutionDetails `json:"evolution_details,omitempty"`
+	EvolutionDetails []EvolutionDetails `json:"evolution_details,omitempty"`
 	// Whether or not this is a baby Pokémon
-	IsBaby  *bool           `json:"is_baby,omitempty"`
-	Species *PokemonSpecies `json:"species,omitempty"`
+	IsBaby  *bool                `json:"is_baby,omitempty"`
+	Species *PokemonSpeciesInput `json:"species,omitempty"`
 }
 
-func (o *EvolutionChainChain) GetEvolutionDetails() []EvolutionChainChainEvolutionDetails {
+func (o *Chain) GetEvolutionDetails() []EvolutionDetails {
 	if o == nil {
 		return nil
 	}
 	return o.EvolutionDetails
 }
 
-func (o *EvolutionChainChain) GetIsBaby() *bool {
+func (o *Chain) GetIsBaby() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.IsBaby
 }
 
-func (o *EvolutionChainChain) GetSpecies() *PokemonSpecies {
+func (o *Chain) GetSpecies() *PokemonSpeciesInput {
 	if o == nil {
 		return nil
 	}
@@ -222,22 +669,22 @@ func (o *EvolutionChainChain) GetSpecies() *PokemonSpecies {
 
 type EvolutionChain struct {
 	// The item that a baby Pokémon would be holding when born during a forced evolution
-	BabyTriggerItem *Item               `json:"baby_trigger_item,omitempty"`
-	Chain           EvolutionChainChain `json:"chain"`
+	BabyTriggerItem *BabyTriggerItem `json:"baby_trigger_item,omitempty"`
+	Chain           Chain            `json:"chain"`
 	// The identifier for this evolution chain resource
 	ID int64 `json:"id"`
 }
 
-func (o *EvolutionChain) GetBabyTriggerItem() *Item {
+func (o *EvolutionChain) GetBabyTriggerItem() *BabyTriggerItem {
 	if o == nil {
 		return nil
 	}
 	return o.BabyTriggerItem
 }
 
-func (o *EvolutionChain) GetChain() EvolutionChainChain {
+func (o *EvolutionChain) GetChain() Chain {
 	if o == nil {
-		return EvolutionChainChain{}
+		return Chain{}
 	}
 	return o.Chain
 }
