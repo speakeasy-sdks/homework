@@ -27,11 +27,14 @@ func (o *EncounterConditionValueListRequest) GetOffset() *int64 {
 }
 
 type EncounterConditionValueListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
+	RawResponse *http.Response
 	// Successful response containing a list of encounter condition values
-	EncounterConditionValues []shared.EncounterConditionValue
-	StatusCode               int
-	RawResponse              *http.Response
+	Classes []shared.EncounterConditionValue
 }
 
 func (o *EncounterConditionValueListResponse) GetContentType() string {
@@ -39,13 +42,6 @@ func (o *EncounterConditionValueListResponse) GetContentType() string {
 		return ""
 	}
 	return o.ContentType
-}
-
-func (o *EncounterConditionValueListResponse) GetEncounterConditionValues() []shared.EncounterConditionValue {
-	if o == nil {
-		return nil
-	}
-	return o.EncounterConditionValues
 }
 
 func (o *EncounterConditionValueListResponse) GetStatusCode() int {
@@ -60,4 +56,11 @@ func (o *EncounterConditionValueListResponse) GetRawResponse() *http.Response {
 		return nil
 	}
 	return o.RawResponse
+}
+
+func (o *EncounterConditionValueListResponse) GetClasses() []shared.EncounterConditionValue {
+	if o == nil {
+		return nil
+	}
+	return o.Classes
 }
