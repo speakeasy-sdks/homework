@@ -26,8 +26,8 @@ func (o *LanguageListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// LanguageList200ApplicationJSON - OK
-type LanguageList200ApplicationJSON struct {
+// LanguageListResponseBody - OK
+type LanguageListResponseBody struct {
 	// The total number of languages.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of languages.
@@ -37,28 +37,28 @@ type LanguageList200ApplicationJSON struct {
 	Results  []shared.Language `json:"results,omitempty"`
 }
 
-func (o *LanguageList200ApplicationJSON) GetCount() *int64 {
+func (o *LanguageListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *LanguageList200ApplicationJSON) GetNext() *string {
+func (o *LanguageListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *LanguageList200ApplicationJSON) GetPrevious() *string {
+func (o *LanguageListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *LanguageList200ApplicationJSON) GetResults() []shared.Language {
+func (o *LanguageListResponseBody) GetResults() []shared.Language {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *LanguageList200ApplicationJSON) GetResults() []shared.Language {
 }
 
 type LanguageListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	LanguageList200ApplicationJSONObject *LanguageList200ApplicationJSON
+	Object *LanguageListResponseBody
 }
 
 func (o *LanguageListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *LanguageListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *LanguageListResponse) GetLanguageList200ApplicationJSONObject() *LanguageList200ApplicationJSON {
+func (o *LanguageListResponse) GetObject() *LanguageListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.LanguageList200ApplicationJSONObject
+	return o.Object
 }

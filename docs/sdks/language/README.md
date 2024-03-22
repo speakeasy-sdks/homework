@@ -1,4 +1,5 @@
 # Language
+(*Language*)
 
 ### Available Operations
 
@@ -13,25 +14,21 @@
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Language.LanguageList(ctx, operations.LanguageListRequest{
-        Limit: homework.Int64(135218),
-        Offset: homework.Int64(18789),
-    })
+    res, err := s.Language.LanguageList(ctx, operations.LanguageListRequest{})
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.LanguageList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -39,16 +36,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.LanguageListRequest](../../models/operations/languagelistrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.LanguageListRequest](../../pkg/models/operations/languagelistrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
-**[*operations.LanguageListResponse](../../models/operations/languagelistresponse.md), error**
-
+**[*operations.LanguageListResponse](../../pkg/models/operations/languagelistresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## LanguageRead
 
@@ -58,10 +57,10 @@ func main() {
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
@@ -69,12 +68,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Language.LanguageRead(ctx, operations.LanguageReadRequest{
-        ID: 324141,
+        ID: 424722,
     })
     if err != nil {
         log.Fatal(err)
     }
-
     if res.Language != nil {
         // handle response
     }
@@ -83,13 +81,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.LanguageReadRequest](../../models/operations/languagereadrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.LanguageReadRequest](../../pkg/models/operations/languagereadrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
-**[*operations.LanguageReadResponse](../../models/operations/languagereadresponse.md), error**
-
+**[*operations.LanguageReadResponse](../../pkg/models/operations/languagereadresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

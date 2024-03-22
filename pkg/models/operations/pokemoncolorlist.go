@@ -26,8 +26,8 @@ func (o *PokemonColorListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// PokemonColorList200ApplicationJSON - OK
-type PokemonColorList200ApplicationJSON struct {
+// PokemonColorListResponseBody - OK
+type PokemonColorListResponseBody struct {
 	// The total number of pokemon colors.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of pokemon colors.
@@ -37,28 +37,28 @@ type PokemonColorList200ApplicationJSON struct {
 	Results  []shared.PokemonColor `json:"results,omitempty"`
 }
 
-func (o *PokemonColorList200ApplicationJSON) GetCount() *int64 {
+func (o *PokemonColorListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *PokemonColorList200ApplicationJSON) GetNext() *string {
+func (o *PokemonColorListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *PokemonColorList200ApplicationJSON) GetPrevious() *string {
+func (o *PokemonColorListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *PokemonColorList200ApplicationJSON) GetResults() []shared.PokemonColor {
+func (o *PokemonColorListResponseBody) GetResults() []shared.PokemonColor {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *PokemonColorList200ApplicationJSON) GetResults() []shared.PokemonColor 
 }
 
 type PokemonColorListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	PokemonColorList200ApplicationJSONObject *PokemonColorList200ApplicationJSON
+	Object *PokemonColorListResponseBody
 }
 
 func (o *PokemonColorListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *PokemonColorListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *PokemonColorListResponse) GetPokemonColorList200ApplicationJSONObject() *PokemonColorList200ApplicationJSON {
+func (o *PokemonColorListResponse) GetObject() *PokemonColorListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.PokemonColorList200ApplicationJSONObject
+	return o.Object
 }
