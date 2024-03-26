@@ -19,10 +19,13 @@ func (o *NatureReadRequest) GetID() int64 {
 }
 
 type NatureReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	Nature      *shared.Nature
-	StatusCode  int
+	Nature *shared.Nature
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 
