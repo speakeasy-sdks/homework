@@ -19,10 +19,13 @@ func (o *StatReadRequest) GetID() int64 {
 }
 
 type StatReadResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	// Successful response
-	Stat        *shared.Stat
-	StatusCode  int
+	Stat *shared.Stat
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 }
 
