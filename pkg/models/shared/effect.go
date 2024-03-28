@@ -2,22 +2,22 @@
 
 package shared
 
-// EffectContestCombos - A detail of combos this move can be used in
-type EffectContestCombos struct {
+// ContestCombos - A detail of combos this move can be used in
+type ContestCombos struct {
 }
 
-type EffectEffectChanges struct {
+type EffectChanges struct {
 }
 
 // Effect - An effect that occurs in a game, e.g. causing a Pokémon to fall asleep.
 type Effect struct {
 	// A detail of combos this move can be used in
-	ContestCombos *EffectContestCombos `json:"contest_combos,omitempty"`
-	ContestType   *ContestType         `json:"contest_type,omitempty"`
+	ContestCombos *ContestCombos `json:"contest_combos,omitempty"`
+	ContestType   *ContestType   `json:"contest_type,omitempty"`
 	// The chance of this move having an additional effect listed in percentage
 	EffectChance *int64 `json:"effect_chance,omitempty"`
 	// The list of effects that are changed by this ability
-	EffectChanges []EffectEffectChanges `json:"effect_changes,omitempty"`
+	EffectChanges []EffectChanges `json:"effect_changes,omitempty"`
 	// The list of effect text entries
 	EffectEntries []EffectEffect `json:"effect_entries,omitempty"`
 	// The flavor text entries that describe this effect
@@ -35,12 +35,12 @@ type Effect struct {
 	// The short description of this effect listed in different languages
 	ShortEffect *string `json:"short_effect,omitempty"`
 	// The list of stat changes that are caused by this effect
-	StatChanges        []MoveStatChange    `json:"stat_changes,omitempty"`
-	SuperContestEffect *SuperContestEffect `json:"super_contest_effect,omitempty"`
-	TargetSpecies      *PokemonSpecies     `json:"target_species,omitempty"`
+	StatChanges        []MoveStatChange     `json:"stat_changes,omitempty"`
+	SuperContestEffect *SuperContestEffect  `json:"super_contest_effect,omitempty"`
+	TargetSpecies      *PokemonSpeciesInput `json:"target_species,omitempty"`
 }
 
-func (o *Effect) GetContestCombos() *EffectContestCombos {
+func (o *Effect) GetContestCombos() *ContestCombos {
 	if o == nil {
 		return nil
 	}
@@ -61,7 +61,7 @@ func (o *Effect) GetEffectChance() *int64 {
 	return o.EffectChance
 }
 
-func (o *Effect) GetEffectChanges() []EffectEffectChanges {
+func (o *Effect) GetEffectChanges() []EffectChanges {
 	if o == nil {
 		return nil
 	}
@@ -145,7 +145,7 @@ func (o *Effect) GetSuperContestEffect() *SuperContestEffect {
 	return o.SuperContestEffect
 }
 
-func (o *Effect) GetTargetSpecies() *PokemonSpecies {
+func (o *Effect) GetTargetSpecies() *PokemonSpeciesInput {
 	if o == nil {
 		return nil
 	}

@@ -1,4 +1,5 @@
 # Ability
+(*Ability*)
 
 ### Available Operations
 
@@ -13,25 +14,21 @@
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{
-        Limit: homework.Int64(602763),
-        Offset: homework.Int64(857946),
-    })
+    res, err := s.Ability.AbilityList(ctx, operations.AbilityListRequest{})
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.AbilityList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -39,16 +36,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.AbilityListRequest](../../models/operations/abilitylistrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.AbilityListRequest](../../pkg/models/operations/abilitylistrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
-**[*operations.AbilityListResponse](../../models/operations/abilitylistresponse.md), error**
-
+**[*operations.AbilityListResponse](../../pkg/models/operations/abilitylistresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## AbilityRead
 
@@ -58,10 +57,10 @@ func main() {
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
@@ -69,12 +68,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Ability.AbilityRead(ctx, operations.AbilityReadRequest{
-        ID: 544883,
+        ID: 39493,
     })
     if err != nil {
         log.Fatal(err)
     }
-
     if res.Ability != nil {
         // handle response
     }
@@ -83,13 +81,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.AbilityReadRequest](../../models/operations/abilityreadrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.AbilityReadRequest](../../pkg/models/operations/abilityreadrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
-**[*operations.AbilityReadResponse](../../models/operations/abilityreadresponse.md), error**
-
+**[*operations.AbilityReadResponse](../../pkg/models/operations/abilityreadresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

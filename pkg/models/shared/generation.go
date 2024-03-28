@@ -2,7 +2,7 @@
 
 package shared
 
-type GenerationAbilities struct {
+type Abilities struct {
 	// Whether or not this ability is a hidden one
 	IsHidden *bool `json:"is_hidden,omitempty"`
 	// The name of this ability
@@ -11,21 +11,21 @@ type GenerationAbilities struct {
 	Slot *int64 `json:"slot,omitempty"`
 }
 
-func (o *GenerationAbilities) GetIsHidden() *bool {
+func (o *Abilities) GetIsHidden() *bool {
 	if o == nil {
 		return nil
 	}
 	return o.IsHidden
 }
 
-func (o *GenerationAbilities) GetName() *string {
+func (o *Abilities) GetName() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Name
 }
 
-func (o *GenerationAbilities) GetSlot() *int64 {
+func (o *Abilities) GetSlot() *int64 {
 	if o == nil {
 		return nil
 	}
@@ -53,7 +53,7 @@ func (o *GenerationNames) GetName() *string {
 }
 
 type Generation struct {
-	Abilities []GenerationAbilities `json:"abilities,omitempty"`
+	Abilities []Abilities `json:"abilities,omitempty"`
 	// The identifier for this generation resource
 	ID *int64 `json:"id,omitempty"`
 	// The name for this generation resource
@@ -61,7 +61,7 @@ type Generation struct {
 	Names []GenerationNames `json:"names,omitempty"`
 }
 
-func (o *Generation) GetAbilities() []GenerationAbilities {
+func (o *Generation) GetAbilities() []Abilities {
 	if o == nil {
 		return nil
 	}
