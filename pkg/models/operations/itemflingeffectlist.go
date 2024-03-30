@@ -26,39 +26,39 @@ func (o *ItemFlingEffectListRequest) GetOffset() *int64 {
 	return o.Offset
 }
 
-// ItemFlingEffectList200ApplicationJSON - OK
-type ItemFlingEffectList200ApplicationJSON struct {
+// ItemFlingEffectListResponseBody - OK
+type ItemFlingEffectListResponseBody struct {
 	// The total number of item fling effects.
 	Count *int64 `json:"count,omitempty"`
 	// URL to retrieve the next page of item fling effects.
 	Next *string `json:"next,omitempty"`
 	// URL to retrieve the previous page of item fling effects.
-	Previous *string                  `json:"previous,omitempty"`
-	Results  []shared.ItemFlingEffect `json:"results,omitempty"`
+	Previous *string                       `json:"previous,omitempty"`
+	Results  []shared.ItemFlingEffectInput `json:"results,omitempty"`
 }
 
-func (o *ItemFlingEffectList200ApplicationJSON) GetCount() *int64 {
+func (o *ItemFlingEffectListResponseBody) GetCount() *int64 {
 	if o == nil {
 		return nil
 	}
 	return o.Count
 }
 
-func (o *ItemFlingEffectList200ApplicationJSON) GetNext() *string {
+func (o *ItemFlingEffectListResponseBody) GetNext() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Next
 }
 
-func (o *ItemFlingEffectList200ApplicationJSON) GetPrevious() *string {
+func (o *ItemFlingEffectListResponseBody) GetPrevious() *string {
 	if o == nil {
 		return nil
 	}
 	return o.Previous
 }
 
-func (o *ItemFlingEffectList200ApplicationJSON) GetResults() []shared.ItemFlingEffect {
+func (o *ItemFlingEffectListResponseBody) GetResults() []shared.ItemFlingEffectInput {
 	if o == nil {
 		return nil
 	}
@@ -66,11 +66,14 @@ func (o *ItemFlingEffectList200ApplicationJSON) GetResults() []shared.ItemFlingE
 }
 
 type ItemFlingEffectListResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
-	ItemFlingEffectList200ApplicationJSONObject *ItemFlingEffectList200ApplicationJSON
+	Object *ItemFlingEffectListResponseBody
 }
 
 func (o *ItemFlingEffectListResponse) GetContentType() string {
@@ -94,9 +97,9 @@ func (o *ItemFlingEffectListResponse) GetRawResponse() *http.Response {
 	return o.RawResponse
 }
 
-func (o *ItemFlingEffectListResponse) GetItemFlingEffectList200ApplicationJSONObject() *ItemFlingEffectList200ApplicationJSON {
+func (o *ItemFlingEffectListResponse) GetObject() *ItemFlingEffectListResponseBody {
 	if o == nil {
 		return nil
 	}
-	return o.ItemFlingEffectList200ApplicationJSONObject
+	return o.Object
 }
