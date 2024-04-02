@@ -1,4 +1,5 @@
 # PokemonColor
+(*PokemonColor*)
 
 ### Available Operations
 
@@ -13,25 +14,21 @@
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
     s := homework.New()
 
     ctx := context.Background()
-    res, err := s.PokemonColor.PokemonColorList(ctx, operations.PokemonColorListRequest{
-        Limit: homework.Int64(414369),
-        Offset: homework.Int64(466311),
-    })
+    res, err := s.PokemonColor.PokemonColorList(ctx, operations.PokemonColorListRequest{})
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.PokemonColorList200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -39,16 +36,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.PokemonColorListRequest](../../models/operations/pokemoncolorlistrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.PokemonColorListRequest](../../pkg/models/operations/pokemoncolorlistrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.PokemonColorListResponse](../../models/operations/pokemoncolorlistresponse.md), error**
-
+**[*operations.PokemonColorListResponse](../../pkg/models/operations/pokemoncolorlistresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## PokemonColorRead
 
@@ -58,10 +57,10 @@ func main() {
 package main
 
 import(
-	"context"
-	"log"
 	"homework"
+	"context"
 	"homework/pkg/models/operations"
+	"log"
 )
 
 func main() {
@@ -69,12 +68,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.PokemonColor.PokemonColorRead(ctx, operations.PokemonColorReadRequest{
-        ID: 474697,
+        ID: 617663,
     })
     if err != nil {
         log.Fatal(err)
     }
-
     if res.PokemonColor != nil {
         // handle response
     }
@@ -83,13 +81,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.PokemonColorReadRequest](../../models/operations/pokemoncolorreadrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.PokemonColorReadRequest](../../pkg/models/operations/pokemoncolorreadrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
-**[*operations.PokemonColorReadResponse](../../models/operations/pokemoncolorreadresponse.md), error**
-
+**[*operations.PokemonColorReadResponse](../../pkg/models/operations/pokemoncolorreadresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
